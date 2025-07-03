@@ -1,63 +1,219 @@
-<!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dylan Piserchia | Portfolio</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+  <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700" />
+
+  <title>Stitch Design</title>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
+
 <body>
-    <!-- Header con tu nombre en grande -->
-    <header>
-        <h1>Dylan Piserchia</h1>
-        <p>Game Designer</p>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-    </nav>
-
-    <!-- Sección de Proyectos -->
-    <main>
-        <section class="projects-gallery">
-            <h2>Projects</h2>
-
-            <!-- Tarjeta de Proyecto 1 -->
-            <div class="project-card">
-                <a href="https://store.steampowered.com/app/1622900/Star_Trek_Infinite/" target="_blank">
-                    <img src="assets/img/STI_thumb.jpg" alt="Proyecto 1" class="project-thumbnail">
-                </a>
-                <p class="project-caption">Star Trek: Infinite is a grand strategy experience that
-                    lets you play your own Star Trek story as the leader of one of four major factions in the galaxy. 
-                    Follow the specially crafted story or blaze your own trail in the first Star Trek grand strategy game.</p>
+  <div class="relative flex size-full min-h-screen flex-col bg-[#141a1f] dark group/design-root overflow-x-hidden"
+    style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#2b3640] px-10 py-3">
+        <div class="flex items-center gap-4 text-white">
+          <div class="size-4">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z"
+                fill="currentColor"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z"
+                fill="currentColor"></path>
+            </svg>
+          </div>
+          <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Game Designer Portfolio</h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-8">
+          <div class="flex items-center gap-9">
+            <a class="text-white text-sm font-medium leading-normal" href="#">Projects</a>
+            <a class="text-white text-sm font-medium leading-normal" href="#">About</a>
+            <a class="text-white text-sm font-medium leading-normal" href="#">Contact</a>
+          </div>
+          <div class="flex gap-2">
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#2b3640] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+              <div class="text-white" data-icon="GithubLogo" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z">
+                  </path>
+                </svg>
+              </div>
+            </button>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#2b3640] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+              <div class="text-white" data-icon="LinkedinLogo" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z">
+                  </path>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+      </header>
+      <div class="px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+          <div class="@container">
+            <div class="@[480px]:p-4">
+              <div
+                class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
+                style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuA5kxu1nEDlN7tnc1PuwG1OhwChjpV1LNink4WM0zottdXiyuwOY-EJkLPobXpeWFUpHgu6fUgjGllQL1toizb73NN8TYffuFJoORzzg1mayLVePfsZui8-TOVD02goUDaOC0hkaSRfky-RnTfgdXo9RCbKpgAJlba3cp_BTihMXDu1Tw_Lkw8ADTfDNuekyooWB-_HeJRos3rr9OLLf7RgGLN5tFyoiOif-2ZycJJIqW9hp7kANEMaITwYtS0rVnmUpbg7Qz2-JLQ");'>
+                <div class="flex flex-col gap-2 text-center">
+                  <h1
+                    class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                    Dylan Piserchia
+                  </h1>
+                  <h2
+                    class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                    Game Designer with +4 years of professional experience. Including AAA development, with a strong
+                    focus on system design, balance and documentation.
+                  </h2>
+                </div>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#dce8f3] text-[#141a1f] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                  <span class="truncate">View Projects</span>
+                </button>
+              </div>
             </div>
-
-            <!-- Tarjeta de Proyecto 2 -->
-            <div class="project-card">
-                <a href="project2.html">
-                    <img src="assets/img/STI_thumb.jpg" alt="Proyecto 2" class="project-thumbnail">
+          </div>
+          <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Featured
+            Projects</h2>
+          <div class="relative flex flex-col items-center p-4">
+            <div class="relative w-full max-w-4xl">
+              <!-- Botón Izquierda -->
+              <button id="carouselLeft"
+                class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#2b3640] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#3a4754]">
+                &lt;
+              </button>
+              <!-- Carrusel horizontal -->
+              <div id="carouselScroll" class="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar px-12 py-2">
+                <!-- Proyecto 1 -->
+                <a href="star-trek-infinite.html"
+                  class="min-w-[300px] max-w-xs flex-shrink-0 bg-[#1a222b] rounded-xl p-3 flex flex-col gap-2 shadow-lg hover:scale-105 transition-transform duration-200">
+                  <div class="w-full aspect-video bg-center bg-cover rounded-lg"
+                    style='background-image: url("assets/img/STI_thumb.jpg");'>
+                  </div>
+                  <p class="text-white text-base font-medium leading-normal">Star Trek: Infinite</p>
+                  <p class="text-[#9daebe] text-sm font-normal leading-normal">Star Trek: Infinite is a grand strategy
+                    experience that lets you play your own Star Trek story as the leader of one of four major factions
+                    in the galaxy. Follow the specially crafted story or blaze your own trail in the first Star Trek
+                    grand strategy game.
+                  </p>
                 </a>
-                <p class="project-caption">Proyecto 2 - Descripción breve del proyecto</p>
-            </div>
-
-            <!-- Tarjeta de Proyecto 3 -->
-            <div class="project-card">
-                <a href="project3.html">
-                    <img src="assets/img/STI_thumb.jpg" alt="Proyecto 3" class="project-thumbnail">
+                <!-- Proyecto 2 -->
+                <a href="project2.html"
+                  class="min-w-[300px] max-w-xs flex-shrink-0 bg-[#1a222b] rounded-xl p-3 flex flex-col gap-2 shadow-lg hover:scale-105 transition-transform duration-200">
+                  <div class="w-full aspect-video bg-center bg-cover rounded-lg"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRA4XnyJIO00pFQlUuouQ2Y5wWAfQLfacEGEIhcXgTROMU0dMQ27PJLus2zGHxK8oiRi78kOraXBgo_2wNYDDSkhb8nGgEFC6kG4avFOxsCl6B6yFexh7OR1ZLMOAwkvtLHhJfj7JXKoyzWDXtpnK2py36a41RRRNnUpejL1JXufhi35fwuKUZm70MxQU5NnwlbHegsjKPeFdIKhsV6CSrnD3Cm_wIvxOxw2_mhRmCFzyHxtB3o13WG5aJVkIPgGxyHOYxhpdejGk");'>
+                  </div>
+                  <p class="text-white text-base font-medium leading-normal">Project: Stellar Conquest</p>
+                  <p class="text-[#9daebe] text-sm font-normal leading-normal">A strategic space exploration game with
+                    dynamic combat.</p>
                 </a>
-                <p class="project-caption">Proyecto 3 - Descripción breve del proyecto</p>
-            </div>
-
-            <!-- Tarjeta de Proyecto 4 -->
-            <div class="project-card">
-                <a href="project4.html">
-                    <img src="assets/img/STI_thumb.jpg" alt="Proyecto 4" class="project-thumbnail">
+                <!-- Proyecto 3 -->
+                <a href="#"
+                  class="min-w-[300px] max-w-xs flex-shrink-0 bg-[#1a222b] rounded-xl p-3 flex flex-col gap-2 shadow-lg hover:scale-105 transition-transform duration-200">
+                  <div class="w-full aspect-video bg-center bg-cover rounded-lg"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCus-Bwl86U51deUwwxzZ8-rXKD8cfdJGeISR8qsCrFB0ok1kQr5OGnLqlyvEe8EWwXBG_ENR1TBU0mTwkNaceyg5QKN6oP3208znNdsUHzUGRBqrPROycNFtOh8R7fURNqEB55Zqqsv8rT-a-E16lWS3rc5mfpZA2SLV1By75D95U0Bb1tp7BGUihh7dT947-iuIaDY-hLhDafvUC-UqjEdMs7kWBkfpRy1tK4mNYfV_Cq55LnTEJmuo7X1WYapWVtiglObp97eGA");'>
+                  </div>
+                  <p class="text-white text-base font-medium leading-normal">Project: The Last Stand</p>
+                  <p class="text-[#9daebe] text-sm font-normal leading-normal">A survival horror game where players must
+                    defend against waves of enemies.</p>
                 </a>
-                <p class="project-caption">Proyecto 4 - Descripción breve del proyecto</p>
+                <!-- Proyecto 4 -->
+                <a href="#"
+                  class="min-w-[300px] max-w-xs flex-shrink-0 bg-[#1a222b] rounded-xl p-3 flex flex-col gap-2 shadow-lg hover:scale-105 transition-transform duration-200">
+                  <div class="w-full aspect-video bg-center bg-cover rounded-lg"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3RuXCYT4PyRLhuykrHZrlVvJ9mml9YXADZ8-YBEIf4fVT7a9bUOuk7tlmV6iLhfkQoJ0rQS7Ke-_yFvQAl7eTef1g_oVdtjI5o6afIfUD2I2lyY77lNmPn-_wQpcnH5yhEKHFoZhGzjUxEPYme38khkSOf_BuQPF9j3eOXZ48DfC54V22DXeyouiBomouv6ccFq39NplAi4uiNPnqolS00wy4PsN_YHTjGoOl_vON4B8WDNJL8BU9ih4PGsrZ74P0o23HuQmo8UE");'>
+                  </div>
+                  <p class="text-white text-base font-medium leading-normal">Project: Cyberpunk City</p>
+                  <p class="text-[#9daebe] text-sm font-normal leading-normal">An open-world RPG set in a futuristic
+                    city.
+                  </p>
+                </a>
+              </div>
+              <!-- Botón Derecha -->
+              <button id="carouselRight"
+                class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#2b3640] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#3a4754]">
+                &gt;
+              </button>
             </div>
-
-        </section>
-    </main>
+          </div>
+        </div>
+      </div>
+      <footer class="flex justify-center">
+        <div class="flex max-w-[960px] flex-1 flex-col">
+          <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="#">
+                <div class="text-[#9daebe]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                    viewBox="0 0 256 256">
+                    <path
+                      d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z">
+                    </path>
+                  </svg>
+                </div>
+              </a>
+              <a href="#">
+                <div class="text-[#9daebe]" data-icon="LinkedinLogo" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                    viewBox="0 0 256 256">
+                    <path
+                      d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z">
+                    </path>
+                  </svg>
+                </div>
+              </a>
+              <a href="#">
+                <div class="text-[#9daebe]" data-icon="GithubLogo" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                    viewBox="0 0 256 256">
+                    <path
+                      d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z">
+                    </path>
+                  </svg>
+                </div>
+              </a>
+            </div>
+            <p class="text-[#9daebe] text-base font-normal leading-normal">@2024 Alex's Portfolio. All rights reserved.
+            </p>
+          </footer>
+        </div>
+      </footer>
+    </div>
+  </div>
 </body>
+
 </html>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+<script>
+  const carousel = document.getElementById('carouselScroll');
+  document.getElementById('carouselLeft').onclick = () => {
+    carousel.scrollBy({ left: -320, behavior: 'smooth' });
+  };
+  document.getElementById('carouselRight').onclick = () => {
+    carousel.scrollBy({ left: 320, behavior: 'smooth' });
+  };
+</script>
