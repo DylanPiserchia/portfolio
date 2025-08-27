@@ -118,102 +118,225 @@
                             steady flow of updates that keep each session feeling fresh and uniquely yours.
                         </p>
                     </div>
-                    <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-                        Contributions</h2>
-                    <p class="text-white text-base font-normal leading-normal">
-                        <span class="font-bold text-[#90aecb]">Mission Tree</span> serves as the backbone of
-                        narrative and strategic progression for each faction. I design and document the Mission
-                        Tree, translating complex lore into clear and engaging objectives while balancing narrative
-                        fidelity with 4X gameplay systems. Each branch structures exploration, diplomacy, combat,
-                        and expansion in a way that reflects the unique identity of the factions.
-                    </p>
-                    <h3 class="text-white text-lg font-semibold leading-tight px-4 pb-2">Overview</h3>
-                    <ul class="text-white text-sm px-4 pb-4 space-y-1">
-                        <li>• Design and structure of the Mission Tree across multiple factions.</li>
-                        <li>• Translation of Star Trek canon into accessible gameplay objectives.</li>
-                        <li>• Balance between rewards, pacing, and player progression.</li>
-                        <li>• Collaboration with narrative, UI/UX, and programming teams.</li>
-                    </ul>
+                    <hr class="border-t border-[#90aecb]/40 my-8">
 
-                    <h3 class="text-white text-lg font-semibold leading-tight px-4 pb-2">Process</h3>
-                    <ul class="text-white text-sm px-4 pb-4 space-y-1">
-                        <li>• Researching franchise canon and analyzing 4X mechanics.</li>
-                        <li>• Structuring mission branches, unlock conditions, and rewards.</li>
-                        <li>• Iterating based on QA feedback and playtesting to refine pacing.</li>
-                        <li>• Ensuring each faction offers a distinct and replayable progression path.</li>
-                    </ul>
-                    <h3 class="text-white text-lg font-semibold leading-tight px-4 pb-2">Impact</h3>
-                    <p class="text-white text-sm px-4 pb-4">
-                        The Mission Tree provides players with a clear framework to experience Star Trek narratives
-                        within a grand strategy setting. It enhances immersion and replayability by offering unique
-                        progression arcs tailored to each faction.
-                    </p>
 
-                    <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-                        <div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182734] p-4 items-center">
-                            <div class="text-white" data-icon="MapTrifold" data-size="24px" data-weight="regular">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
-                                    viewBox="0 0 256 256">
-                                    <path
-                                        d="M228.92,49.69a8,8,0,0,0-6.86-1.45L160.93,63.52,99.58,32.84a8,8,0,0,0-5.52-.6l-64,16A8,8,0,0,0,24,56V200a8,8,0,0,0,9.94,7.76l61.13-15.28,61.35,30.68A8.15,8.15,0,0,0,160,224a8,8,0,0,0,1.94-.24l64-16A8,8,0,0,0,232,200V56A8,8,0,0,0,228.92,49.69ZM104,52.94l48,24V203.06l-48-24ZM40,62.25l48-12v127.5l-48,12Zm176,131.5-48,12V78.25l48-12Z">
-                                    </path>
-                                </svg>
+                    <!-- Contenedor con padding lateral uniforme -->
+                    <div class="px-4 pb-3 pt-1 flex flex-col gap-6">
+
+                        <!-- Mission Tree -->
+                        <h3 class="text-white text-lg font-semibold leading-tight">Mission Tree</h3>
+                        <p class="text-white text-base font-normal leading-normal">
+                            The <span class="font-bold text-[#90aecb]">Mission Tree</span> serves as the backbone of
+                            narrative and strategic progression for each faction. I design and document the Mission
+                            Tree, translating complex lore into clear and engaging objectives while balancing narrative
+                            fidelity with 4X gameplay systems. Each branch structures exploration, diplomacy, combat,
+                            and expansion in a way that reflects the unique identity of the factions.
+                        </p>
+
+                        <h4 class="text-white text-[15px] font-semibold leading-tight">Overview</h4>
+                        <ul class="text-white text-sm list-disc pl-5 space-y-1">
+                            <li>Design and structure of the Mission Tree across multiple factions.</li>
+                            <li>Translation of Star Trek canon into accessible gameplay objectives.</li>
+                            <li>Balance between rewards, pacing, and player progression.</li>
+                            <li>Collaboration with narrative, UI/UX, and programming teams.</li>
+                        </ul>
+
+                        <h4 class="text-white text-[15px] font-semibold leading-tight">Process</h4>
+                        <ul class="text-white text-sm list-disc pl-5 space-y-1">
+                            <li>Researching franchise canon and analyzing 4X mechanics.</li>
+                            <li>Structuring mission branches, unlock conditions, and rewards.</li>
+                            <li>Iterating based on QA feedback and playtesting to refine pacing.</li>
+                            <li>Ensuring each faction offers a distinct and replayable progression path.</li>
+                        </ul>
+
+                        <h4 class="text-white text-[15px] font-semibold leading-tight">Impact</h4>
+                        <p class="text-white text-sm">
+                            The Mission Tree provides players with a clear framework to experience Star Trek narratives
+                            within a grand strategy setting. It enhances immersion and replayability by offering unique
+                            progression arcs tailored to each faction.
+                        </p>
+
+                        <div class="p-4">
+                            <div id="animation-carousel" class="relative w-full" data-carousel="slide">
+                                <!-- Carousel wrapper -->
+                                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                                    <!-- Item 1 -->
+                                    <div class="duration-300 ease-in-out transition-opacity" data-carousel-item="active"
+                                        style="opacity: 1;">
+                                        <img src="assets/img/UFOP_MT_01.jpg"
+                                            class="absolute block h-full w-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-contain cursor-pointer"
+                                            alt="..." onclick="openImagePopup('assets/img/UFOP_MT_01.jpg')">
+                                    </div>
+                                    <!-- Item 2 -->
+                                    <div class="hidden duration-300 ease-in-out transition-opacity" data-carousel-item
+                                        style="opacity: 0;">
+                                        <img src="assets/img/UFOP_MT_02.jpg"
+                                            class="absolute block h-full w-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-contain cursor-pointer"
+                                            alt="..." onclick="openImagePopup('assets/img/UFOP_MT_02.jpg')">
+                                    </div>
+                                    <!-- Item 3 -->
+                                    <div class="hidden duration-300 ease-in-out transition-opacity" data-carousel-item
+                                        style="opacity: 0;">
+                                        <img src="assets/img/UFOP_MT_03.jpg"
+                                            class="absolute block h-full w-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-contain cursor-pointer"
+                                            alt="..." onclick="openImagePopup('assets/img/UFOP_MT_03.jpg')">
+                                    </div>
+                                </div>
+                                <!-- Slider indicators -->
+                                <div
+                                    class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                                    <button type="button" class="w-3 h-3 rounded-full bg-white/50" aria-current="true"
+                                        aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                                    <button type="button" class="w-3 h-3 rounded-full bg-white/30" aria-current="false"
+                                        aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                                    <button type="button" class="w-3 h-3 rounded-full bg-white/30" aria-current="false"
+                                        aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                                </div>
+                                <!-- Slider controls -->
+                                <button type="button"
+                                    class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                                    data-carousel-prev>
+                                    <span
+                                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 6 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M5 1 1 5l4 4" />
+                                        </svg>
+                                        <span class="sr-only">Previous</span>
+                                    </span>
+                                </button>
+                                <button type="button"
+                                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                                    data-carousel-next>
+                                    <span
+                                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                            viewBox="0 0 6 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="m1 9 4-4-4-4" />
+                                        </svg>
+                                        <span class="sr-only">Next</span>
+                                    </span>
+                                </button>
                             </div>
-                            <h2 class="text-white text-base font-bold leading-tight">Explore</h2>
+
+                            <!-- Separador -->
+                            <hr class="border-t border-[#90aecb]/40 my-8">
+
+                            <!-- Narrative Events -->
+                            <h3 class="text-white text-lg font-semibold leading-tight">Narrative Events</h3>
+                            <p class="text-white text-base font-normal leading-normal">
+                                <span class="font-bold text-[#90aecb]">Narrative Events</span> transform iconic Star
+                                Trek
+                                moments into interactive gameplay. I contribute to the creation of major story-driven
+                                events that give weight to player decisions and shape the overall experience.
+                            </p>
+
+                            <h4 class="text-white text-[15px] font-semibold leading-tight">Overview</h4>
+                            <ul class="text-white text-sm list-disc pl-5 space-y-1">
+                                <li>Design of branching narrative events tied to faction progression.</li>
+                                <li>Highlight: the Romulan supernova event, adapted into a dramatic gameplay moment.
+                                </li>
+                                <li>Collaboration with narrative and systems teams to ensure immersion and consistency.
+                                </li>
+                            </ul>
+
+                            <h4 class="text-white text-[15px] font-semibold leading-tight">Impact</h4>
+                            <p class="text-white text-sm">
+                                Narrative events immerse players in the Star Trek universe by connecting lore with
+                                gameplay.
+                                They add drama, consequence, and replayability to faction storylines.
+                            </p>
+
+                            <!-- Separador -->
+                            <hr class="border-t border-[#90aecb]/40 my-8">
+
+                            <!-- Achievements -->
+                            <h3 class="text-white text-lg font-semibold leading-tight">Achievements</h3>
+                            <p class="text-white text-base font-normal leading-normal">
+                                <span class="font-bold text-[#90aecb]">Achievements</span> align player milestones with
+                                progression, replayability, and narrative goals. I design the entire Achievement system,
+                                ensuring milestones feel rewarding and meaningful.
+                            </p>
+
+                            <h4 class="text-white text-[15px] font-semibold leading-tight">Overview</h4>
+                            <ul class="text-white text-sm list-disc pl-5 space-y-1">
+                                <li>Creation of all Achievements for the game.</li>
+                                <li>Alignment of achievements with Mission Tree progression and key events.</li>
+                                <li>Design of triggers and conditions that reinforce meaningful milestones.</li>
+                                <li>Balance between accessibility for new players and challenges for veterans.</li>
+                            </ul>
+
+                            <h4 class="text-white text-[15px] font-semibold leading-tight">Impact</h4>
+                            <p class="text-white text-sm">
+                                The Achievement system motivates diverse playstyles and enhances replayability, while
+                                also
+                                celebrating key narrative and gameplay milestones.
+                            </p>
                         </div>
-                        <div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182734] p-4 items-center">
-                            <div class="text-white" data-icon="PuzzlePiece" data-size="24px" data-weight="regular">
-                                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <!-- Planet body -->
-                                    <circle cx="12" cy="12" r="6" fill="#FFFFFF" />
-                                    <!-- Planet ring -->
-                                    <ellipse cx="12" cy="12" rx="9" ry="3" fill="none" stroke="#FFFFFF"
-                                        stroke-width="1.5" transform="rotate(-20 12 12)" />
-                                </svg>
+
+                        <!-- Separador -->
+                        <hr class="border-t border-[#90aecb]/40 my-8">
+
+
+                        <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+                            <div
+                                class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182734] p-4 items-center">
+                                <div class="text-white" data-icon="MapTrifold" data-size="24px" data-weight="regular">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                        fill="currentColor" viewBox="0 0 256 256">
+                                        <path
+                                            d="M228.92,49.69a8,8,0,0,0-6.86-1.45L160.93,63.52,99.58,32.84a8,8,0,0,0-5.52-.6l-64,16A8,8,0,0,0,24,56V200a8,8,0,0,0,9.94,7.76l61.13-15.28,61.35,30.68A8.15,8.15,0,0,0,160,224a8,8,0,0,0,1.94-.24l64-16A8,8,0,0,0,232,200V56A8,8,0,0,0,228.92,49.69ZM104,52.94l48,24V203.06l-48-24ZM40,62.25l48-12v127.5l-48,12Zm176,131.5-48,12V78.25l48-12Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h2 class="text-white text-base font-bold leading-tight">Explore</h2>
                             </div>
-                            <h2 class="text-white text-base font-bold leading-tight">Expand</h2>
+                            <div
+                                class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182734] p-4 items-center">
+                                <div class="text-white" data-icon="PuzzlePiece" data-size="24px" data-weight="regular">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden="true">
+                                        <!-- Planet body -->
+                                        <circle cx="12" cy="12" r="6" fill="#FFFFFF" />
+                                        <!-- Planet ring -->
+                                        <ellipse cx="12" cy="12" rx="9" ry="3" fill="none" stroke="#FFFFFF"
+                                            stroke-width="1.5" transform="rotate(-20 12 12)" />
+                                    </svg>
+                                </div>
+                                <h2 class="text-white text-base font-bold leading-tight">Expand</h2>
+                            </div>
+                            <div
+                                class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182734] p-4 items-center">
+                                <div class="text-white" data-icon="Sword" data-size="24px" data-weight="regular">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                        fill="currentColor" viewBox="0 0 32 32">
+                                        <path
+                                            d="M13.969,11.144c-0.213,-0.071 -0.398,-0.213 -0.522,-0.406c-0.928,-1.438 -7.296,-7.265 -7.296,-7.265l-0.007,-0.007l-0.125,-0.141l-0.066,-0.105c-0.066,-0.118 -0.108,-0.252 -0.121,-0.394l1.049,-1.088c3.562,0.188 8.437,2.679 10.782,4.995c0.364,-0.337 0.93,-0.359 1.321,-0.033l4.081,3.408c0.424,0.354 0.48,0.984 0.126,1.408l-0.001,0.002c2.342,2.317 4.812,6.457 5.273,9.679l-0.99,1.142c-0.142,-0 -0.279,-0.03 -0.402,-0.085l-0.111,-0.057l-0.151,-0.111l-0.008,-0.007c-0,-0 -5.085,-4.644 -7.251,-6.202l-0.047,0.056c-0.354,0.424 -0.984,0.48 -1.408,0.126l-0.169,-0.141l-10.423,12.483c-0.354,0.423 -0.985,0.48 -1.409,0.126l-2.208,-1.844c-0.424,-0.354 -0.481,-0.985 -0.127,-1.408l10.423,-12.483l-0.168,-0.141c-0.424,-0.354 -0.481,-0.984 -0.127,-1.408l0.082,-0.099Zm1.749,2.93l0.673,0.562l-9.783,11.715c0,0 -0.673,-0.562 -0.673,-0.562l9.783,-11.715Zm9.704,4.108c-0.898,-1.918 -2.214,-3.807 -3.493,-5.102l-1.079,1.293c1.217,0.914 3.049,2.478 4.572,3.809Zm-6.981,-4.439l0.168,0.14l2.406,-2.881l-2.546,-2.126c0,-0 -2.406,2.881 -2.406,2.881l2.377,1.985l0.001,0.001Zm-8.285,-9.246c1.991,0.723 3.99,1.864 5.394,3.023l-1.191,1.19c-1.02,-1.13 -2.741,-2.815 -4.203,-4.213Z" />
+                                    </svg>
+                                </div>
+                                <h2 class="text-white text-base font-bold leading-tight">Exploit</h2>
+                            </div>
+                            <div
+                                class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182734] p-4 items-center">
+                                <div class="text-white" data-icon="MapTrifold" data-size="24px" data-weight="regular">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
+                                        fill="currentColor" viewBox="0 0 256 256">
+                                        <path
+                                            d="M216,32H152a8,8,0,0,0-6.34,3.12l-64,83.21L72,108.69a16,16,0,0,0-22.64,0l-12.69,12.7a16,16,0,0,0,0,22.63l20,20-28,28a16,16,0,0,0,0,22.63l12.69,12.68a16,16,0,0,0,22.62,0l28-28,20,20a16,16,0,0,0,22.64,0l12.69-12.7a16,16,0,0,0,0-22.63l-9.64-9.64,83.21-64A8,8,0,0,0,224,104V40A8,8,0,0,0,216,32ZM52.69,216,40,203.32l28-28L80.68,188Zm70.61-8L48,132.71,60.7,120,136,195.31ZM208,100.06l-81.74,62.88L115.32,152l50.34-50.34a8,8,0,0,0-11.32-11.31L104,140.68,93.07,129.74,155.94,48H208Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h2 class="text-white text-base font-bold leading-tight">Exterminate</h2>
+                            </div>
                         </div>
-                        <div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182734] p-4 items-center">
-                            <div class="text-white" data-icon="Sword" data-size="24px" data-weight="regular">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
-                                    viewBox="0 0 32 32">
-                                    <path
-                                        d="M13.969,11.144c-0.213,-0.071 -0.398,-0.213 -0.522,-0.406c-0.928,-1.438 -7.296,-7.265 -7.296,-7.265l-0.007,-0.007l-0.125,-0.141l-0.066,-0.105c-0.066,-0.118 -0.108,-0.252 -0.121,-0.394l1.049,-1.088c3.562,0.188 8.437,2.679 10.782,4.995c0.364,-0.337 0.93,-0.359 1.321,-0.033l4.081,3.408c0.424,0.354 0.48,0.984 0.126,1.408l-0.001,0.002c2.342,2.317 4.812,6.457 5.273,9.679l-0.99,1.142c-0.142,-0 -0.279,-0.03 -0.402,-0.085l-0.111,-0.057l-0.151,-0.111l-0.008,-0.007c-0,-0 -5.085,-4.644 -7.251,-6.202l-0.047,0.056c-0.354,0.424 -0.984,0.48 -1.408,0.126l-0.169,-0.141l-10.423,12.483c-0.354,0.423 -0.985,0.48 -1.409,0.126l-2.208,-1.844c-0.424,-0.354 -0.481,-0.985 -0.127,-1.408l10.423,-12.483l-0.168,-0.141c-0.424,-0.354 -0.481,-0.984 -0.127,-1.408l0.082,-0.099Zm1.749,2.93l0.673,0.562l-9.783,11.715c0,0 -0.673,-0.562 -0.673,-0.562l9.783,-11.715Zm9.704,4.108c-0.898,-1.918 -2.214,-3.807 -3.493,-5.102l-1.079,1.293c1.217,0.914 3.049,2.478 4.572,3.809Zm-6.981,-4.439l0.168,0.14l2.406,-2.881l-2.546,-2.126c0,-0 -2.406,2.881 -2.406,2.881l2.377,1.985l0.001,0.001Zm-8.285,-9.246c1.991,0.723 3.99,1.864 5.394,3.023l-1.191,1.19c-1.02,-1.13 -2.741,-2.815 -4.203,-4.213Z" />
-                                </svg>
-                            </div>
-                            <h2 class="text-white text-base font-bold leading-tight">Exploit</h2>
-                        </div>
-                        <div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182734] p-4 items-center">
-                            <div class="text-white" data-icon="MapTrifold" data-size="24px" data-weight="regular">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
-                                    viewBox="0 0 256 256">
-                                    <path
-                                        d="M216,32H152a8,8,0,0,0-6.34,3.12l-64,83.21L72,108.69a16,16,0,0,0-22.64,0l-12.69,12.7a16,16,0,0,0,0,22.63l20,20-28,28a16,16,0,0,0,0,22.63l12.69,12.68a16,16,0,0,0,22.62,0l28-28,20,20a16,16,0,0,0,22.64,0l12.69-12.7a16,16,0,0,0,0-22.63l-9.64-9.64,83.21-64A8,8,0,0,0,224,104V40A8,8,0,0,0,216,32ZM52.69,216,40,203.32l28-28L80.68,188Zm70.61-8L48,132.71,60.7,120,136,195.31ZM208,100.06l-81.74,62.88L115.32,152l50.34-50.34a8,8,0,0,0-11.32-11.31L104,140.68,93.07,129.74,155.94,48H208Z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h2 class="text-white text-base font-bold leading-tight">Exterminate</h2>
-                        </div>
-                    </div>
-                    <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
-                        Screenshots &amp; Trailers</h2>
-                    <div class="flex w-full grow bg-[#101a23] @container p-4">
-                        <div
-                            class="w-full gap-1 overflow-hidden bg-[#101a23] @[480px]:gap-2 aspect-[3/2] rounded-xl grid grid-cols-[2fr_1fr_1fr]">
-                            <div class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none row-span-2 cursor-pointer"
-                                style='background-image: url("assets/img/STI_img2.jpg");'
-                                onclick="openImagePopup('assets/img/STI_img2.jpg')">
-                            </div>
-                            <div class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none col-span-2 cursor-pointer"
-                                style='background-image: url("assets/img/STI_img3.jpg");'
-                                onclick="openImagePopup('assets/img/STI_img3.jpg')">
-                            </div>
-                            <div class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none col-span-2 cursor-pointer"
-                                style='background-image: url("assets/img/STI_img4.jpg");'
-                                onclick="openImagePopup('assets/img/STI_img4.jpg')">
-                            </div>
-                        </div>
+                        <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
+                            Screenshots &amp; Trailers</h2>
+
                     </div>
                     <div class="p-4">
                         <div
@@ -270,6 +393,44 @@
         // Cerrar con ESC
         document.addEventListener('keydown', function (e) {
             if (e.key === "Escape") closeImagePopup();
+        });
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('[data-carousel-item]');
+        const indicators = document.querySelectorAll('[data-carousel-slide-to]');
+
+        function showSlide(n) {
+            const nextSlide = (n + slides.length) % slides.length;
+
+            // Show next image behind current one
+            slides[nextSlide].classList.remove('hidden');
+            slides[nextSlide].style.opacity = '1';
+
+            // Fade out current image
+            slides[currentSlide].style.opacity = '0';
+
+            setTimeout(() => {
+                // Update indicators
+                indicators[currentSlide].classList.remove('bg-white/50');
+                indicators[currentSlide].classList.add('bg-white/30');
+
+                // Hide old slide and update current
+                slides[currentSlide].classList.add('hidden');
+                currentSlide = nextSlide;
+
+                // Show new slide
+                slides[currentSlide].style.opacity = '1';
+                indicators[currentSlide].classList.remove('bg-white/30');
+                indicators[currentSlide].classList.add('bg-white/50');
+            }, 300);
+        }
+
+        document.querySelector('[data-carousel-prev]').onclick = () => showSlide(currentSlide - 1);
+        document.querySelector('[data-carousel-next]').onclick = () => showSlide(currentSlide + 1);
+
+        indicators.forEach((indicator, index) => {
+            indicator.onclick = () => showSlide(index);
         });
     </script>
 </body>
