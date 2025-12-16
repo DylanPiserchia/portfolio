@@ -32,7 +32,7 @@
                     A grand strategy experience that lets you play your own Star Trek story as the leader of one of four major factions in the galaxy. Follow the specially crafted story or blaze your own trail.
                 </p>
                 <div class="mt-6 flex flex-wrap justify-center items-center gap-4">
-                     <a href="https://store.steampowered.com/app/1622900/Star_Trek_Infinite/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://store.steampowered.com/app/1622900/Star_Trek_Infinite/" target="_blank" rel="noopener noreferrer"
                         class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-white font-semibold text-base transition-colors shadow-lg border border-gray-700">
                         <img src="assets/img/steam_logo.png" alt="Steam Logo" class="w-6 h-6" />
                         View on Steam
@@ -83,7 +83,8 @@
                         </ul>
                     </div>
                 </div>
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Las imágenes de la galería ahora son clicables para el popup -->
                     <img src="assets/img/UFOP_MT_01.jpg" alt="Mission Tree Screenshot 1" class="gallery-item w-full h-auto rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="openImagePopup(0)">
                     <img src="assets/img/UFOP_MT_02.jpg" alt="Mission Tree Screenshot 2" class="gallery-item w-full h-auto rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="openImagePopup(1)">
                     <img src="assets/img/UFOP_MT_03.jpg" alt="Mission Tree Screenshot 3" class="gallery-item w-full h-auto rounded-lg cursor-pointer hover:opacity-80 transition-opacity" onclick="openImagePopup(2)">
@@ -95,7 +96,7 @@
                 <h3 class="text-3xl font-bold mb-6">Narrative Events</h3>
                 <p class="text-gray-300 mb-6"><span class="font-bold text-indigo-400">Narrative Events</span> transform iconic Star Trek moments into interactive gameplay. I contribute to the creation of major story-driven events that give weight to player decisions and shape the overall experience.</p>
                 <div class="grid md:grid-cols-2 gap-8">
-                     <div>
+                    <div>
                         <h4 class="text-xl font-bold mb-3">Overview</h4>
                         <ul class="list-disc list-inside text-gray-400 space-y-2">
                             <li>Design of branching narrative events tied to faction progression.</li>
@@ -144,18 +145,27 @@
         </div>
     </footer>
     
-    <!-- Image Popup Modal -->
-    <div id="image-popup" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden p-4">
-        <div class="relative max-w-4xl w-full">
-            <button id="close-popup" class="absolute -top-4 -right-4 text-white bg-gray-800 rounded-full p-2 z-20">
-                <span class="material-icons">close</span>
+    <!-- Image Popup Modal (MODIFICADO para flechas externas y más grande) -->
+    <div id="image-popup" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[100] hidden p-4 backdrop-blur-sm">
+        <div class="relative w-full max-w-[95vw] lg:max-w-[1200px] flex items-center justify-center">
+            
+            <!-- Botón de Anterior (AHORA FUERA de la imagen, alineado al centro vertical) -->
+            <button id="popup-prev" aria-label="Previous image" class="absolute top-1/2 -left-8 md:-left-16 transform -translate-y-1/2 text-white hover:text-indigo-400 transition-colors p-3 z-50">
+                <span class="material-icons text-5xl bg-gray-900/50 rounded-full">chevron_left</span>
             </button>
-            <img id="popup-image" src="" alt="Enlarged view" class="max-w-full max-h-[90vh] object-contain rounded-lg mx-auto">
-            <button id="popup-prev" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full z-20 ml-2">
-                <span class="material-icons">chevron_left</span>
-            </button>
-            <button id="popup-next" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full z-20 mr-2">
-                <span class="material-icons">chevron_right</span>
+            
+            <!-- Contenedor de la Imagen y Botón de Cerrar (para que el botón de cerrar esté cerca del top-right de la imagen, no de la ventana) -->
+            <div class="relative max-w-full max-h-[90vh]">
+                <!-- Botón de Cerrar (Se mantiene en la esquina superior derecha, pero ajustado a la imagen) -->
+                <button id="close-popup" class="absolute -top-4 -right-4 text-white hover:text-indigo-400 transition-colors bg-gray-800/80 p-2 rounded-full z-20">
+                    <span class="material-icons text-3xl">close</span>
+                </button>
+                <img id="popup-image" src="" alt="Enlarged view" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl border border-gray-700">
+            </div>
+
+            <!-- Botón de Siguiente (AHORA FUERA de la imagen, alineado al centro vertical) -->
+            <button id="popup-next" aria-label="Next image" class="absolute top-1/2 -right-8 md:-right-16 transform -translate-y-1/2 text-white hover:text-indigo-400 transition-colors p-3 z-50">
+                <span class="material-icons text-5xl bg-gray-900/50 rounded-full">chevron_right</span>
             </button>
         </div>
     </div>
@@ -178,6 +188,7 @@
             }
         }
 
+        // Esta función se llama al hacer clic en cualquiera de las imágenes de la galería
         function openImagePopup(index) {
             showImage(index);
             popup.classList.remove('hidden');
@@ -200,15 +211,19 @@
         }
 
         closeButton.addEventListener('click', closeImagePopup);
+        // Usamos e.stopPropagation() si hubiéramos mantenido las flechas DENTRO del contenedor de la imagen, pero como están fuera del div de la imagen, no es estrictamente necesario, pero es buena práctica en estos casos.
         nextButton.addEventListener('click', showNextImage);
         prevButton.addEventListener('click', showPrevImage);
 
+        // Si el click es en el fondo negro, cierra el popup
         popup.addEventListener('click', (e) => {
-            if (e.target.id === 'image-popup') {
+            // Asegurarse de que el clic no fue en la imagen ni en los botones de navegación/cerrar
+            if (e.target.id === 'image-popup' || e.target.id === 'popup-image-container') {
                 closeImagePopup();
             }
         });
 
+        // Soporte de teclado (Escape, Flechas)
         document.addEventListener('keydown', (e) => {
             if (!popup.classList.contains('hidden')) {
                 if (e.key === 'ArrowRight') {
