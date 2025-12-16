@@ -1,269 +1,200 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
-        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700" />
-
-    <title>Dylan Piserchia - Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dylan Piserchia - Outbreak: Dead City</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div class="relative flex size-full min-h-screen flex-col bg-[#101a23] dark group/design-root overflow-x-hidden"
-        style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
-        <div class="layout-container flex h-full grow flex-col">
-            <header
-                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#223649] px-10 py-3">
-                <div class="flex items-center gap-4 text-white">
-                    <div class="size-4">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_6_319)">
-                                <path
-                                    d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"
-                                    fill="currentColor"></path>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_6_319">
-                                    <rect width="48" height="48" fill="white"></rect>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                    </div>
-                    <button onclick="window.location.href='index.html'"
-                        class="text-white text-lg font-bold leading-tight tracking-[-0.015em] bg-transparent border-none cursor-pointer">
-                        Dylan Piserchia - Portfolio
-                    </button>
+<body class="bg-gray-900 text-gray-200 font-['Inter']">
+    <!-- Header (Star Trek Style - Fixed and dark) -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-80 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold">Dylan Piserchia - Game Designer</h1>
+            <nav>
+                <a class="px-4 py-2 hover:text-white transition-colors" href="index.html">Home</a>
+                <a class="px-4 py-2 hover:text-white transition-colors" href="index.html#projects">Projects</a>
+                <a class="px-4 py-2 hover:text-white transition-colors" href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <section class="container mx-auto px-6 py-12">
+            <!-- Project Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-4 text-white">Outbreak: Dead City</h2>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    Outbreak: Dead City is a prototype of a systemic survival game set in a collapsing city.
+                </p>
+            </div>
+
+            <!-- Main Image (Placeholder - Please replace with your actual image) -->
+            <div class="mb-12">
+                <img src="assets/img/outbreak_dead_city_main.png" alt="Outbreak: Dead City Main Art" class="w-full h-auto rounded-2xl shadow-2xl object-cover max-h-[600px]">
+            </div>
+
+            <!-- Overview (Your main description) -->
+            <div class="bg-gray-800 rounded-2xl shadow-xl p-8 md:p-10 mb-12">
+                <h3 class="text-3xl font-bold mb-6 text-white">Project Highlights</h3>
+                <div class="space-y-4 text-gray-300">
+                    <p>The current slice of the prototype highlights <span class="font-bold text-indigo-400">resource gathering, weapon swapping, modular base upgrades, and an AI system</span> that creates tension through dynamic states.</p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+                        <li><span class="font-semibold text-indigo-300">Modular upgradeable base:</span> A safe hub for storing resources, unlocking modules, and strengthening defenses, serving as the anchor of long-term progression.</li>
+                        <li><span class="font-semibold text-indigo-300">Persistent save system:</span> Resources and equipped weapons are remembered across sessions, ensuring continuity and meaningful progress.</li>
+                        <li><span class="font-semibold text-indigo-300">Interaction prompts:</span> Contextual UI prompts guide the player through actions, making survival decisions intuitive and responsive.</li>
+                    </ul>
                 </div>
-                <div class="flex flex-1 justify-end gap-8">
-                    <div class="flex items-center gap-9">
-                        <a class="text-white text-sm font-medium leading-normal" href="index.html">Home</a>
-                        <a class="text-white text-sm font-medium leading-normal" href="#">Projects</a>
-                        <a class="text-white text-sm font-medium leading-normal" href="about.html">About</a>
-                    </div>
-                    <div class="flex gap-2">
-                        <a href="https://www.linkedin.com/in/dylan-ian-piserchia/" target="_blank"
-                            rel="noopener noreferrer"
-                            class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#2b3640] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
-                            <div class="text-white" data-icon="LinkedinLogo" data-size="20px" data-weight="regular">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
-                                    viewBox="0 0 256 256">
-                                    <path
-                                        d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </header>
-            <div class="px-40 flex flex-1 justify-center py-5">
-                <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-                    <div class="flex flex-wrap justify-between gap-3 p-4">
-                        <div class="flex min-w-72 flex-col gap-3">
-                            <p class="text-white text-4xl font-black leading-tight tracking-[-0.033em]">Outbreak: Dead
-                                City</p>
-                            <p class="text-[#90aecb] text-base font-normal leading-normal">
-                                Prototype of a systemic survival game set in a collapsing city. The current slice
-                                showcases resource gathering, weapon swapping after unlock and equip, an enemy AI cycle
-                                (Patrol - Chase - Roam), a modular upgradeable base, persistent save functionality that
-                                remembers inventory and weapons, and interaction prompts for contextual actions.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="@container">
-                        <div class="@[480px]:px-4 @[480px]:py-3">
-                            <div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#101a23] @[480px]:rounded-xl min-h-80"
-                                style='background-image: url("assets/img/project_zombies_01.png");'>
-                            </div>
-                        </div>
-                    </div>
-                    <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Game
-                        Overview</h2>
-                    <div class="px-4 pb-3 pt-1 flex flex-col gap-4">
-                        <p class="text-white text-base font-normal leading-normal">
-                            <span class="font-bold text-[#90aecb]">Outbreak: Dead City</span> is a prototype of a
-                            systemic survival game set in a collapsing city. The current slice highlights resource
-                            gathering, weapon swapping, modular base upgrades, and an AI system that creates tension
-                            through dynamic states.
-                        </p>
-                        <p class="text-white text-base font-normal leading-normal">
-                            <span class="font-semibold text-[#90aecb]">Pickable resources:</span> Gather supplies
-                            scattered across the city that feed directly into crafting, upgrades, and survival
-                            progression.
-                        </p>
-                        <p class="text-white text-base font-normal leading-normal">
-                            <span class="font-semibold text-[#90aecb]">Weapon swapping:</span> Unlock and equip multiple
-                            weapons, adapting to scarcity and enemy encounters by switching loadouts on the fly.
-                        </p>
-                        <p class="text-white text-base font-normal leading-normal">
-                            <span class="font-semibold text-[#90aecb]">Enemy AI:</span> Patrol - Chase - Roam behavior
-                            cycles that create dynamic windows for evasion, stealth, and counterattacks.
-                        </p>
-                        <p class="text-white text-base font-normal leading-normal">
-                            <span class="font-semibold text-[#90aecb]">Modular upgradeable base:</span> A safe hub for
-                            storing resources, unlocking modules, and strengthening defenses, serving as the anchor of
-                            long-term progression.
-                        </p>
-                        <p class="text-white text-base font-normal leading-normal">
-                            <span class="font-semibold text-[#90aecb]">Persistent save system:</span> Resources and
-                            equipped weapons are remembered across sessions, ensuring continuity and meaningful
-                            progress.
-                        </p>
-                        <p class="text-white text-base font-normal leading-normal">
-                            <span class="font-semibold text-[#90aecb]">Interaction prompts:</span> Contextual UI prompts
-                            guide the player through actions, making survival decisions intuitive and responsive.
+            </div>
+
+            <!-- Core Mechanics (Divided into columns for a Star Trek aesthetic) -->
+            <div class="bg-gray-800 rounded-2xl shadow-xl p-8 md:p-10 mb-12">
+                <h3 class="text-3xl font-bold mb-6 text-white">Core Systems</h3>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Column 1: Resources -->
+                    <div>
+                        <h4 class="text-xl font-bold mb-3 text-indigo-400">Resource Gathering</h4>
+                        <p class="text-gray-400">
+                            <span class="font-semibold text-white">Pickable resources:</span> Gather supplies scattered across the city that feed directly into crafting, upgrades, and survival progression.
                         </p>
                     </div>
 
-                    <!-- Contenedor con padding lateral uniforme -->
-                    <div class="px-4 pb-3 pt-1 flex flex-col gap-6">
-                        <div class="p-4">
-                            <div id="animation-carousel" class="relative w-full" data-carousel="slide">
-                                <!-- Carousel wrapper -->
-                                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                                    <!-- Item 1 -->
-                                    <div class="duration-300 ease-in-out transition-opacity" data-carousel-item="active"
-                                        style="opacity: 1;">
-                                        <img src="assets/img/zombie_mt_01.jpg"
-                                            class="absolute block h-full w-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-contain cursor-pointer"
-                                            alt="Mission flow in infected district"
-                                            onclick="openImagePopup('assets/img/zombie_mt_01.jpg')">
-                                    </div>
-                                    <!-- Item 2 -->
-                                    <div class="hidden duration-300 ease-in-out transition-opacity" data-carousel-item
-                                        style="opacity: 0;">
-                                        <img src="assets/img/zombie_mt_02.jpg"
-                                            class="absolute block h-full w-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-contain cursor-pointer"
-                                            alt="Safehouse upgrade options"
-                                            onclick="openImagePopup('assets/img/zombie_mt_02.jpg')">
-                                    </div>
-                                    <!-- Item 3 -->
-                                    <div class="hidden duration-300 ease-in-out transition-opacity" data-carousel-item
-                                        style="opacity: 0;">
-                                        <img src="assets/img/zombie_mt_03.jpg"
-                                            class="absolute block h-full w-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-contain cursor-pointer"
-                                            alt="District map and routes"
-                                            onclick="openImagePopup('assets/img/zombie_mt_03.jpg')">
-                                    </div>
-                                    <!-- Item 4 -->
-                                    <div class="hidden duration-300 ease-in-out transition-opacity" data-carousel-item
-                                        style="opacity: 0;">
-                                        <img src="assets/img/placeholder_image.jpg"
-                                            class="absolute block h-full w-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-contain cursor-pointer"
-                                            alt="Placeholder"
-                                            onclick="openImagePopup('assets/img/placeholder_image.jpg')">
-                                    </div>
-                                </div>
-                                <!-- Slider indicators -->
-                                <div
-                                    class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                                    <button type="button" class="w-3 h-3 rounded-full bg-white/50" aria-current="true"
-                                        aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                                    <button type="button" class="w-3 h-3 rounded-full bg-white/30" aria-current="false"
-                                        aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                                    <button type="button" class="w-3 h-3 rounded-full bg-white/30" aria-current="false"
-                                        aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                                    <button type="button" class="w-3 h-3 rounded-full bg-white/30" aria-current="false"
-                                        aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                                </div>
-                                <!-- Slider controls -->
-                                <button type="button"
-                                    class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                                    data-carousel-prev>
-                                    <span
-                                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/30 dark:bg-gray-800/30 group-hover:bg-black/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                        <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" d="M5 1 1 5l4 4" />
-                                        </svg>
-                                        <span class="sr-only">Previous</span>
-                                    </span>
-                                </button>
-                                <button type="button"
-                                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                                    data-carousel-next>
-                                    <span
-                                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-black/30 dark:bg-gray-800/30 group-hover:bg-black/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                        <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" d="m1 9 4-4-4-4" />
-                                        </svg>
-                                        <span class="sr-only">Next</span>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
+                    <!-- Column 2: Combat & Loadout -->
+                    <div>
+                        <h4 class="text-xl font-bold mb-3 text-indigo-400">Weaponry & Scarcity</h4>
+                        <p class="text-gray-400">
+                            <span class="font-semibold text-white">Weapon swapping:</span> Unlock and equip multiple weapons, adapting to scarcity and enemy encounters by switching loadouts on the fly.
+                        </p>
+                    </div>
+                    
+                    <!-- Column 3: Enemy AI -->
+                    <div>
+                        <h4 class="text-xl font-bold mb-3 text-indigo-400">Dynamic Enemy AI</h4>
+                        <p class="text-gray-400">
+                            <span class="font-semibold text-white">Enemy AI:</span> Patrol - Chase - Roam behavior cycles that create dynamic windows for evasion, stealth, and counterattacks.
+                        </p>
                     </div>
                 </div>
             </div>
+
+            <!-- Gallery (Image Gallery with zoom - Keep using your assets/img/ files) -->
+            <div class="bg-gray-800 rounded-2xl shadow-xl p-8 md:p-10 mb-12">
+                <h3 class="text-3xl font-bold mb-6 text-white">Gallery / Screenshots</h3>
+                <p class="text-gray-300 mb-8">Visualization of the shelter interface, expedition menu, and resource system.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="group">
+                        <img src="assets/img/shelter_ui_01.jpg" alt="Shelter Main UI" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(0)">
+                        <p class="mt-2 text-sm text-gray-400 text-center">Shelter View</p>
+                    </div>
+                    <div class="group">
+                        <img src="assets/img/shelter_expedition_02.jpg" alt="Expedition Planning" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(1)">
+                        <p class="mt-2 text-sm text-gray-400 text-center">Expedition Planning</p>
+                    </div>
+                    <div class="group">
+                        <img src="assets/img/shelter_crafting_03.jpg" alt="Crafting Menu" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(2)">
+                        <p class="mt-2 text-sm text-gray-400 text-center">Crafting Interface</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-800 mt-20">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>© 2024 Dylan Piserchia. All rights reserved.</p>
         </div>
-        <div id="imagePopup" style="display:none;"
-            class="fixed inset-0 z-50 flex items-center justify-center bg-black/80">
-            <span onclick="closeImagePopup()"
-                class="absolute top-4 right-8 text-white text-4xl font-bold cursor-pointer select-none z-50">&times;</span>
-            <img id="popupImg" src="" alt="Fullscreen"
-                class="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl border-4 border-white" />
+    </footer>
+    
+    <!-- Image Popup Modal (For image zoom) -->
+    <div id="image-popup" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[100] hidden p-4 backdrop-blur-sm">
+        <div class="relative max-w-5xl w-full flex flex-col items-center">
+            <button id="close-popup" class="absolute -top-10 right-0 text-white hover:text-indigo-400 transition-colors">
+                <span class="material-icons text-4xl">close</span>
+            </button>
+            
+            <img id="popup-image" src="" alt="Enlarged view" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-gray-700">
+            
+            <button id="popup-prev" class="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 text-white hover:text-indigo-400 transition-colors p-2">
+                <span class="material-icons text-5xl">chevron_left</span>
+            </button>
+            <button id="popup-next" class="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 text-white hover:text-indigo-400 transition-colors p-2">
+                <span class="material-icons text-5xl">chevron_right</span>
+            </button>
         </div>
-        <script>
-            function openImagePopup(src) {
-                document.getElementById('popupImg').src = src;
-                document.getElementById('imagePopup').style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+    </div>
+
+    <script>
+        // Script for the image gallery (popup with navigation)
+        const popup = document.getElementById('image-popup');
+        const popupImage = document.getElementById('popup-image');
+        const closeButton = document.getElementById('close-popup');
+        const prevButton = document.getElementById('popup-prev');
+        const nextButton = document.getElementById('popup-next');
+
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        // Get all image URLs from the gallery
+        const imageUrls = Array.from(galleryItems).map(item => item.src);
+        let currentImageIndex = 0;
+
+        function showImage(index) {
+            if (index >= 0 && indexs < imageUrls.length) {
+                currentImageIndex = index;
+                popupImage.src = imageUrls[currentImageIndex];
             }
+        }
 
-            function closeImagePopup() {
-                document.getElementById('imagePopup').style.display = 'none';
-                document.getElementById('popupImg').src = '';
-                document.body.style.overflow = '';
+        function openImagePopup(index) {
+            showImage(index);
+            popup.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Block background scroll
+        }
+
+        function closeImagePopup() {
+            popup.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore background scroll
+        }
+
+        function showNextImage() {
+            const nextIndex = (currentImageIndex + 1) % imageUrls.length;
+            showImage(nextIndex);
+        }
+
+        function showPrevImage() {
+            const prevIndex = (currentImageIndex - 1 + imageUrls.length) % imageUrls.length;
+            showImage(prevIndex);
+        }
+
+        closeButton.addEventListener('click', closeImagePopup);
+        nextButton.addEventListener('click', (e) => { e.stopPropagation(); showNextImage(); });
+        prevButton.addEventListener('click', (e) => { e.stopPropagation(); showPrevImage(); });
+
+        // Close when clicking on the background (outside the image)
+        popup.addEventListener('click', (e) => {
+            if (e.target.id === 'image-popup') {
+                closeImagePopup();
             }
-            // Cerrar popup al hacer click fuera de la imagen
-            document.getElementById('imagePopup').addEventListener('click', function (e) {
-                if (e.target === this) closeImagePopup();
-            });
-            // Cerrar con ESC
-            document.addEventListener('keydown', function (e) {
-                if (e.key === "Escape") closeImagePopup();
-            });
+        });
 
-            // Carousel functionality
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('[data-carousel-item]');
-            const indicators = document.querySelectorAll('[data-carousel-slide-to]');
-
-            function showSlide(n) {
-                const nextSlide = (n + slides.length) % slides.length;
-
-                slides[nextSlide].classList.remove('hidden');
-                slides[nextSlide].style.opacity = '1';
-
-                slides[currentSlide].style.opacity = '0';
-
-                setTimeout(() => {
-                    indicators[currentSlide].classList.remove('bg-white/50');
-                    indicators[currentSlide].classList.add('bg-white/30');
-
-                    slides[currentSlide].classList.add('hidden');
-                    currentSlide = nextSlide;
-
-                    slides[currentSlide].style.opacity = '1';
-                    indicators[currentSlide].classList.remove('bg-white/30');
-                    indicators[currentSlide].classList.add('bg-white/50');
-                }, 300);
+        document.addEventListener('keydown', (e) => {
+            if (!popup.classList.contains('hidden')) {
+                if (e.key === 'ArrowRight') {
+                    showNextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    showPrevImage();
+                } else if (e.key === 'Escape') {
+                    closeImagePopup();
+                }
             }
-
-            document.querySelector('[data-carousel-prev]').onclick = () => showSlide(currentSlide - 1);
-            document.querySelector('[data-carousel-next]').onclick = () => showSlide(currentSlide + 1);
-
-            indicators.forEach((indicator, index) => {
-                indicator.onclick = () => showSlide(index);
-            });
-        </script>
+        });
+    </script>
 </body>
 
 </html>
