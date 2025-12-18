@@ -36,18 +36,27 @@
 
             <!-- Main Image (Placeholder - Please replace with your actual image) -->
             <div class="mb-12">
-                <img src="assets/img/PS_thumbnail.png" alt="Project Shelter Main Art" class="w-full h-auto rounded-2xl shadow-2xl object-cover max-h-[600px]">
+                <img src="assets/img/PS_thumbnail.png" alt="Project Shelter Main Art"
+                    class="w-full h-auto rounded-2xl shadow-2xl object-cover max-h-[600px]">
             </div>
 
             <!-- Overview (Your main description) -->
             <div class="bg-gray-800 rounded-2xl shadow-xl p-8 md:p-10 mb-12">
                 <h3 class="text-3xl font-bold mb-6 text-white">Project Highlights</h3>
                 <div class="space-y-4 text-gray-300">
-                    <p>The current slice of the prototype highlights <span class="font-bold text-indigo-400">resource gathering, weapon swapping, modular base upgrades, and an AI system</span> that creates tension through dynamic states.</p>
+                    <p>The current slice of the prototype highlights <span class="font-bold text-indigo-400">resource
+                            gathering, weapon swapping, modular base upgrades, and an AI system</span> that creates
+                        tension through dynamic states.</p>
                     <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
-                        <li><span class="font-semibold text-indigo-300">Modular upgradeable base:</span> A safe hub for storing resources, unlocking modules, and strengthening defenses, serving as the anchor of long-term progression.</li>
-                        <li><span class="font-semibold text-indigo-300">Persistent save system:</span> Resources and equipped weapons are remembered across sessions, ensuring continuity and meaningful progress.</li>
-                        <li><span class="font-semibold text-indigo-300">Interaction prompts:</span> Contextual UI prompts guide the player through actions, making survival decisions intuitive and responsive.</li>
+                        <li><span class="font-semibold text-indigo-300">Modular upgradeable base:</span> A safe hub for
+                            storing resources, unlocking modules, and strengthening defenses, serving as the anchor of
+                            long-term progression.</li>
+                        <li><span class="font-semibold text-indigo-300">Persistent save system:</span> Resources and
+                            equipped weapons are remembered across sessions, ensuring continuity and meaningful
+                            progress.</li>
+                        <li><span class="font-semibold text-indigo-300">Interaction prompts:</span> Contextual UI
+                            prompts guide the player through actions, making survival decisions intuitive and
+                            responsive.</li>
                     </ul>
                 </div>
             </div>
@@ -55,13 +64,14 @@
             <!-- Core Mechanics (Divided into columns for a Star Trek aesthetic) -->
             <div class="bg-gray-800 rounded-2xl shadow-xl p-8 md:p-10 mb-12">
                 <h3 class="text-3xl font-bold mb-6 text-white">Core Systems</h3>
-                
+
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Column 1: Resources -->
                     <div>
                         <h4 class="text-xl font-bold mb-3 text-indigo-400">Resource Gathering</h4>
                         <p class="text-gray-400">
-                            <span class="font-semibold text-white">Pickable resources:</span> Gather supplies scattered across the city that feed directly into crafting, upgrades, and survival progression.
+                            <span class="font-semibold text-white">Pickable resources:</span> Gather supplies scattered
+                            across the city that feed directly into crafting, upgrades, and survival progression.
                         </p>
                     </div>
 
@@ -69,15 +79,17 @@
                     <div>
                         <h4 class="text-xl font-bold mb-3 text-indigo-400">Weaponry & Scarcity</h4>
                         <p class="text-gray-400">
-                            <span class="font-semibold text-white">Weapon swapping:</span> Unlock and equip multiple weapons, adapting to scarcity and enemy encounters by switching loadouts on the fly.
+                            <span class="font-semibold text-white">Weapon swapping:</span> Unlock and equip multiple
+                            weapons, adapting to scarcity and enemy encounters by switching loadouts on the fly.
                         </p>
                     </div>
-                    
+
                     <!-- Column 3: Enemy AI -->
                     <div>
                         <h4 class="text-xl font-bold mb-3 text-indigo-400">Dynamic Enemy AI</h4>
                         <p class="text-gray-400">
-                            <span class="font-semibold text-white">Enemy AI:</span> Patrol - Chase - Roam behavior cycles that create dynamic windows for evasion, stealth, and counterattacks.
+                            <span class="font-semibold text-white">Enemy AI:</span> Patrol - Chase - Roam behavior
+                            cycles that create dynamic windows for evasion, stealth, and counterattacks.
                         </p>
                     </div>
                 </div>
@@ -86,28 +98,40 @@
             <!-- Gallery (Image Gallery with zoom - Keep using your assets/img/ files) -->
             <div class="bg-gray-800 rounded-2xl shadow-xl p-8 md:p-10 mb-12">
                 <h3 class="text-3xl font-bold mb-6 text-white">Gallery</h3>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="group">
-                        <img src="assets/img/PS_img1.png" alt="Project Shelter Image 1" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(0)">
+                        <img src="assets/img/PS_video_thumbnail.png" alt="Project Shelter Trailer"
+                            class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md"
+                            data-video="https://www.youtube.com/embed/qm-iAuqpmyY">
+                        <p class="mt-2 text-sm text-gray-400 text-center">Trailer</p>
+                    </div>
+                    <div class="group">
+                        <img src="assets/img/PS_img1.png" alt="Project Shelter Image 1"
+                            class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md">
                         <p class="mt-2 text-sm text-gray-400 text-center">Enemies</p>
                     </div>
                     <div class="group">
-                        <img src="assets/img/PS_img2.png" alt="Project Shelter Image 2" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(1)">
+                        <img src="assets/img/PS_img2.png" alt="Project Shelter Image 2"
+                            class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md">
                         <p class="mt-2 text-sm text-gray-400 text-center">Base Upgrade Manager</p>
                     </div>
                     <div class="group">
-                        <img src="assets/img/PS_img3.png" alt="Project Shelter Image 3" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(2)">
+                        <img src="assets/img/PS_img3.png" alt="Project Shelter Image 3"
+                            class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md">
                         <p class="mt-2 text-sm text-gray-400 text-center">Save & Load Game</p>
                     </div>
                     <div class="group">
-                        <img src="assets/img/PS_img4.png" alt="Project Shelter Image 4" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(3)">
+                        <img src="assets/img/PS_img4.png" alt="Project Shelter Image 4"
+                            class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md">
                         <p class="mt-2 text-sm text-gray-400 text-center">Base Tier 1</p>
                     </div>
                     <div class="group">
-                        <img src="assets/img/PS_img5.png" alt="Project Shelter Image 5" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(4)">
+                        <img src="assets/img/PS_img5.png" alt="Project Shelter Image 5"
+                            class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md">
                         <p class="mt-2 text-sm text-gray-400 text-center">Base Tier 2</p>
                     </div>
+
                 </div>
             </div>
 
@@ -119,21 +143,28 @@
             <p>© 2024 Dylan Piserchia. All rights reserved.</p>
         </div>
     </footer>
-    
+
     <!-- Image Popup Modal (For image zoom) -->
-    <div id="image-popup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-[100] hidden p-4 backdrop-blur-sm">
+    <div id="image-popup"
+        class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-[100] hidden p-4 backdrop-blur-sm">
         <div class="relative max-w-5xl w-full flex flex-col items-center">
-            <button id="close-popup" class="absolute -top-10 right-0 text-white hover:text-indigo-400 transition-colors">
+            <button id="close-popup"
+                class="absolute -top-10 right-0 text-white hover:text-indigo-400 transition-colors">
                 <span class="material-icons text-4xl">close</span>
             </button>
-            
-            <img id="popup-image" src="" alt="Enlarged view" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-gray-700">
+
+            <img id="popup-image" src="" alt="Enlarged view"
+                class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-gray-700">
+            <iframe id="popup-video" class="hidden rounded-lg shadow-2xl border border-gray-700" width="100%"
+                height="480" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             <p id="popup-caption" class="mt-4 text-center text-gray-300"></p>
-            
-            <button id="popup-prev" class="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 text-white hover:text-indigo-400 transition-colors p-2">
+
+            <button id="popup-prev"
+                class="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 text-white hover:text-indigo-400 transition-colors p-2">
                 <span class="material-icons text-5xl">chevron_left</span>
             </button>
-            <button id="popup-next" class="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 text-white hover:text-indigo-400 transition-colors p-2">
+            <button id="popup-next"
+                class="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 text-white hover:text-indigo-400 transition-colors p-2">
                 <span class="material-icons text-5xl">chevron_right</span>
             </button>
         </div>
@@ -148,21 +179,40 @@
         const nextButton = document.getElementById('popup-next');
 
         const galleryItems = document.querySelectorAll('.gallery-item');
-        // Get all image URLs and captions from the gallery
-        const imageUrls = Array.from(galleryItems).map(item => item.src);
-        const captions = Array.from(galleryItems).map(item => {
+        // Build media items (images or videos) and captions from the gallery
+        const mediaItems = Array.from(galleryItems).map(item => {
             const next = item.nextElementSibling;
-            if (next && next.tagName && next.tagName.toLowerCase() === 'p') return next.textContent.trim();
-            return item.alt || '';
+            const caption = (next && next.tagName && next.tagName.toLowerCase() === 'p') ? next.textContent.trim() : (item.alt || '');
+            if (item.dataset && item.dataset.video) return { type: 'video', src: item.dataset.video, caption };
+            return { type: 'image', src: item.src, caption };
+        });
+        // Attach click handlers in DOM order so openImagePopup receives correct index
+        galleryItems.forEach((el, idx) => {
+            el.addEventListener('click', () => openImagePopup(idx));
         });
         const popupCaption = document.getElementById('popup-caption');
+        const popupVideo = document.getElementById('popup-video');
         let currentImageIndex = 0;
 
         function showImage(index) {
-            if (index >= 0 && index < imageUrls.length) {
+            if (index >= 0 && index < mediaItems.length) {
                 currentImageIndex = index;
-                popupImage.src = imageUrls[currentImageIndex];
-                popupCaption.textContent = captions[currentImageIndex] || '';
+                const item = mediaItems[currentImageIndex];
+                if (item.type === 'image') {
+                    // show image
+                    popupVideo.classList.add('hidden');
+                    popupVideo.src = '';
+                    popupImage.classList.remove('hidden');
+                    popupImage.src = item.src;
+                } else {
+                    // show video (embed)
+                    popupImage.classList.add('hidden');
+                    popupImage.src = '';
+                    popupVideo.classList.remove('hidden');
+                    // autoplay param
+                    popupVideo.src = item.src + (item.src.includes('?') ? '&' : '?') + 'autoplay=1&rel=0';
+                }
+                popupCaption.textContent = item.caption || '';
             }
         }
 
@@ -175,15 +225,18 @@
         function closeImagePopup() {
             popup.classList.add('hidden');
             document.body.style.overflow = 'auto'; // Restore background scroll
+            // stop video playback if any
+            if (popupVideo) popupVideo.src = '';
+            if (popupImage) popupImage.src = '';
         }
 
         function showNextImage() {
-            const nextIndex = (currentImageIndex + 1) % imageUrls.length;
+            const nextIndex = (currentImageIndex + 1) % mediaItems.length;
             showImage(nextIndex);
         }
 
         function showPrevImage() {
-            const prevIndex = (currentImageIndex - 1 + imageUrls.length) % imageUrls.length;
+            const prevIndex = (currentImageIndex - 1 + mediaItems.length) % mediaItems.length;
             showImage(prevIndex);
         }
 
