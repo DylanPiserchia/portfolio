@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dylan Piserchia - Outbreak: Dead City</title>
+    <title>Dylan Piserchia - Project Shelter</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -28,15 +28,15 @@
         <section class="container mx-auto px-6 py-12">
             <!-- Project Header -->
             <div class="text-center mb-12">
-                <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-4 text-white">Outbreak: Dead City</h2>
+                <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-4 text-white">Project Shelter</h2>
                 <p class="text-gray-400 text-lg max-w-3xl mx-auto">
-                    Outbreak: Dead City is a prototype of a systemic survival game set in a collapsing city.
+                    Project Shelter is a prototype of a systemic survival game set in a post-apocalyptic setting.
                 </p>
             </div>
 
             <!-- Main Image (Placeholder - Please replace with your actual image) -->
             <div class="mb-12">
-                <img src="assets/img/outbreak_dead_city_main.png" alt="Outbreak: Dead City Main Art" class="w-full h-auto rounded-2xl shadow-2xl object-cover max-h-[600px]">
+                <img src="assets/img/PS_thumbnail.png" alt="Project Shelter Main Art" class="w-full h-auto rounded-2xl shadow-2xl object-cover max-h-[600px]">
             </div>
 
             <!-- Overview (Your main description) -->
@@ -85,21 +85,28 @@
 
             <!-- Gallery (Image Gallery with zoom - Keep using your assets/img/ files) -->
             <div class="bg-gray-800 rounded-2xl shadow-xl p-8 md:p-10 mb-12">
-                <h3 class="text-3xl font-bold mb-6 text-white">Gallery / Screenshots</h3>
-                <p class="text-gray-300 mb-8">Visualization of the shelter interface, expedition menu, and resource system.</p>
+                <h3 class="text-3xl font-bold mb-6 text-white">Gallery</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="group">
-                        <img src="assets/img/shelter_ui_01.jpg" alt="Shelter Main UI" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(0)">
-                        <p class="mt-2 text-sm text-gray-400 text-center">Shelter View</p>
+                        <img src="assets/img/PS_img1.png" alt="Project Shelter Image 1" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(0)">
+                        <p class="mt-2 text-sm text-gray-400 text-center">Enemies</p>
                     </div>
                     <div class="group">
-                        <img src="assets/img/shelter_expedition_02.jpg" alt="Expedition Planning" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(1)">
-                        <p class="mt-2 text-sm text-gray-400 text-center">Expedition Planning</p>
+                        <img src="assets/img/PS_img2.png" alt="Project Shelter Image 2" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(1)">
+                        <p class="mt-2 text-sm text-gray-400 text-center">Base Upgrade Manager</p>
                     </div>
                     <div class="group">
-                        <img src="assets/img/shelter_crafting_03.jpg" alt="Crafting Menu" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(2)">
-                        <p class="mt-2 text-sm text-gray-400 text-center">Crafting Interface</p>
+                        <img src="assets/img/PS_img3.png" alt="Project Shelter Image 3" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(2)">
+                        <p class="mt-2 text-sm text-gray-400 text-center">Save & Load Game</p>
+                    </div>
+                    <div class="group">
+                        <img src="assets/img/PS_img4.png" alt="Project Shelter Image 4" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(3)">
+                        <p class="mt-2 text-sm text-gray-400 text-center">Base Tier 1</p>
+                    </div>
+                    <div class="group">
+                        <img src="assets/img/PS_img5.png" alt="Project Shelter Image 5" class="gallery-item w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity border border-gray-700 shadow-md" onclick="openImagePopup(4)">
+                        <p class="mt-2 text-sm text-gray-400 text-center">Base Tier 2</p>
                     </div>
                 </div>
             </div>
@@ -114,13 +121,14 @@
     </footer>
     
     <!-- Image Popup Modal (For image zoom) -->
-    <div id="image-popup" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[100] hidden p-4 backdrop-blur-sm">
+    <div id="image-popup" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-[100] hidden p-4 backdrop-blur-sm">
         <div class="relative max-w-5xl w-full flex flex-col items-center">
             <button id="close-popup" class="absolute -top-10 right-0 text-white hover:text-indigo-400 transition-colors">
                 <span class="material-icons text-4xl">close</span>
             </button>
             
             <img id="popup-image" src="" alt="Enlarged view" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl border border-gray-700">
+            <p id="popup-caption" class="mt-4 text-center text-gray-300"></p>
             
             <button id="popup-prev" class="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 text-white hover:text-indigo-400 transition-colors p-2">
                 <span class="material-icons text-5xl">chevron_left</span>
@@ -140,14 +148,21 @@
         const nextButton = document.getElementById('popup-next');
 
         const galleryItems = document.querySelectorAll('.gallery-item');
-        // Get all image URLs from the gallery
+        // Get all image URLs and captions from the gallery
         const imageUrls = Array.from(galleryItems).map(item => item.src);
+        const captions = Array.from(galleryItems).map(item => {
+            const next = item.nextElementSibling;
+            if (next && next.tagName && next.tagName.toLowerCase() === 'p') return next.textContent.trim();
+            return item.alt || '';
+        });
+        const popupCaption = document.getElementById('popup-caption');
         let currentImageIndex = 0;
 
         function showImage(index) {
-            if (index >= 0 && indexs < imageUrls.length) {
+            if (index >= 0 && index < imageUrls.length) {
                 currentImageIndex = index;
                 popupImage.src = imageUrls[currentImageIndex];
+                popupCaption.textContent = captions[currentImageIndex] || '';
             }
         }
 
