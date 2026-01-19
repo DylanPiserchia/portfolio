@@ -55,6 +55,42 @@ footer p {
     transform: translateY(-3px);
 }
 
+/* Reset Level Button */
+.footer-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn-reset-level {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 68, 68, 0.1);
+    border: 1px solid rgba(255, 68, 68, 0.3);
+    border-radius: 6px;
+    color: #ff4444;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-reset-level:hover {
+    background: rgba(255, 68, 68, 0.2);
+    border-color: rgba(255, 68, 68, 0.5);
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-reset-level:active {
+    transform: translateY(0);
+}
+
 @media (max-width: 768px) {
     footer {
         padding: 2rem 0;
@@ -64,5 +100,10 @@ footer p {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+    }
+
+    .btn-reset-level {
+        font-size: 0.75rem;
+        padding: 6px 12px;
     }
 }

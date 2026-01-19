@@ -44,6 +44,16 @@ nav {
     display: flex;
     gap: 2.5rem;
     list-style: none;
+    position: relative;
+}
+
+.nav-links::before {
+    content: '|';
+    position: absolute;
+    left: -20px;
+    color: var(--accent);
+    font-size: 1.2rem;
+    opacity: 0.5;
 }
 
 .nav-links a {
