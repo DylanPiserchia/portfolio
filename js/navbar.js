@@ -28,10 +28,10 @@ class Navbar {
         const isInPages = pathname.includes('/pages/');
         
         if (page === 'home') {
-            // Todos los archivos están en pages/, así que siempre devolvemos index.html
-            return isInPages ? 'index.html' : 'pages/index.html';
+            // Todos los archivos están en pages/
+            return 'index.html';
         } else if (page === 'about') {
-            return isInPages ? 'about.html' : 'pages/about.html';
+            return 'about.html';
         }
         return page;
     }
@@ -49,7 +49,7 @@ class Navbar {
             projectsLink = '#projects';
         } else {
             // Si no estamos en index.html, ir a index.html#projects
-            projectsLink = this.isInPages ? 'index.html#projects' : 'pages/index.html#projects';
+            projectsLink = 'index.html#projects';
         }
 
         const navHTML = `
