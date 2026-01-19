@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Dylan Piserchia</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+
+    <style>
+        /* --- ESTILOS BASE (Identical to Star Trek) --- */
+        :root {
+            --bg-dark: #0b0d10;
+            --bg-panel: rgba(26, 29, 36, 0.6);
+            --accent: #00d4ff;
+            --accent-glow: rgba(0, 212, 255, 0.15);
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #2c313a;
+            --transition-fast: 0.3s;
+            --transition-medium: 0.5s;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 212, 255, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 212, 255, 0.03) 0%, transparent 20%);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; color: #fff; letter-spacing: 1px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        img { max-width: 100%; display: block; border-radius: 4px; }
+        ul { list-style: none; }
+
+        /* Layout Container */
+        main { margin-top: 80px; padding-bottom: 12rem; }
+        .container { max-width: 1600px; margin: 0 auto; padding: 0 2rem; }
+
+        /* --- ANIMACIONES DE ENTRADA --- */
+        .reveal-left, .reveal-right, .reveal-up { 
+            opacity: 0; transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); 
+        }
+        .reveal-left { transform: translateX(-50px); }
+        .reveal-right { transform: translateX(50px); }
+        .reveal-up { transform: translateY(40px); }
+        .active { opacity: 1; transform: translate(0); }
+
+        /* ABOUT PAGE SPECIFIC STYLES */
+
+        /* Profile Card */
+        .profile-card {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin: 4rem 0;
+            padding: 3rem;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .profile-img {
+            width: 100%;
+            border-radius: 12px;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .role {
+            color: var(--accent);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .profile-info p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            margin: 6rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem;
+        }
+        .section-header h3 { font-size: 2.5rem; }
+        .header-line { flex-grow: 1; height: 1px; background: linear-gradient(to right, var(--accent), transparent); }
+
+        .skills-section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: var(--transition-fast);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+        }
+
+        .skill-card h4 {
+            font-size: 1.1rem;
+            color: #fff;
+            text-transform: uppercase;
+            margin-top: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 28px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;
+            background: transparent; border: 1px solid var(--border-color); color: #fff;
+            transition: 0.3s;
+        }
+        .btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(0, 212, 255, 0.05); }
+        /* Action Buttons */
+        .action-buttons {
+            display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+        }
+        .btn-primary { border-color: var(--accent); color: var(--accent); }
+        .btn-primary:hover { background: var(--accent); color: #000; box-shadow: 0 0 15px var(--accent-glow); }
+        .btn-secondary { border-color: var(--accent); color: var(--accent); }
+        .btn-secondary:hover { background: var(--accent); color: #000; box-shadow: 0 0 15px var(--accent-glow); }
+
+        @media (max-width: 1024px) {
+            .profile-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <main class="container">
+        
+        <!-- PROFILE SECTION -->
+        <section class="profile-card reveal-left">
+            <img src="../assets/img/profile_image.jpg" alt="Dylan Piserchia" class="profile-img" onerror="this.src='https://via.placeholder.com/250/111/00d4ff?text=DP'">
+            <div class="profile-info">
+                <h1>DYLAN PISERCHIA</h1>
+                <div class="role">Game Designer</div>
+                <p>Specializing in system design, gameplay balancing, and comprehensive documentation with over 4 years of professional experience in AAA game development.</p>
+                <div class="action-buttons">
+                    <a href="https://drive.google.com/uc?export=download&id=18oVbAGUUH2Dn0zG8_6AHb77TwxQjYmn0" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-file-download"></i> Download Resume
+                    </a>
+                    <a href="https://linkedin.com/in/dylan-piserchia" class="btn" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section class="skills-section reveal-up">
+            <div class="section-header">
+                <h3>SKILLS & EXPERTISE</h3>
+                <div class="header-line"></div>
+            </div>
+            <div class="skills-grid">
+                <!-- Game Design -->
+                <div class="skill-card">
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" fill="currentColor" viewBox="0 0 256 256"><path d="M220.27,158.54a8,8,0,0,0-7.7-.46,20,20,0,1,1,0-36.16A8,8,0,0,0,224,114.69V72a16,16,0,0,0-16-16H171.78a35.36,35.36,0,0,0,.22-4,36.11,36.11,0,0,0-11.36-26.24,36,36,0,0,0-60.55,23.62,36.56,36.56,0,0,0,.14,6.62H64A16,16,0,0,0,48,72v32.22a35.36,35.36,0,0,0-4-.22,36.12,36.12,0,0,0-26.24,11.36,35.7,35.7,0,0,0-9.69,27,36.08,36.08,0,0,0,33.31,33.6,35.68,35.68,0,0,0,6.62-.14V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V165.31A8,8,0,0,0,220.27,158.54ZM208,208H64V165.31a8,8,0,0,0-11.43-7.23,20,20,0,1,1,0-36.16A8,8,0,0,0,64,114.69V72h46.69a8,8,0,0,0,7.23-11.43,20,20,0,1,1,36.16,0A8,8,0,0,0,161.31,72H208v32.23a35.68,35.68,0,0,0-6.62-.14A36,36,0,0,0,204,176a35.36,35.36,0,0,0,4-.22Z"></path></svg></div>
+                    <h4>Game Design</h4>
+                </div>
+                <!-- Unreal Engine -->
+                <div class="skill-card">
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 14 14" fill="currentColor"><path d="m 7.15165,12.390099 c -0.1799,-0.025 -0.5247,-0.1023 -0.7791,-0.174 -1.1482,-0.3234 -2.0896,-0.8892 -2.6842,-1.613 -0.09,-0.1095 -0.206,-0.2684 -0.2002,-0.2741 0,0 0.055,9e-4 0.1179,0.01 0.1339,0.013 0.3095,0.01 0.3869,-0.014 0.1693,-0.045 0.2743,-0.1535 0.3012,-0.3113 0.01,-0.041 0.01,-0.6813997 0.01,-2.2312997 l 0,-2.1734 -0.025,-0.071 c -0.06,-0.1688 -0.1566,-0.2408 -0.3535,-0.2626 -0.1052,-0.012 -0.2492,0.045 -0.4352,0.1705 -0.6759,0.457 -1.5515,1.5747 -2.4169,3.0854 -0.039,0.068 -0.072,0.1227 -0.073,0.1215 0,0 0,-0.093 0.01,-0.2037 0.055,-1.363 0.6424,-2.7903 1.676,-4.0715 0.2517,-0.3121 0.6313,-0.7155 0.9286,-0.9871 0.9611,-0.8781 2.0229,-1.4853 3.0913,-1.7677 l 0.086,-0.023 -0.028,0.024 c -0.015,0.014 -0.086,0.075 -0.1572,0.1369 -0.1455,0.1265 -0.3968,0.3738 -0.5144,0.5064 -0.3093,0.3488 -0.4924,0.6591 -0.53,0.8981 -0.021,0.1345 0,0.4327 0.05,0.6072 0.055,0.2071 0.1569,0.341 0.2989,0.3933 0.04,0.015 0.073,0.019 0.1382,0.019 0.098,-10e-5 0.1691,-0.017 0.2677,-0.062 l 0.065,-0.03 0,2.7467 0,2.7466 0.029,0.06 c 0.083,0.1693 0.2788,0.2441 0.6697,0.2564 0.1942,0.01 0.2573,0 0.4057,-0.048 0.2398,-0.076 0.5342,-0.2259 0.8654,-0.4407 l 0.095,-0.062 10e-5,-2.2424 c 10e-5,-2.4087 0,-2.2916 -0.045,-2.4328 -0.084,-0.2536 -0.35,-0.6106 -0.6703,-0.9 l -0.1046,-0.094 0.052,0 c 0.077,0 0.27,0.023 0.4031,0.056 0.2532,0.064 0.5135,0.1777 0.7124,0.3119 l 0.065,0.044 0.023,-0.039 c 0.037,-0.064 0.1368,-0.1842 0.2339,-0.2834 0.5226,-0.5337 1.3583,-0.9725 2.4437,-1.2832 0.096,-0.027 0.1781,-0.05 0.1824,-0.05 0,0 -0.046,0.072 -0.1121,0.1597 -0.3868,0.515 -0.7479,1.0738 -0.9321,1.4422 -0.094,0.1875 -0.1378,0.2993 -0.1581,0.4005 -0.017,0.086 -0.031,4.8006 -0.015,4.8624 0.03,0.1108 0.1558,0.1744 0.3695,0.187 0.1092,0.01 0.2144,-0.011 0.3712,-0.063 0.5493,-0.1805 1.0952,-0.533 1.5785,-1.0194 l 0.1544,-0.1553 -0.011,0.043 c -0.034,0.1295 -0.1689,0.3752 -0.378,0.6904 -0.6558,0.9887 -1.587,1.9992997 -2.4662,2.6766997 -0.1486,0.1145 -0.4347,0.3156 -0.449,0.3156 -0.01,0 -0.2886,-0.2784 -0.6291,-0.6187 -0.5288,-0.5284 -0.6208,-0.6167 -0.63,-0.6046 -0.01,0.01 -0.2856,0.3814 -0.6213,0.8302 -0.3358,0.4488 -0.6152,0.8155 -0.621,0.8147 -0.01,-7e-4 -0.023,0 -0.037,-0.01 z" /></svg></div>
+                    <h4>Unreal Engine</h4>
+                </div>
+                <!-- Unity -->
+                <div class="skill-card">
+                    <div class="skill-icon"><svg fill="currentColor" width="32px" height="32px" viewBox="-0.5 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m15.266 12.001 4.2-7.249 2.03 7.253-2.03 7.25-4.2-7.25zm-2.047 1.177 4.201 7.254-7.316-1.876-5.285-5.378zm4.2-9.608-4.2 7.253h-8.4l5.285-5.378 7.314-1.875zm6 5.963-2.566-9.533-9.564 2.555-1.416 2.489-2.873-.021-7 6.978 7 6.977 2.871-.022 1.418 2.489 9.564 2.554 2.56-9.531-1.453-2.468z" /></svg></div>
+                    <h4>Unity</h4>
+                </div>
+                <!-- Spreadsheets -->
+                <div class="skill-card">
+                    <div class="skill-icon"><svg fill="currentColor" width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M15.15 18.379h-4.247v2.38h4.25v-2.38zM22.797 12.601h-13.596v9.857h13.597v-9.858zM26.876 9.145v19.771c0 0 0 0 0 0.001 0 1.126-0.913 2.038-2.038 2.038-0 0-0.001 0-0.001 0h-17.675c0 0 0 0-0 0-1.126 0-2.039-0.913-2.039-2.039 0 0 0 0 0-0v0-25.833c0-0 0-0 0-0.001 0-1.126 0.913-2.038 2.038-2.038 0 0 0.001 0 0.001 0h11.613v8.101zM21.099 18.379h-4.25v2.38h4.25zM21.099 14.3h-4.25v2.38h4.25zM19.4 1.045v7.478h7.478zM15.15 16.679h-4.247v-2.379h4.25v2.38z"></path></svg></div>
+                    <h4>Spreadsheets</h4>
+                </div>
+                <!-- Jira -->
+                <div class="skill-card">
+                    <div class="skill-icon"><svg width="32px" height="32px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0z"/></svg></div>
+                    <h4>Jira</h4>
+                </div>
+                <!-- Photoshop -->
+                <div class="skill-card">
+                    <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 -1 34 34" fill="currentColor" role="img" aria-hidden="true"><path d="M3.556 2.845v27.071h27.53v-27.071h-27.53zM28.896 27.763h-23.151v-22.765h23.151v22.765z" /><path d="M16.555 10.442c-0.693-0.599-1.726-0.939-3.173-0.939-1.433 0-3.173 0.046-3.173 0.046l-0 11.103h2.326v-3.568c0 0 0.407-0.005 0.847-0.023 1.593-0.067 2.526-0.549 3.327-1.364 0.616-0.631 0.955-1.53 0.955-2.627s-0.447-2.062-1.109-2.628zM13.32 15.115c-0.375 0.004-0.533 0.016-0.786-0.008v-3.834c0 0 0.493-0.017 0.971 0 1.198 0.044 1.833 0.89 1.833 1.921-0 1.148-0.77 1.906-2.018 1.921z" /><path d="M22.205 15.455c-1.005-0.356-1.324-0.559-1.324-0.949 0-0.423 0.352-0.677 0.972-0.677 0.703 0 1.767 0.454 2.136 0.658v-1.871c-0.502-0.254-1.265-0.566-2.22-0.566-2.027 0-3.334 1.169-3.334 2.728-0.017 0.965 0.636 1.655 2.329 2.231 0.955 0.322 1.206 0.767 1.206 1.191s-0.318 0.695-1.089 0.695c-0.754 0-1.86-0.431-2.329-0.718v0 1.847c0.62 0.338 1.518 0.659 2.329 0.684 2.363 0.074 3.551-1.152 3.551-2.694-0.017-1.22-0.67-2.016-2.228-2.558z" /></svg></div>
+                    <h4>Photoshop</h4>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Components & Scripts -->
+    <script src="../js/navbar.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/scroll-animations.js"></script>
+    
+    <script>
+        // --- SCROLL ANIMATION OBSERVER ---
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
