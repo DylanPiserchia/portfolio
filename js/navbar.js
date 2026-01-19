@@ -62,10 +62,11 @@ class Navbar {
         const isInPages = pathname.includes('/pages/');
         
         if (page === 'home') {
-            // Todos los archivos están en pages/
-            return 'index.html';
+            // Desde raíz: index.html, desde /pages/: ../index.html
+            return isInPages ? '../index.html' : 'index.html';
         } else if (page === 'about') {
-            return 'about.html';
+            // Desde raíz: pages/about.html, desde /pages/: about.html
+            return isInPages ? 'about.html' : 'pages/about.html';
         }
         return page;
     }
@@ -166,6 +167,7 @@ class Navbar {
         
         // Determinar el link de Projects
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const isInPages = window.location.pathname.includes('/pages/');
         let projectsLink;
         
         if (currentPage === 'index.html') {
@@ -173,7 +175,7 @@ class Navbar {
             projectsLink = '#projects';
         } else {
             // Si no estamos en index.html, ir a index.html#projects
-            projectsLink = 'index.html#projects';
+            projectsLink = isInPages ? '../index.html#projects' : 'index.html#projects';
         }
 
         const xpNeeded = this.getXPForLevel(userStats.level);
