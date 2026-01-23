@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Shelter - Dylan Piserchia</title>
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -19,6 +22,112 @@
 
     <style>
         /* PROJECT SHELTER SPECIFIC STYLES */
+        :root {
+            --bg-dark: #0b0d10;
+            --bg-panel: rgba(26, 29, 36, 0.6);
+            --accent: #00d4ff;
+            --accent-glow: rgba(0, 212, 255, 0.15);
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #2c313a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-dark);
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(0, 212, 255, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 212, 255, 0.03) 0%, transparent 20%);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: 4px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Container */
+        main {
+            margin-top: 80px;
+            padding-bottom: 12rem;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- ANIMACIONES DE ENTRADA --- */
+        .reveal-left,
+        .reveal-right,
+        .reveal-up {
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal-left {
+            transform: translateX(-50px);
+        }
+
+        .reveal-right {
+            transform: translateX(50px);
+        }
+
+        .reveal-up {
+            transform: translateY(40px);
+        }
+
+        .active {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        /* --- HERO SPLIT SECTION --- */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+        }
+
+        .hero-content {
+            padding-right: 2rem;
+        }
 
         .project-tag {
             display: inline-block;
@@ -34,16 +143,6 @@
             border-left: 3px solid var(--accent);
         }
 
-        /* Hero Section */
-        .hero-section {
-            margin-top: 3rem;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-
         .hero-title {
             font-size: 4rem;
             line-height: 1.1;
@@ -56,71 +155,437 @@
         .hero-description {
             font-size: 1.25rem;
             color: var(--text-muted);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             border-left: 1px solid var(--border-color);
             padding-left: 1.5rem;
         }
 
-        .hero-image {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: -20px 20px 60px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-            transition: var(--transition-medium);
-        }
-
-        .hero-image:hover {
-            transform: scale(1.02);
-            border-color: var(--accent);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Systems Grid */
-        .systems-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .system-card {
-            background: rgba(255, 255, 255, 0.03);
+        /* Design Overview Dashboard */
+        .mini-highlights {
+            background: var(--bg-panel);
             border: 1px solid var(--border-color);
             padding: 2rem;
-            border-radius: 6px;
-            transition: var(--transition-fast);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
         }
 
-        .system-card:hover {
+        .mini-highlights h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .highlight-list li {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .highlight-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            box-shadow: 0 0 5px var(--accent);
+        }
+
+        /* Hero Image */
+        .hero-media-wrapper {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+.hero-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: -10px 10px 10px rgba(4, 105, 187, 0.233);
+    /* El "stroke" inicial sutil */
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    cursor: pointer;
+    transition: all 0.5s ease;
+    position: relative;
+    aspect-ratio: 16/9;
+}
+
+.hero-image:hover {
+    transform: scale(1.02);
+    /* El "stroke" se ilumina con tu color de acento al hacer hover */
+    border-color: var(--accent); 
+    box-shadow: -20px 20px 60px rgba(0, 212, 255, 0.2);
+}
+
+        /* Hero image overlay always visible */
+        .hero-image .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Systems Index */
+        .systems-index {
+            margin: 4rem 0;
+        }
+
+        .index-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .index-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .index-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
             background: rgba(0, 212, 255, 0.05);
         }
 
-        .system-card h4 {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
+        .index-number {
+            font-family: 'Orbitron';
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .index-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .index-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 1024px) {
+            .index-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .index-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- DETAILED MECHANICS SECTIONS --- */
+        .detail-section {
+            margin-bottom: 5rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-header h3 {
+            font-size: 2rem;
+        }
+
+        .header-line {
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--accent), transparent);
+        }
+
+        .section-intro {
             font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 1100px;
+        }
+
+        .highlight-text {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Impact/Scope Grid (Split columns) */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .details-column h4 {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        .styled-list li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        .impact-box {
+            background: rgba(0, 212, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .impact-box h5 {
+            font-size: 0.95rem;
+            color: #fff;
+            margin-bottom: 0.8rem;
             text-transform: uppercase;
         }
 
-        .system-card p {
+        .impact-box p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
         }
 
-        /* Lightbox */
+        /* Section Galleries */
+        .section-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 16/9;
+            width: 400px;
+            max-width: 100%;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            opacity: 0.8;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            opacity: 0;
+            transition: 0.3s;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 1.5rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Hero image overlay only on hover */
+        .hero-image .gallery-overlay {
+            opacity: 0;
+        }
+
+        .hero-image:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            color: #fff;
+            font-family: 'Orbitron';
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transform: translateY(20px);
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .hero-image .gallery-caption {
+            transform: translateY(20px);
+        }
+
+        .hero-image:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            color: #fff;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover .play-icon {
+            opacity: 0.8;
+            color: var(--accent);
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            margin: 0 60px;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-track .gallery-item {
+            flex: 0 0 calc(33.333% - 1rem);
+            min-width: 300px;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0, 212, 255, 0.3);
+            color: var(--accent);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-track .gallery-item {
+                flex: 0 0 calc(50% - 0.75rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-track .gallery-item {
+                flex: 0 0 100%;
+            }
+        }
+
+        /* Back to Index Button */
+        .back-to-index {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .back-to-index:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(0, 212, 255, 0.5);
+        }
+
+        .back-to-index::before {
+            content: "Go to Index";
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-to-index:hover::before {
+            opacity: 1;
+        }
+
+        /* --- LIGHTBOX --- */
         .lightbox {
             display: none;
             position: fixed;
@@ -129,35 +594,40 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background-color: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(8px);
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .lightbox.show {
             display: flex;
+            opacity: 1;
         }
 
         .lightbox-content-wrapper {
             position: relative;
-            max-width: 90%;
-            max-height: 85vh;
-            width: 100%;
             display: flex;
             justify-content: center;
+            align-items: center;
+            max-width: 90%;
+            max-height: 90vh;
+            width: 100%;
         }
 
-        .lightbox-content {
+        .lightbox-content,
+        .lightbox-video {
             max-width: 100%;
             max-height: 85vh;
             border-radius: 4px;
-            border: 1px solid var(--border-color);
         }
 
         .lightbox-video {
             width: 80%;
             aspect-ratio: 16/9;
+            background: #000;
             border: none;
         }
 
@@ -168,98 +638,486 @@
             color: #fff;
             font-size: 3rem;
             cursor: pointer;
-            transition: var(--transition-fast);
+            transition: 0.3s;
+            z-index: 2005;
         }
 
         .close-btn:hover {
             color: var(--accent);
+            transform: rotate(90deg);
         }
 
         @media (max-width: 1024px) {
             .hero-section {
                 grid-template-columns: 1fr;
+                gap: 2rem;
                 text-align: center;
             }
 
-            .systems-grid {
-                grid-template-columns: 1fr;
+            .hero-content {
+                padding-right: 0;
             }
 
-            .hero-title {
-                font-size: 2.5rem;
+            .hero-description {
+                border-left: none;
+                padding-left: 0;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .mini-highlights {
+                text-align: left;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
     <main class="container">
-        
+
         <!-- HERO SECTION -->
         <section class="hero-section">
-            <div class="hero-content">
-                <span class="project-tag">Survival Horror Prototype</span>
-                <h1 class="hero-title">Project Shelter</h1>
-                <p class="hero-description">A systemic survival game prototype set in a post-apocalyptic environment, focusing on tension, resource management, and strategic base defense.</p>
+            <div class="hero-content reveal-left">
+                <span class="project-tag">Unreal Engine Systems | Blueprints</span>
+                <h1 class="hero-title">Unreal Engine Systems</h1>
+                <p class="hero-description">
+                    A detailed overview of the core systems developed across my prototypes. Each section covers the
+                    technical implementation and design logic used to build functional and modular gameplay features.
+                </p>
                 <div class="mini-highlights">
-                    <h3>Key Highlights</h3>
+                    <h3>Technical Overview</h3>
+                    <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+                        Built with <span style="color:var(--accent);">Blueprints</span> for scalable system
+                        architecture.
+                    </p>
                     <ul class="highlight-list">
-                        <li><strong style="color:#fff;">Modular Base:</strong> Manage and upgrade a hub for repairs and storage.</li>
-                        <li><strong style="color:#fff;">Persistent Scarcity:</strong> Every bullet and scrap counts across sessions.</li>
-                        <li><strong style="color:#fff;">Reactive AI:</strong> Stealth-based encounters with dynamic enemy cycles.</li>
+                        <li>
+                            <strong style="color:#fff;">AI Architecture:</strong> Behavior Trees and Blackboard systems
+                            for complex decision-making.
+                        </li>
+                        <li>
+                            <strong style="color:#fff;">Data-Driven Design:</strong> DataTables and Data Assets for
+                            content scalability.
+                        </li>
+                        <li>
+                            <strong style="color:#fff;">Modular Framework:</strong> Component-based architecture for
+                            flexible system integration.
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="hero-image" onclick="openLightbox(this.querySelector('img'))">
-                <img src="../assets/img/PS_thumbnail.png" alt="Project Shelter Showcase">
-            </div>
-        </section>
 
-        <!-- CORE SYSTEMS -->
-        <section style="margin-top: 6rem;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; border-left: 4px solid var(--accent); padding-left: 1rem;">Core Systems</h2>
-            <div class="systems-grid">
-                <div class="system-card">
-                    <h4>Gathering <i class="fas fa-box-open"></i></h4>
-                    <p>Scavenge vital crafting components and supplies scattered throughout a dangerous world.</p>
-                </div>
-                <div class="system-card">
-                    <h4>Weaponry <i class="fas fa-crosshairs"></i></h4>
-                    <p>Loadout management focused on weapon durability and limited resource adaptation.</p>
-                </div>
-                <div class="system-card">
-                    <h4>Enemy AI <i class="fas fa-biohazard"></i></h4>
-                    <p>Finite state machine AI that dictates patrol, chase, and search behaviors based on environmental stimuli.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- VISUAL LOG -->
-        <section style="margin-top: 6rem; margin-bottom: 6rem;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; border-left: 4px solid var(--accent); padding-left: 1rem;">Visual Log</h2>
-            <div class="gallery-grid">
-                <!-- Trailer -->
-                <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                    <img src="../assets/img/PS_video_thumbnail.png" alt="Trailer" data-video="https://www.youtube.com/embed/qm-iAuqpmyY">
+            <div class="hero-media-wrapper reveal-right">
+                <div class="hero-image" onclick="openLightbox(this.querySelector('img'))">
+                    <img src="assets/img/PS_thumbnail.png" alt="Project Shelter Gameplay"
+                        data-video="https://www.youtube.com/embed/qm-iAuqpmyY"
+                        onerror="this.src='../assets/img/PS_thumbnail.png'">
                     <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-                    <div class="gallery-overlay"><span class="gallery-caption">Trailer</span></div>
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">Project Shelter Gameplay Showcase</span>
+                    </div>
                 </div>
-                <!-- Image 1 -->
-                <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                    <img src="../assets/img/PS_img1.png" alt="Enemies Screenshot">
-                    <div class="gallery-overlay"><span class="gallery-caption">AI Encounter</span></div>
+            </div>
+        </section>
+
+        <!-- SYSTEMS INDEX -->
+        <section class="systems-index">
+            <h2 class="index-title">Systems Overview</h2>
+            <div class="index-grid">
+                <a href="#ai-behavior" class="index-card">
+                    <div class="index-number">01</div>
+                    <h3>AI Behavior</h3>
+                    <p>Behavior Trees & Blackboards</p>
+                </a>
+                <a href="#dialogue-system" class="index-card">
+                    <div class="index-number">02</div>
+                    <h3>Dialogue System</h3>
+                    <p>Data-driven Architecture</p>
+                </a>
+                <a href="#save-load" class="index-card">
+                    <div class="index-number">03</div>
+                    <h3>Save/Load System</h3>
+                    <p>Persistent Data Management</p>
+                </a>
+                <a href="#data-layers" class="index-card">
+                    <div class="index-number">04</div>
+                    <h3>Data Layers</h3>
+                    <p>Streaming Optimization</p>
+                </a>
+                <a href="#ranged-weapons" class="index-card">
+                    <div class="index-number">05</div>
+                    <h3>Ranged Weapons</h3>
+                    <p>Ballistics & Recoil (C++)</p>
+                </a>
+                <a href="#reactive-ai" class="index-card">
+                    <div class="index-number">06</div>
+                    <h3>Reactive AI</h3>
+                    <p>Sensory Perception</p>
+                </a>
+                <a href="#interaction-system" class="index-card">
+                    <div class="index-number">07</div>
+                    <h3>Interaction System</h3>
+                    <p>Interface-based Framework</p>
+                </a>
+                <a href="#inventory-system" class="index-card">
+                    <div class="index-number">08</div>
+                    <h3>Inventory System</h3>
+                    <p>Grid-based Management</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION 1: AI BEHAVIOR -->
+        <section id="ai-behavior" class="detail-section reveal-up">
+            <div class="section-header">
+                <h3>AI Behavior</h3>
+                <div class="header-line"></div>
+            </div>
+            <p class="section-intro">
+                <span class="highlight-text">Wildlife AI</span> logic focused on environmental reactivity, using
+                Behavior Trees to manage simple state transitions and spatial awareness.
+            </p>
+            <div class="details-grid">
+                <div class="details-column">
+                    <h4>Technical Implementation</h4>
+                    <ul class="styled-list">
+                        <li>Behavior Trees for state-based logic (Idle, Roam, Chase)</li>
+                        <li>Blackboard system to store target locations and threat data</li>
+                        <li>NavMesh integration for smooth environmental navigation</li>
+                    </ul>
                 </div>
-                <!-- Image 2 -->
-                <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                    <img src="../assets/img/PS_img2.png" alt="Base Upgrade Screenshot">
-                    <div class="gallery-overlay"><span class="gallery-caption">Base Upgrade Manager</span></div>
+                <div class="details-column">
+                    <div class="impact-box">
+                        <h5>System Impact</h5>
+                        <p>Populates the world with reactive entities that respond to threats, creating a more immersive
+                            and "living" atmosphere through consistent behavioral patterns.</p>
+                    </div>
                 </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="https://img.youtube.com/vi/S-pPtJGzMQI/maxresdefault.jpg"
+                            alt="Wildlife AI Logic Walkthrough" data-video="https://www.youtube.com/embed/S-pPtJGzMQI">
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        <div class="gallery-overlay"><span class="gallery-caption">Behavior Showcase</span></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="../assets/img/AI_Behavior_01.png" alt="Dialogue System"
+                            onerror="this.style.background='#111'">
+                        <div class="gallery-overlay"><span class="gallery-caption">Wolf Attacking</span></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="../assets/img/AI_Behavior_02.png" alt="Dialogue System"
+                            onerror="this.style.background='#111'">
+                        <div class="gallery-overlay"><span class="gallery-caption">Wolf Chasing Animal Pack</span></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="../assets/img/AI_Behavior_03.png" alt="Dialogue System"
+                            onerror="this.style.background='#111'">
+                        <div class="gallery-overlay"><span class="gallery-caption">Animal Death Animation</span></div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="slideCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="slideCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 2: DIALOGUE SYSTEM -->
+        <section id="dialogue-system" class="detail-section reveal-up">
+            <div class="section-header">
+                <h3>Dialogue System</h3>
+                <div class="header-line"></div>
+            </div>
+            <p class="section-intro">
+                <span class="highlight-text">Dialogue System</span> built with data-driven architecture using DataTables
+                for scalable conversation management.
+            </p>
+            <div class="details-grid">
+                <div class="details-column">
+                    <h4>Core Features</h4>
+                    <ul class="styled-list">
+                        <li>Data-driven dialogue using DataTables</li>
+                        <li>Branching response system</li>
+                        <li>Consequence management and outcomes</li>
+                        <li>Modular conversation flow</li>
+                    </ul>
+                </div>
+                <div class="details-column">
+                    <div class="impact-box">
+                        <h5>Design Philosophy</h5>
+                        <p>Enables narrative branching while maintaining clean separation between content and code,
+                            allowing for rapid iteration and localization.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="https://img.youtube.com/vi/bF5XnBDBaYY/maxresdefault.jpg" alt="Dialogue System Video"
+                            data-video="https://www.youtube.com/embed/bF5XnBDBaYY"
+                            onerror="this.style.background='#111'">
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        <div class="gallery-overlay"><span class="gallery-caption">Dialogue Showcase</span></div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="slideCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="slideCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 3: SAVE/LOAD SYSTEM -->
+        <section id="save-load" class="detail-section reveal-up">
+            <div class="section-header">
+                <h3>Save/Load System</h3>
+                <div class="header-line"></div>
+            </div>
+            <p class="section-intro">
+                <span class="highlight-text">Save/Load System</span> handles persistent data across sessions including
+                inventory, stats, and world state.
+            </p>
+            <div class="details-grid">
+                <div class="details-column">
+                    <h4>Persistence Features</h4>
+                    <ul class="styled-list">
+                        <li>Inventory state preservation</li>
+                        <li>Player statistics tracking</li>
+                        <li>World state management</li>
+                        <li>Cross-session continuity</li>
+                    </ul>
+                </div>
+                <div class="details-column">
+                    <div class="impact-box">
+                        <h5>Technical Approach</h5>
+                        <p>Ensures seamless gameplay continuity by maintaining all critical game state data, supporting
+                            the survival genre's emphasis on long-term progression.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="https://img.youtube.com/vi/XDFOSub08_4/maxresdefault.jpg" alt="Save & Load System"
+                            data-video="https://www.youtube.com/embed/XDFOSub08_4">
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        <div class="gallery-overlay"><span class="gallery-caption">Save System Showcase</span></div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="slideCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="slideCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 4: DATA LAYERS -->
+        <section id="data-layers" class="detail-section reveal-up">
+            <div class="section-header">
+                <h3>Data Layers</h3>
+                <div class="header-line"></div>
+            </div>
+            <p class="section-intro">
+                <span class="highlight-text">Data Layers</span> utilized to manage the visual progression and state
+                changes of a <strong>modular base upgrade system</strong>.
+            </p>
+            <div class="details-grid">
+                <div class="details-column">
+                    <h4>Technical Implementation</h4>
+                    <ul class="styled-list">
+                        <li>Layer-based visibility for base tier progression</li>
+                        <li>Efficient state management for modular components</li>
+                        <li>Non-destructive workflow for switching upgrade levels</li>
+                        <li>Optimized memory usage by loading only active tiers</li>
+                    </ul>
+                </div>
+                <div class="details-column">
+                    <div class="impact-box">
+                        <h5>System Impact</h5>
+                        <p>Provides a seamless evolution of the player's base, allowing for complex visual changes and
+                            upgrades without the performance overhead of spawning/destroying multiple actors.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="https://img.youtube.com/vi/JPIuNL6xkYU/maxresdefault.jpg" alt="Data Layers System"
+                            data-video="https://www.youtube.com/embed/JPIuNL6xkYU">
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        <div class="gallery-overlay"><span class="gallery-caption">Base Upgrade</span></div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="slideCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="slideCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 5: RANGED WEAPONS -->
+        <section id="ranged-weapons" class="detail-section reveal-up">
+            <div class="section-header">
+                <h3>Weapon System</h3>
+                <div class="header-line"></div>
+            </div>
+            <p class="section-intro">
+                <span class="highlight-text">Weapon Handling</span> system managing the core loop of picking up,
+                swapping, and firing different weapon types.
+            </p>
+            <div class="details-grid">
+                <div class="details-column">
+                    <h4>Core Mechanics</h4>
+                    <ul class="styled-list">
+                        <li>Interaction system for weapon pickups</li>
+                        <li>Weapon swapping and inventory slots</li>
+                        <li>Projectile and Hitscan firing modes</li>
+                    </ul>
+                </div>
+                <div class="details-column">
+                    <div class="impact-box">
+                        <h5>System Impact</h5>
+                        <p>Provides a functional and responsive combat foundation, allowing players to interact with the
+                            environment and manage their arsenal efficiently during gameplay.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="https://img.youtube.com/vi/9W_9ffgREwg/maxresdefault.jpg" alt="Weapon System"
+                            data-video="https://www.youtube.com/embed/9W_9ffgREwg">
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        <div class="gallery-overlay"><span class="gallery-caption">Weapon Shooting</span></div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="slideCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="slideCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 6: INTERACTION SYSTEM -->
+        <section id="interaction-system" class="detail-section reveal-up">
+            <div class="section-header">
+                <h3>Interaction System</h3>
+                <div class="header-line"></div>
+            </div>
+            <p class="section-intro">
+                <span class="highlight-text">Interaction System</span> provides modular framework based on Interfaces
+                for extensible object interactions.
+            </p>
+            <div class="details-grid">
+                <div class="details-column">
+                    <h4>Framework Features</h4>
+                    <ul class="styled-list">
+                        <li>Interface-based modular design</li>
+                        <li>Extensible interaction types</li>
+                        <li>Context-sensitive prompts</li>
+                        <li>Scalable interaction framework</li>
+                    </ul>
+                </div>
+                <div class="details-column">
+                    <div class="impact-box">
+                        <h5>System Benefits</h5>
+                        <p>Enables rapid prototyping of new interaction types while maintaining code consistency and
+                            reducing development overhead for environmental objects.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="https://img.youtube.com/vi/83ophJGBrps/maxresdefault.jpg" alt="Interaction System"
+                            data-video="https://www.youtube.com/embed/83ophJGBrps">
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        <div class="gallery-overlay"><span class="gallery-caption">Interaction Showcase</span></div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="slideCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="slideCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 7: INVENTORY SYSTEM -->
+        <section id="inventory-system" class="detail-section reveal-up">
+            <div class="section-header">
+                <h3>Inventory System</h3>
+                <div class="header-line"></div>
+            </div>
+            <p class="section-intro">
+                <span class="highlight-text">Inventory System</span> features grid-based management using Data Assets
+                for flexible item configuration.
+            </p>
+            <div class="details-grid">
+                <div class="details-column">
+                    <h4>Management Features</h4>
+                    <ul class="styled-list">
+                        <li>Grid-based inventory layout</li>
+                        <li>Data Asset item configuration</li>
+                        <li>Item stacking</li>
+                    </ul>
+                </div>
+                <div class="details-column">
+                    <div class="impact-box">
+                        <h5>User Experience</h5>
+                        <p>Provides intuitive inventory management that supports the survival genre's emphasis on
+                            resource scarcity and strategic item organization.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                        <img src="https://img.youtube.com/vi/HfcyLA-LXfo/maxresdefault.jpg" alt="Inventory System Video"
+                            data-video="https://www.youtube.com/embed/HfcyLA-LXfo"
+                            onerror="this.style.background='#111'">
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        <div class="gallery-overlay"><span class="gallery-caption">Inventory Showcase</span></div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="slideCarousel(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="slideCarousel(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </section>
 
     </main>
+
+    <!-- Back to Index Button -->
+    <button class="back-to-index"
+        onclick="document.querySelector('.systems-index').scrollIntoView({behavior: 'smooth'})">
+        <i class="fas fa-th"></i>
+    </button>
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
@@ -267,9 +1125,11 @@
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
         <div class="close-btn" onclick="closeLightbox(event)">&times;</div>
-        <div class="lightbox-content-wrapper">
-            <img class="lightbox-content" id="lightbox-img" alt="Lightbox View">
-            <iframe id="lightbox-video" class="lightbox-video" style="display: none;" src="" frameborder="0" allowfullscreen></iframe>
+        <div class="lightbox-content-wrapper" onclick="closeLightbox(event)">
+            <img class="lightbox-content" id="lightbox-img" alt="Lightbox View" style="display: block;"
+                onclick="event.stopPropagation()">
+            <iframe id="lightbox-video" class="lightbox-video" style="display: none;" src="" frameborder="0"
+                allow="autoplay; encrypted-media" allowfullscreen onclick="event.stopPropagation()"></iframe>
         </div>
     </div>
 
@@ -279,43 +1139,131 @@
     <script src="../js/scroll-animations.js"></script>
     <script src="../js/lightbox.js"></script>
     <script>
-        // Lightbox functions
+        // --- SCROLL ANIMATION OBSERVER ---
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up').forEach(el => observer.observe(el));
+
+        // Initialize carousels on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.carousel-container').forEach(container => {
+                const track = container.querySelector('.carousel-track');
+                const items = track.querySelectorAll('.gallery-item');
+                const prevBtn = container.querySelector('.carousel-btn.prev');
+                const nextBtn = container.querySelector('.carousel-btn.next');
+
+                // Inicializar el slide actual
+                container.dataset.currentSlide = '0';
+
+                if (items.length <= 3) {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                } else {
+                    prevBtn.style.display = 'none'; // Hide prev initially
+                    nextBtn.style.display = 'flex';
+                }
+            });
+        });
+
+        // --- LIGHTBOX LOGIC ---
         let currentImages = [];
         let currentIndex = 0;
 
         function openLightbox(imgElement) {
             const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxVideo = document.getElementById('lightbox-video');
-            
-            // Recolectar todas las imágenes de galería
-            currentImages = Array.from(document.querySelectorAll('.gallery-item img'));
-            currentIndex = currentImages.indexOf(imgElement);
 
-            const videoSrc = imgElement.getAttribute('data-video');
-
-            if (videoSrc) {
-                lightboxImg.style.display = 'none';
-                lightboxVideo.style.display = 'block';
-                lightboxVideo.src = videoSrc + "?autoplay=1&rel=0";
+            // Find context (Gallery vs Hero)
+            const galleryContainer = imgElement.closest('.section-gallery') || imgElement.closest('.hero-media-wrapper');
+            if (galleryContainer) {
+                currentImages = Array.from(galleryContainer.querySelectorAll('img'));
             } else {
-                lightboxVideo.style.display = 'none';
-                lightboxVideo.src = "";
-                lightboxImg.style.display = 'block';
-                lightboxImg.src = imgElement.src;
+                currentImages = [imgElement];
             }
+
+            currentIndex = currentImages.indexOf(imgElement);
+            updateLightboxContent();
+
             lightbox.classList.add('show');
             document.body.style.overflow = 'hidden';
         }
 
+        function updateLightboxContent() {
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxVideo = document.getElementById('lightbox-video');
+            const currentEl = currentImages[currentIndex];
+            const videoSrc = currentEl.getAttribute('data-video');
+
+            if (videoSrc) {
+                lightboxImg.style.display = 'none';
+                lightboxVideo.style.display = 'block';
+                const sep = videoSrc.includes('?') ? '&' : '?';
+                lightboxVideo.src = videoSrc + sep + "autoplay=1&rel=0";
+            } else {
+                lightboxVideo.style.display = 'none';
+                lightboxVideo.src = "";
+                lightboxImg.style.display = 'block';
+                lightboxImg.src = currentEl.src;
+            }
+        }
+
         function closeLightbox(event) {
-            if (event.target.id === 'lightbox' || event.target.classList.contains('close-btn')) {
+            if (event.target.id === 'lightbox' ||
+                event.target.classList.contains('close-btn') ||
+                event.target.classList.contains('lightbox-content-wrapper')) {
+
                 const lightbox = document.getElementById('lightbox');
-                document.getElementById('lightbox-video').src = "";
+                const lightboxVideo = document.getElementById('lightbox-video');
+
                 lightbox.classList.remove('show');
                 document.body.style.overflow = '';
+
+                if (lightboxVideo) lightboxVideo.src = "";
             }
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (!document.getElementById('lightbox').classList.contains('show')) return;
+            if (event.key === "Escape") closeLightbox({ target: { id: 'lightbox' } });
+        });
+
+        // --- CAROUSEL LOGIC ---
+        function slideCarousel(direction) {
+            const clickedBtn = event.target.closest('.carousel-btn');
+            const container = clickedBtn.closest('.carousel-container');
+            const track = container.querySelector('.carousel-track');
+            const items = track.querySelectorAll('.gallery-item');
+            const totalItems = items.length;
+
+            let currentSlide = parseInt(container.dataset.currentSlide || '0');
+            const prevBtn = container.querySelector('.carousel-btn.prev');
+            const nextBtn = container.querySelector('.carousel-btn.next');
+
+            if (totalItems <= 3) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                return;
+            }
+
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide > totalItems - 3) currentSlide = totalItems - 3;
+
+            container.dataset.currentSlide = currentSlide;
+
+            const slideWidth = 33.333; // Each item takes 33.333% of container
+            track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+
+            prevBtn.style.display = currentSlide === 0 ? 'none' : 'flex';
+            nextBtn.style.display = currentSlide >= totalItems - 3 ? 'none' : 'flex';
         }
     </script>
 </body>
+
 </html>

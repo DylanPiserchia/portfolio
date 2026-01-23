@@ -49,7 +49,8 @@ Todas las variables están centralizadas para fácil mantenimiento:
 - `.card` - Tarjetas de proyectos
 - `.btn`, `.btn-primary`, `.btn-secondary` - Botones
 - `.grid` - Grid responsive
-- `.gallery-grid` - Galerías
+- `.section-gallery` - Galerías de imágenes
+- `.carousel-container` - Contenedor de carousel
 - `.styled-list` - Listas estilizadas
 - `.mini-highlights` - Cajas de highlight
 
@@ -85,6 +86,13 @@ Anima elementos con clases:
 - `.reveal-left` - Entra desde la izquierda
 - `.reveal-right` - Entra desde la derecha
 - `.reveal-up` - Entra desde abajo
+
+### Carousel (`js/carousel.js`)
+Sistema de carousel para galerías con muchas imágenes:
+- Muestra máximo 3 imágenes a la vez
+- Navegación con flechas externas
+- Se detiene al llegar al final (sin loop)
+- Responsive: 2 imágenes en tablet, 1 en móvil
 
 ---
 
@@ -205,18 +213,49 @@ const navHTML = `
     </div>
 </section>
 
-<!-- Detail Section 1 -->
+<!-- Detail Section con Gallery Grid -->
 <section class="detail-section reveal-up">
     <div class="section-header">
-        <h3>Sección 1</h3>
+        <h3>Sección con Gallery Grid</h3>
         <div class="header-line"></div>
     </div>
     <p class="section-intro">Introducción...</p>
     <div class="details-grid">
         <!-- Contenido en 2 columnas -->
     </div>
-    <div class="gallery-grid">
-        <!-- Galería de imágenes -->
+    <div class="section-gallery">
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+            <img src="..." alt="...">
+            <div class="gallery-overlay"><span class="gallery-caption">Caption</span></div>
+        </div>
+        <!-- Más gallery-items -->
+    </div>
+</section>
+
+<!-- Detail Section con Carousel -->
+<section class="detail-section reveal-up">
+    <div class="section-header">
+        <h3>Sección con Carousel</h3>
+        <div class="header-line"></div>
+    </div>
+    <p class="section-intro">Introducción...</p>
+    <div class="details-grid">
+        <!-- Contenido en 2 columnas -->
+    </div>
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                <img src="..." alt="...">
+                <div class="gallery-overlay"><span class="gallery-caption">Caption</span></div>
+            </div>
+            <!-- Más gallery-items -->
+        </div>
+        <button class="carousel-btn prev" onclick="slideCarousel(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn next" onclick="slideCarousel(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
     </div>
 </section>
 ```
@@ -240,9 +279,28 @@ const navHTML = `
     <div class="card">...</div>
 </div>
 
-<!-- Grid de galería -->
-<div class="gallery-grid">
-    <div class="gallery-item">...</div>
+<!-- Grid de galería (para pocas imágenes) -->
+<div class="section-gallery">
+    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+        <img src="..." alt="...">
+        <div class="gallery-overlay"><span class="gallery-caption">Caption</span></div>
+    </div>
+</div>
+
+<!-- Carousel (para muchas imágenes) -->
+<div class="carousel-container">
+    <div class="carousel-track">
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+            <img src="..." alt="...">
+            <div class="gallery-overlay"><span class="gallery-caption">Caption</span></div>
+        </div>
+    </div>
+    <button class="carousel-btn prev" onclick="slideCarousel(-1)">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="carousel-btn next" onclick="slideCarousel(1)">
+        <i class="fas fa-chevron-right"></i>
+    </button>
 </div>
 ```
 
