@@ -1,379 +1,210 @@
-# 📋 Portfolio de Dylan Piserchia - Documentación
+# Portfolio — Dylan Piserchia
 
-## 📁 Estructura de Carpetas
-
-```
-portfolio/
-├── css/                    # Estilos modulares
-│   ├── variables.css      # Variables y estilos base
-│   ├── components.css     # Componentes reutilizables
-│   ├── navbar.css         # Estilos de navegación
-│   └── footer.css         # Estilos de pie de página
-│
-├── js/                     # Scripts modulares
-│   ├── navbar.js          # Componente navbar
-│   ├── footer.js          # Componente footer
-│   ├── lightbox.js        # Componente lightbox
-│   └── scroll-animations.js # Animaciones de scroll
-│
-├── pages/                  # Páginas adicionales
-│   ├── about.html         # Página About
-│   ├── star-trek-infinite.html  # Proyecto 1
-│   └── project-shelter.html     # Proyecto 2
-│
-├── assets/
-│   └── img/               # Imágenes del portfolio
-│
-├── index.html             # Página principal
-└── README.md             # Este archivo
-```
+Sitio estático, sin build ni dependencias: son archivos HTML, CSS y JS que
+GitHub Pages sirve tal cual. Lo que subís a `main` es exactamente lo que se
+publica.
 
 ---
 
-## 🎨 Sistema de Diseño
+## Ver el sitio en tu máquina
 
-### Variables CSS (css/variables.css)
-Todas las variables están centralizadas para fácil mantenimiento:
+Abrir los HTML con doble clic **no funciona bien**: los navegadores bloquean
+parte del JavaScript en archivos locales. Levantá un servidor:
 
-```css
-:root {
-    --bg-dark: #080a0c;
-    --accent: #00d4ff;
-    --text-main: #e0e0e0;
-    --nav-height: 70px;
-    --transition-fast: 0.3s cubic-bezier(...);
-}
+```bash
+python -m http.server 8000
 ```
 
-### Componentes Reutilizables (css/components.css)
-- `.card` - Tarjetas de proyectos
-- `.btn`, `.btn-primary`, `.btn-secondary` - Botones
-- `.grid` - Grid responsive
-- `.section-gallery` - Galerías de imágenes
-- `.carousel-container` - Contenedor de carousel
-- `.styled-list` - Listas estilizadas
-- `.mini-highlights` - Cajas de highlight
+Y entrá a <http://localhost:8000>. Ctrl+C para cortarlo.
 
 ---
 
-## 🏗️ Componentes JavaScript
+## Estructura
 
-### Navbar (`js/navbar.js`)
-Inyecta automáticamente la barra de navegación en el `#navbar-placeholder`:
-```html
-<div id="navbar-placeholder"></div>
+```
+index.html                    Home: hero + tarjetas de proyecto
+pages/
+  about.html                  Sobre mí
+  star-trek-infinite.html     Proyecto
+  project-shelter.html        Proyecto (Unreal Engine Systems)
+  PROJECT_TEMPLATE.html       Plantilla para páginas nuevas
+css/
+  variables.css               Colores, medidas y transiciones. Se carga en todas.
+  components.css              Botones, tarjetas, tags, accesibilidad
+  navbar.css / footer.css     Navegación y pie
+  level-system.css            Badge de nivel y barra de XP
+  page.css                    Base de las páginas internas (tema + contenedor 1600px)
+  project.css                 Hero, secciones, galerías, carousel y lightbox
+  home.css / about.css        Lo específico de esas dos páginas
+  star-trek.css               Un único ajuste de esa página (padding del footer)
+js/
+  analytics.js                Google Analytics (el ID vive acá y en ningún otro lado)
+  navbar.js                   Navbar + sistema de XP
+  footer.js                   Footer + botón de reset del nivel
+  scroll-animations.js        Aparición de secciones al scrollear
+  lightbox.js                 Visor de imágenes y videos
+  carousel.js                 Carousels (varios por página)
+assets/
+  img/                        Las imágenes que usa el sitio, en .webp
+  img/_originals/             Los archivos originales, sin comprimir. No se sirven.
+  og/                         Imágenes de preview para LinkedIn/X/WhatsApp
+  favicon.svg, favicon.png
+tools/
+  optimize-images.py          Convierte imágenes nuevas a WebP
+  gamification-test.js        Diagnóstico del sistema de XP (pegar en la consola)
 ```
 
-**Características:**
-- Links activos automáticos
-- Menú mobile responsive
-- Gestión de rutas
+### En qué orden se cargan los CSS
 
-### Footer (`js/footer.js`)
-Inyecta automáticamente el footer en el `#footer-placeholder`:
-```html
-<div id="footer-placeholder"></div>
-```
+Importa, porque el último gana:
 
-### Lightbox (`js/lightbox.js`)
-Sistema de galería con navegación por teclado:
-- Click en imagen abre modal
-- Flechas izquierda/derecha navegan
-- ESC cierra la modal
+| Página | Hojas de estilo |
+|---|---|
+| `index.html` | variables, components, navbar, footer, level-system, **home** |
+| `about.html` | variables, components, navbar, footer, level-system, **page**, **about** |
+| páginas de proyecto | variables, components, navbar, footer, level-system, **page**, **project** |
 
-### Scroll Animations (`js/scroll-animations.js`)
-Anima elementos con clases:
-- `.reveal-left` - Entra desde la izquierda
-- `.reveal-right` - Entra desde la derecha
-- `.reveal-up` - Entra desde abajo
-
-### Carousel (`js/carousel.js`)
-Sistema de carousel para galerías con muchas imágenes:
-- Muestra máximo 3 imágenes a la vez
-- Navegación con flechas externas
-- Se detiene al llegar al final (sin loop)
-- Responsive: 2 imágenes en tablet, 1 en móvil
+`project-shelter.html` además lleva `class="project-compact"` en el `<body>`:
+usa las mismas reglas con medidas algo más ajustadas.
 
 ---
 
-## 🆕 Cómo Agregar Nuevas Páginas
+## Agregar un proyecto nuevo
 
-### 1. Crear una Página de Proyecto
+> Esto es lo que hay hoy. Está pendiente reemplazarlo por un sistema donde
+> cada proyecto sea un archivo de texto y la página se genere sola.
 
-Copiar este template en `pages/nuevo-proyecto.html`:
+**1. Copiar la plantilla**
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nombre Proyecto - Dylan Piserchia</title>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Global Styles -->
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/components.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/footer.css">
-
-    <style>
-        /* TUS ESTILOS ESPECÍFICOS AQUÍ */
-    </style>
-</head>
-<body>
-    <!-- Navbar Placeholder -->
-    <div id="navbar-placeholder"></div>
-
-    <main class="container">
-        <!-- CONTENIDO DE LA PÁGINA -->
-    </main>
-
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
-
-    <!-- Scripts -->
-    <script src="../js/navbar.js"></script>
-    <script src="../js/footer.js"></script>
-    <script src="../js/scroll-animations.js"></script>
-</body>
-</html>
+```bash
+cp pages/PROJECT_TEMPLATE.html pages/mi-proyecto.html
 ```
 
-### 2. Agregar Link en index.html
+**2. Editar el `<head>`**
 
-En `index.html`, dentro de la sección `#projects`, agregá una tarjeta:
+Cambiar `title`, `description`, `canonical`, `og:title`, `og:description` y
+`og:url` por los del proyecto nuevo, y borrar la línea
+`<meta name="robots" content="noindex">` (está solo para que la plantilla no
+aparezca en Google).
 
-```html
-<a href="pages/nuevo-proyecto.html" class="card">
-    <div class="card-img-wrapper">
-        <img src="assets/img/nueva-imagen.jpg" alt="Nuevo Proyecto" class="card-img">
-    </div>
-    <div class="card-content">
-        <span class="card-category">CATEGORÍA • GÉNERO</span>
-        <h3>Nombre del Proyecto</h3>
-        <p>Descripción breve del proyecto.</p>
-        
-        <div class="card-footer">
-            <div class="tags">
-                <span class="tag">Tag1</span>
-                <span class="tag">Tag2</span>
-            </div>
-            <span class="view-project">View <i class="fas fa-arrow-right"></i></span>
-        </div>
-    </div>
-</a>
+**3. Escribir el contenido**
+
+La plantilla ya trae la estructura: hero, secciones de detalle con dos
+columnas, galería y carousel. Reemplazá los textos entre corchetes.
+
+**4. Preparar las imágenes**
+
+Copiá los PNG o JPG a `assets/img/` y corré:
+
+```bash
+python tools/optimize-images.py
 ```
 
-### 3. Agregar Link en Navbar
+Deja los `.webp` listos y guarda los originales en `_originals/`. En el HTML
+referenciá siempre el `.webp`, con `loading="lazy"`, `decoding="async"` y los
+atributos `width` y `height` (el script te imprime las medidas).
 
-Editar `js/navbar.js`:
+**5. Imagen de preview**
 
-```javascript
-const navHTML = `
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">DP.</a>
-            <!-- ... -->
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="pages/about.html">About</a></li>
-                <li><a href="pages/nuevo-proyecto.html">Nuevo Proyecto</a></li>
-            </ul>
-        </div>
-    </nav>
-`;
-```
+Para que el link muestre imagen al compartirlo hace falta un archivo de
+1200x630 en `assets/og/`, apuntado desde el `og:image` de la página.
+
+**6. Agregar la tarjeta en la home**
+
+En `index.html`, dentro de `<div class="grid">`, duplicá un bloque `<a class="card">`
+y cambiá el link, la imagen, la categoría, el título, la descripción y los tags.
 
 ---
 
-## 📋 Estructura de una Página de Proyecto
+## Componentes que podés usar
 
-### Layout Recomendado:
+**Animación de entrada** — la sección aparece al scrollear:
 
 ```html
-<!-- Hero Section -->
-<section class="hero-section">
-    <div class="hero-content">
-        <span class="project-tag">CATEGORÍA</span>
-        <h1 class="hero-title">Nombre del Proyecto</h1>
-        <p class="hero-description">Descripción...</p>
-        <div class="mini-highlights">
-            <!-- Highlights aquí -->
-        </div>
-    </div>
-    <div class="hero-media-wrapper">
-        <div class="hero-image" onclick="openLightbox(this.querySelector('img'))">
-            <img src="..." alt="...">
-        </div>
-    </div>
-</section>
-
-<!-- Detail Section con Gallery Grid -->
-<section class="detail-section reveal-up">
-    <div class="section-header">
-        <h3>Sección con Gallery Grid</h3>
-        <div class="header-line"></div>
-    </div>
-    <p class="section-intro">Introducción...</p>
-    <div class="details-grid">
-        <!-- Contenido en 2 columnas -->
-    </div>
-    <div class="section-gallery">
-        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-            <img src="..." alt="...">
-            <div class="gallery-overlay"><span class="gallery-caption">Caption</span></div>
-        </div>
-        <!-- Más gallery-items -->
-    </div>
-</section>
-
-<!-- Detail Section con Carousel -->
-<section class="detail-section reveal-up">
-    <div class="section-header">
-        <h3>Sección con Carousel</h3>
-        <div class="header-line"></div>
-    </div>
-    <p class="section-intro">Introducción...</p>
-    <div class="details-grid">
-        <!-- Contenido en 2 columnas -->
-    </div>
-    <div class="carousel-container">
-        <div class="carousel-track">
-            <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                <img src="..." alt="...">
-                <div class="gallery-overlay"><span class="gallery-caption">Caption</span></div>
-            </div>
-            <!-- Más gallery-items -->
-        </div>
-        <button class="carousel-btn prev" onclick="slideCarousel(-1)">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-btn next" onclick="slideCarousel(1)">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-    </div>
-</section>
+<section class="detail-section reveal-up">   <!-- o reveal-left / reveal-right -->
 ```
 
----
+**Galería** (pocas imágenes, en grilla):
 
-## 🎯 Clases Útiles
-
-### Animaciones
 ```html
-<!-- Aparecen cuando entran en viewport -->
-<div class="reveal-left">Contenido</div>
-<div class="reveal-right">Contenido</div>
-<div class="reveal-up">Contenido</div>
-```
-
-### Grid y Layout
-```html
-<!-- Grid automático de tarjetas -->
-<div class="grid">
-    <div class="card">...</div>
-</div>
-
-<!-- Grid de galería (para pocas imágenes) -->
 <div class="section-gallery">
     <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="..." alt="...">
-        <div class="gallery-overlay"><span class="gallery-caption">Caption</span></div>
+        <img src="../assets/img/foto.webp" alt="Descripción real de la imagen"
+             loading="lazy" decoding="async" width="1600" height="900">
+        <div class="gallery-overlay"><span class="gallery-caption">Epígrafe</span></div>
     </div>
 </div>
+```
 
-<!-- Carousel (para muchas imágenes) -->
+**Carousel** (muchas imágenes). Las flechas se ocultan solas si no hay a dónde
+avanzar, y podés poner varios en la misma página:
+
+```html
 <div class="carousel-container">
-    <div class="carousel-track">
-        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-            <img src="..." alt="...">
-            <div class="gallery-overlay"><span class="gallery-caption">Caption</span></div>
+    <button type="button" class="carousel-btn prev" aria-label="Imagen anterior"
+            onclick="slideCarousel(-1, event)"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-viewport">
+        <div class="carousel-track">
+            <!-- gallery-item, uno por imagen -->
         </div>
     </div>
-    <button class="carousel-btn prev" onclick="slideCarousel(-1)">
-        <i class="fas fa-chevron-left"></i>
-    </button>
-    <button class="carousel-btn next" onclick="slideCarousel(1)">
-        <i class="fas fa-chevron-right"></i>
-    </button>
+    <button type="button" class="carousel-btn next" aria-label="Imagen siguiente"
+            onclick="slideCarousel(1, event)"><i class="fas fa-chevron-right"></i></button>
 </div>
 ```
 
-### Componentes
+**Video de YouTube** — el lightbox lo reconoce por el `data-video`. La imagen
+es la miniatura sobre la que se hace clic:
+
 ```html
-<!-- Botón -->
-<a href="#" class="btn btn-primary">Click me</a>
-
-<!-- Etiqueta -->
-<span class="tag">Tag</span>
-
-<!-- Lista estilizada -->
-<ul class="styled-list">
-    <li>Elemento</li>
-</ul>
+<div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+    <img src="../assets/img/miniatura.webp" alt="..."
+         data-video="https://www.youtube.com/embed/ID_DEL_VIDEO">
+    <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+</div>
 ```
 
----
-
-## 🔧 Customización
-
-### Cambiar Colores
-Editar `css/variables.css`:
-```css
-:root {
-    --accent: #00d4ff;           /* Color principal */
-    --text-main: #e0e0e0;        /* Texto principal */
-    --bg-dark: #080a0c;          /* Fondo */
-}
-```
-
-### Cambiar Tipografía
-Las fuentes se cargan desde Google Fonts en el `<head>` de cada página.
-
-### Responsive
-Todos los estilos incluyen breakpoints móviles (`@media (max-width: 768px)`).
+**Otros**: `.btn` / `.btn-primary`, `.tag`, `.styled-list`, `.impact-box`,
+`.mini-highlights` con `.highlight-list`.
 
 ---
 
-## 📱 Mobile First
+## Sistema de niveles
 
-La estructura está optimizada para mobile:
-- Navbar responsivo con menú hamburguesa
-- Grid que se adapta a 1 columna en mobile
-- Imágenes que respetan viewport
-- Touch-friendly buttons
+Es un detalle de la navbar, manejado por `js/navbar.js`.
 
----
+- Cada página distinta que visita alguien suma **25 XP**.
+- Descargar el CV suma **100 XP**.
+- Para pasar de nivel N hacen falta `N × 100` XP.
+- Todo vive en el `localStorage` del visitante, bajo la clave `portfolio_data`.
+  No se guarda nada en ningún servidor.
+- El botón *Reset Level* del footer borra ese dato.
 
-## ✅ Checklist para Nueva Página
-
-- [ ] Crear archivo HTML en `pages/`
-- [ ] Incluir links CSS correctos (con `../css/`)
-- [ ] Agregar `<div id="navbar-placeholder"></div>`
-- [ ] Agregar `<div id="footer-placeholder"></div>`
-- [ ] Incluir scripts JS necesarios
-- [ ] Agregar link en `index.html` dentro de `#projects`
-- [ ] Actualizar navbar en `js/navbar.js`
-- [ ] Añadir imágenes a `assets/img/`
-- [ ] Testear en mobile y desktop
+Para revisarlo, pegá el contenido de `tools/gamification-test.js` en la consola
+del navegador.
 
 ---
 
-## 🚀 Deployment
+## Analytics
 
-Las páginas son estáticas y puedes deployar a:
-- GitHub Pages
-- Vercel
-- Netlify
-- Tu propio servidor web
-
-Solo sube la carpeta completa sin cambios de rutas.
+El tag de GA4 lo inyecta `js/analytics.js`, que cargan las cinco páginas. Si
+alguna vez cambia el ID de medición, se cambia **solo ahí**.
 
 ---
 
-**Última actualización:** Enero 2025
+## Antes de subir
+
+- [ ] Lo miraste con `python -m http.server`, en desktop y achicando la ventana
+- [ ] Las imágenes nuevas pasaron por `tools/optimize-images.py`
+- [ ] Cada `<img>` tiene un `alt` que describe lo que se ve
+- [ ] El `<head>` tiene el título, la descripción y el `og:image` correctos
+- [ ] La consola del navegador no tira errores
+
+---
+
+## Deploy
+
+`git push` a `main`. GitHub Pages publica en un minuto.
+
+Para cambios grandes conviene trabajar en una rama y recién mergear después de
+verlo funcionando.
