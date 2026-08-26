@@ -81,7 +81,7 @@
             </div>
             <div class="hero-media-wrapper reveal-right">
                 <div class="hero-image" onclick="openLightbox(this.querySelector('img'))">
-                    <img src="../assets/img/[IMAGEN_HERO]" alt="[TITULO] Showcase">
+                    <img decoding="async" fetchpriority="high" src="../assets/img/[IMAGEN_HERO]" alt="[TITULO] Showcase">
                 </div>
             </div>
         </section>
@@ -118,15 +118,15 @@
             <!-- Gallery -->
             <div class="gallery-grid">
                 <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                    <img src="../assets/img/imagen1.jpg" alt="Caption 1">
+                    <img loading="lazy" decoding="async" src="../assets/img/imagen1.webp" alt="Caption 1">
                     <div class="gallery-overlay"><span class="gallery-caption">Caption 1</span></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                    <img src="../assets/img/imagen2.jpg" alt="Caption 2">
+                    <img loading="lazy" decoding="async" src="../assets/img/imagen2.webp" alt="Caption 2">
                     <div class="gallery-overlay"><span class="gallery-caption">Caption 2</span></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                    <img src="../assets/img/imagen3.jpg" alt="Caption 3">
+                    <img loading="lazy" decoding="async" src="../assets/img/imagen3.webp" alt="Caption 3">
                     <div class="gallery-overlay"><span class="gallery-caption">Caption 3</span></div>
                 </div>
             </div>
@@ -163,11 +163,11 @@
             <!-- Gallery -->
             <div class="gallery-grid">
                 <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                    <img src="../assets/img/imagen4.jpg" alt="Caption 4">
+                    <img loading="lazy" decoding="async" src="../assets/img/imagen4.webp" alt="Caption 4">
                     <div class="gallery-overlay"><span class="gallery-caption">Caption 4</span></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                    <img src="../assets/img/imagen5.jpg" alt="Caption 5">
+                    <img loading="lazy" decoding="async" src="../assets/img/imagen5.webp" alt="Caption 5">
                     <div class="gallery-overlay"><span class="gallery-caption">Caption 5</span></div>
                 </div>
             </div>
@@ -187,7 +187,7 @@
         </button>
 
         <div class="lightbox-content-wrapper">
-            <img class="lightbox-content" id="lightbox-img" alt="Lightbox View" style="display: block;">
+            <img loading="lazy" decoding="async" class="lightbox-content" id="lightbox-img" alt="Lightbox View" style="display: block;">
             <iframe id="lightbox-video" class="lightbox-video" style="display: none;" frameborder="0" allowfullscreen></iframe>
         </div>
 
