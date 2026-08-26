@@ -180,18 +180,18 @@
 
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
-        <div class="close-btn" onclick="closeLightbox(event)">&times;</div>
+        <button type="button" class="close-btn" aria-label="Cerrar" onclick="closeLightbox(event)">&times;</button>
         
-        <button class="nav-btn prev" onclick="changeImage(-1, event)">
+        <button type="button" class="nav-btn prev" aria-label="Imagen anterior" onclick="changeImage(-1, event)">
             <i class="fas fa-chevron-left"></i>
         </button>
 
         <div class="lightbox-content-wrapper">
-            <img loading="lazy" decoding="async" class="lightbox-content" id="lightbox-img" alt="Lightbox View" style="display: block;">
+            <img decoding="async" class="lightbox-content" id="lightbox-img" alt="Lightbox View" style="display: block;">
             <iframe id="lightbox-video" class="lightbox-video" style="display: none;" frameborder="0" allowfullscreen></iframe>
         </div>
 
-        <button class="nav-btn next" onclick="changeImage(1, event)">
+        <button type="button" class="nav-btn next" aria-label="Imagen siguiente" onclick="changeImage(1, event)">
             <i class="fas fa-chevron-right"></i>
         </button>
     </div>

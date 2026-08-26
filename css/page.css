@@ -6,7 +6,6 @@
    =========================== */
 
 :root {
-    --bg-dark: #0b0d10;
     --bg-panel: rgba(26, 29, 36, 0.6);
     --accent: #00d4ff;
     --accent-glow: rgba(0, 212, 255, 0.15);
@@ -21,9 +20,6 @@ html { scroll-behavior: smooth; }
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--bg-dark);
-    background-image:
-        radial-gradient(circle at 10% 20%, rgba(0, 212, 255, 0.03) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(0, 212, 255, 0.03) 0%, transparent 20%);
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;

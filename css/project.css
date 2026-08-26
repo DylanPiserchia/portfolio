@@ -229,6 +229,8 @@
 .close-btn {
     position: absolute; top: 30px; right: 40px;
     color: #fff; font-size: 3rem; cursor: pointer; transition: 0.3s; z-index: 2005;
+    background: transparent; border: none; padding: 0; line-height: 1;
+    font-family: inherit;
 }
 .close-btn:hover { color: var(--accent); transform: rotate(90deg); }
 
@@ -445,4 +447,20 @@
 
 @media (max-width: 480px) {
     .project-compact .carousel-track .gallery-item { flex: 0 0 100%; }
+}
+
+/* ===========================
+   DETALLES
+   =========================== */
+
+/* Fondo tenue mientras la imagen baja: el hueco no queda en blanco
+   y la pagina se siente mas rapida aunque tarde lo mismo. */
+.gallery-item,
+.hero-image {
+    background-color: #14181f;
+}
+
+/* Mismo aire bajo la navbar que en la home, tambien en mobile. */
+@media (max-width: 768px) {
+    .hero-section { padding-top: 2.5rem; }
 }

@@ -188,10 +188,10 @@
                         <div class="gallery-overlay"><span class="gallery-caption">Animal Death Animation</span></div>
                     </div>
                 </div>
-                <button class="carousel-btn prev" onclick="slideCarousel(-1, event)">
+                <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="carousel-btn next" onclick="slideCarousel(1, event)">
+                <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -236,10 +236,10 @@
                         <div class="gallery-overlay"><span class="gallery-caption">Dialogue Showcase</span></div>
                     </div>
                 </div>
-                <button class="carousel-btn prev" onclick="slideCarousel(-1, event)">
+                <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="carousel-btn next" onclick="slideCarousel(1, event)">
+                <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -282,10 +282,10 @@
                         <div class="gallery-overlay"><span class="gallery-caption">Save System Showcase</span></div>
                     </div>
                 </div>
-                <button class="carousel-btn prev" onclick="slideCarousel(-1, event)">
+                <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="carousel-btn next" onclick="slideCarousel(1, event)">
+                <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -328,10 +328,10 @@
                         <div class="gallery-overlay"><span class="gallery-caption">Base Upgrade</span></div>
                     </div>
                 </div>
-                <button class="carousel-btn prev" onclick="slideCarousel(-1, event)">
+                <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="carousel-btn next" onclick="slideCarousel(1, event)">
+                <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -373,10 +373,10 @@
                         <div class="gallery-overlay"><span class="gallery-caption">Weapon Shooting</span></div>
                     </div>
                 </div>
-                <button class="carousel-btn prev" onclick="slideCarousel(-1, event)">
+                <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="carousel-btn next" onclick="slideCarousel(1, event)">
+                <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -419,10 +419,10 @@
                         <div class="gallery-overlay"><span class="gallery-caption">Interaction Showcase</span></div>
                     </div>
                 </div>
-                <button class="carousel-btn prev" onclick="slideCarousel(-1, event)">
+                <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="carousel-btn next" onclick="slideCarousel(1, event)">
+                <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -465,10 +465,10 @@
                         <div class="gallery-overlay"><span class="gallery-caption">Inventory Showcase</span></div>
                     </div>
                 </div>
-                <button class="carousel-btn prev" onclick="slideCarousel(-1, event)">
+                <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="carousel-btn next" onclick="slideCarousel(1, event)">
+                <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -487,13 +487,21 @@
 
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
-        <div class="close-btn" onclick="closeLightbox(event)">&times;</div>
+        <button type="button" class="close-btn" aria-label="Cerrar" onclick="closeLightbox(event)">&times;</button>
+
+        <button type="button" class="nav-btn prev" aria-label="Imagen anterior" onclick="changeImage(-1, event)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
         <div class="lightbox-content-wrapper" onclick="closeLightbox(event)">
-            <img loading="lazy" decoding="async" class="lightbox-content" id="lightbox-img" alt="Lightbox View" style="display: block;"
+            <img decoding="async" class="lightbox-content" id="lightbox-img" alt="Lightbox View" style="display: block;"
                 onclick="event.stopPropagation()">
             <iframe id="lightbox-video" class="lightbox-video" style="display: none;" src="" frameborder="0"
                 allow="autoplay; encrypted-media" allowfullscreen onclick="event.stopPropagation()"></iframe>
         </div>
+
+        <button type="button" class="nav-btn next" aria-label="Imagen siguiente" onclick="changeImage(1, event)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
     </div>
 
     <!-- Components & Scripts -->
