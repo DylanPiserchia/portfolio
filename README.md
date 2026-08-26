@@ -1,8 +1,15 @@
 # Portfolio — Dylan Piserchia
 
+**En vivo:** <https://zenithardev.github.io/portfolio/>
+
 Sitio estático, sin build ni dependencias: son archivos HTML, CSS y JS que
 GitHub Pages sirve tal cual. Lo que subís a `main` es exactamente lo que se
 publica.
+
+> Esa dirección aparece en el `canonical`, el `og:url` y el `og:image` de cada
+> página. Si algún día cambiás de dominio o de nombre de usuario, hay que
+> reemplazarla en las 5 páginas **y** regenerar las imágenes de `assets/og/`,
+> que la llevan impresa abajo a la izquierda.
 
 ---
 
