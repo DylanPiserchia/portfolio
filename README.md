@@ -53,7 +53,9 @@ js/
   carousel.js                 Carousels (varios por página)
 assets/
   img/                        Las imágenes que usa el sitio, en .webp
-  img/_originals/             Los archivos originales, sin comprimir. No se sirven.
+  img/_originals/             Los archivos originales, sin comprimir. GitHub Pages
+                              no publica carpetas que empiezan con _, así que están
+                              en el repo como respaldo pero nadie se los baja.
   og/                         Imágenes de preview para LinkedIn/X/WhatsApp
   favicon.svg, favicon.png
 tools/
