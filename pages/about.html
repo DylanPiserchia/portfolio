@@ -4,201 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Dylan Piserchia</title>
-    
+    <meta name="description" content="Game designer specialising in systems design, mechanical balance and technical documentation. Background, skills and tools.">
+    <link rel="canonical" href="https://dylanpiserchia.github.io/portfolio/pages/about.html">
+
+    <!-- Preview del link (LinkedIn, X, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dylan Piserchia - Game Design Portfolio">
+    <meta property="og:title" content="About - Dylan Piserchia">
+    <meta property="og:description" content="Game designer specialising in systems design, mechanical balance and technical documentation. Background, skills and tools.">
+    <meta property="og:url" content="https://dylanpiserchia.github.io/portfolio/pages/about.html">
+    <meta property="og:image" content="https://dylanpiserchia.github.io/portfolio/assets/og/about.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="alternate icon" href="../assets/favicon.png">
+    <meta name="theme-color" content="#0b0d10">
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Global Styles -->
+    <!-- Estilos -->
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/level-system.css">
+    <link rel="stylesheet" href="../css/page.css">
+    <link rel="stylesheet" href="../css/about.css">
 
-    <style>
-        /* --- ESTILOS BASE (Identical to Star Trek) --- */
-        :root {
-            --bg-dark: #0b0d10;
-            --bg-panel: rgba(26, 29, 36, 0.6);
-            --accent: #00d4ff;
-            --accent-glow: rgba(0, 212, 255, 0.15);
-            --text-main: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --border-color: #2c313a;
-            --transition-fast: 0.3s;
-            --transition-medium: 0.5s;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bg-dark);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 212, 255, 0.03) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(0, 212, 255, 0.03) 0%, transparent 20%);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; color: #fff; letter-spacing: 1px; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        img { max-width: 100%; display: block; border-radius: 4px; }
-        ul { list-style: none; }
-
-        /* Layout Container */
-        main { margin-top: 80px; padding-bottom: 12rem; }
-        .container { max-width: 1600px; margin: 0 auto; padding: 0 2rem; }
-
-        /* --- ANIMACIONES DE ENTRADA --- */
-        .reveal-left, .reveal-right, .reveal-up { 
-            opacity: 0; transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); 
-        }
-        .reveal-left { transform: translateX(-50px); }
-        .reveal-right { transform: translateX(50px); }
-        .reveal-up { transform: translateY(40px); }
-        .active { opacity: 1; transform: translate(0); }
-
-        /* ABOUT PAGE SPECIFIC STYLES */
-
-        /* Profile Card */
-        .profile-card {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 4rem;
-            align-items: start;
-            margin: 4rem 0;
-            padding: 3rem;
-            background: var(--bg-panel);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            backdrop-filter: blur(5px);
-        }
-
-        .profile-img {
-            width: 100%;
-            border-radius: 12px;
-            border: 2px solid var(--accent);
-            box-shadow: 0 0 30px var(--accent-glow);
-            aspect-ratio: 1;
-            object-fit: cover;
-        }
-
-        .profile-info h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-
-        .role {
-            color: var(--accent);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .profile-info p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        /* Skills Section */
-        .skills-section {
-            margin: 6rem 0;
-        }
-
-        .section-header {
-            margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem;
-        }
-        .section-header h3 { font-size: 2.5rem; }
-        .header-line { flex-grow: 1; height: 1px; background: linear-gradient(to right, var(--accent), transparent); }
-
-        .skills-section h3 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 1rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background: var(--bg-panel);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            transition: var(--transition-fast);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-            background: rgba(0, 212, 255, 0.05);
-        }
-
-        .skill-icon {
-            font-size: 3rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-        }
-
-        .skill-card h4 {
-            font-size: 1.1rem;
-            color: #fff;
-            text-transform: uppercase;
-            margin-top: 1rem;
-            letter-spacing: 1px;
-        }
-
-        /* Button Styles */
-        .btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 12px 28px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;
-            background: transparent; border: 1px solid var(--border-color); color: #fff;
-            transition: 0.3s;
-        }
-        .btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(0, 212, 255, 0.05); }
-        /* Action Buttons */
-        .action-buttons {
-            display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap;
-        }
-        .btn-primary { border-color: var(--accent); color: var(--accent); }
-        .btn-primary:hover { background: var(--accent); color: #000; box-shadow: 0 0 15px var(--accent-glow); }
-        .btn-secondary { border-color: var(--accent); color: var(--accent); }
-        .btn-secondary:hover { background: var(--accent); color: #000; box-shadow: 0 0 15px var(--accent-glow); }
-
-        @media (max-width: 1024px) {
-            .profile-card {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+    <script src="../js/analytics.js"></script>
 </head>
 <body>
     <!-- Navbar Placeholder -->
@@ -270,22 +112,9 @@
     <div id="footer-placeholder"></div>
 
     <!-- Components & Scripts -->
+    
     <script src="../js/navbar.js"></script>
     <script src="../js/footer.js"></script>
     <script src="../js/scroll-animations.js"></script>
-    
-    <script>
-        // --- SCROLL ANIMATION OBSERVER ---
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up').forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>

@@ -1,134 +1,105 @@
 /* ===========================
-   LIGHTBOX COMPONENT
+   LIGHTBOX
+   Una sola implementacion para todas las paginas.
+   Antes estaba repetida dentro de cada HTML.
+
+   Uso desde el markup:
+     <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+        <img src="..." alt="...">                      <- imagen normal
+        <img src="..." data-video="https://...embed">  <- abre el video
+     </div>
+
+   Las flechas recorren el grupo al que pertenece la imagen
+   (.section-gallery, .carousel-track o .hero-media-wrapper).
    =========================== */
 
-class Lightbox {
-    constructor() {
-        this.lightbox = null;
-        this.currentImages = [];
-        this.currentIndex = 0;
-        this.init();
+(function () {
+    'use strict';
+
+    const GROUP_SELECTORS = ['.section-gallery', '.carousel-track', '.hero-media-wrapper'];
+
+    let images = [];
+    let index = 0;
+
+    const el = (id) => document.getElementById(id);
+    const box = () => el('lightbox');
+
+    function groupOf(img) {
+        for (const sel of GROUP_SELECTORS) {
+            const found = img.closest(sel);
+            if (found) return found;
+        }
+        return null;
     }
 
-    init() {
-        this.createLightbox();
-        this.attachEventListeners();
-    }
+    function render() {
+        const current = images[index];
+        if (!current) return;
 
-    createLightbox() {
-        const lightboxHTML = `
-            <div id="lightbox" class="lightbox" onclick="lightboxInstance.closeLightbox(event)">
-                <div class="close-btn" onclick="lightboxInstance.closeLightbox(event)">&times;</div>
-                
-                <button class="nav-btn prev" onclick="lightboxInstance.changeImage(-1, event)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
+        const img = el('lightbox-img');
+        const video = el('lightbox-video');
+        const videoSrc = current.getAttribute('data-video');
 
-                <div class="lightbox-content-wrapper">
-                    <img class="lightbox-content" id="lightbox-img" alt="Lightbox View" style="display: block;">
-                    <iframe id="lightbox-video" class="lightbox-video" style="display: none;" 
-                            frameborder="0" allowfullscreen></iframe>
-                </div>
-
-                <button class="nav-btn next" onclick="lightboxInstance.changeImage(1, event)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        `;
-
-        const body = document.body;
-        body.insertAdjacentHTML('beforeend', lightboxHTML);
-        this.lightbox = document.getElementById('lightbox');
-    }
-
-    attachEventListeners() {
-        // Agregar event listeners a todas las imágenes de galería
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('.gallery-item img') || e.target.closest('.gallery-item')) {
-                const galleryItems = document.querySelectorAll('.gallery-item');
-                this.currentImages = Array.from(galleryItems).map(item => ({
-                    img: item.querySelector('img'),
-                    video: item.querySelector('img')?.getAttribute('data-video')
-                }));
-                
-                const clickedImg = e.target.closest('.gallery-item img') || e.target.closest('.gallery-item').querySelector('img');
-                this.currentIndex = Array.from(galleryItems).indexOf(e.target.closest('.gallery-item'));
-                this.openLightbox();
+        if (videoSrc && video) {
+            img.style.display = 'none';
+            video.style.display = 'block';
+            video.src = videoSrc + (videoSrc.includes('?') ? '&' : '?') + 'autoplay=1&rel=0';
+        } else {
+            if (video) {
+                video.style.display = 'none';
+                video.src = '';
             }
-        });
+            img.style.display = 'block';
+            img.src = current.currentSrc || current.src;
+            img.alt = current.alt || '';
+        }
 
-        // Controles de teclado
-        document.addEventListener('keydown', (e) => {
-            if (!this.lightbox.classList.contains('show')) return;
-            
-            if (e.key === 'ArrowLeft') this.changeImage(-1);
-            if (e.key === 'ArrowRight') this.changeImage(1);
-            if (e.key === 'Escape') this.closeLightbox();
+        // Las flechas solo tienen sentido si hay mas de una imagen en el grupo
+        document.querySelectorAll('#lightbox .nav-btn').forEach(btn => {
+            btn.style.display = images.length > 1 ? '' : 'none';
         });
     }
 
-    openLightbox() {
-        const item = this.currentImages[this.currentIndex];
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxVideo = document.getElementById('lightbox-video');
-
-        const videoSrc = item.video?.getAttribute('data-video');
-
-        if (videoSrc) {
-            lightboxImg.style.display = 'none';
-            lightboxVideo.style.display = 'block';
-            lightboxVideo.src = videoSrc + "?autoplay=1&rel=0";
-        } else {
-            lightboxVideo.style.display = 'none';
-            lightboxVideo.src = "";
-            lightboxImg.style.display = 'block';
-            lightboxImg.src = item.img.src;
-        }
-
-        this.lightbox.classList.add('show');
+    window.openLightbox = function (imgElement) {
+        if (!imgElement || !box()) return;
+        const group = groupOf(imgElement);
+        images = group ? Array.from(group.querySelectorAll('img')) : [imgElement];
+        index = Math.max(0, images.indexOf(imgElement));
+        render();
+        box().classList.add('show');
         document.body.style.overflow = 'hidden';
-    }
+    };
 
-    changeImage(direction, event) {
+    window.changeImage = function (direction, event) {
         if (event) event.stopPropagation();
-        
-        this.currentIndex = (this.currentIndex + direction + this.currentImages.length) % this.currentImages.length;
-        this.updateLightboxContent();
-    }
+        if (!images.length) return;
+        index = (index + direction + images.length) % images.length;
+        render();
+    };
 
-    updateLightboxContent() {
-        const item = this.currentImages[this.currentIndex];
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxVideo = document.getElementById('lightbox-video');
+    window.closeLightbox = function (event) {
+        const lightbox = box();
+        if (!lightbox) return;
 
-        const videoSrc = item.video?.getAttribute('data-video');
-
-        if (videoSrc) {
-            lightboxImg.style.display = 'none';
-            lightboxVideo.style.display = 'block';
-            lightboxVideo.src = videoSrc + "?autoplay=1&rel=0";
-        } else {
-            lightboxVideo.style.display = 'none';
-            lightboxVideo.src = "";
-            lightboxImg.style.display = 'block';
-            lightboxImg.src = item.img.src;
-        }
-    }
-
-    closeLightbox(event) {
-        if (event && event.target.id !== 'lightbox' && !event.target.classList.contains('close-btn')) {
-            return;
+        if (event && event.target) {
+            const t = event.target;
+            const isBackdrop = t.id === 'lightbox' ||
+                t.classList.contains('close-btn') ||
+                t.classList.contains('lightbox-content-wrapper');
+            if (!isBackdrop) return;
         }
 
-        document.getElementById('lightbox-video').src = "";
-        this.lightbox.classList.remove('show');
+        lightbox.classList.remove('show');
+        const video = el('lightbox-video');
+        if (video) video.src = '';
         document.body.style.overflow = '';
-    }
-}
+    };
 
-// Global instance para acceso desde HTML inline
-let lightboxInstance;
-
-document.addEventListener('DOMContentLoaded', () => {
-    lightboxInstance = new Lightbox();
-});
+    document.addEventListener('keydown', (e) => {
+        const lightbox = box();
+        if (!lightbox || !lightbox.classList.contains('show')) return;
+        if (e.key === 'Escape') window.closeLightbox();
+        if (e.key === 'ArrowLeft') window.changeImage(-1);
+        if (e.key === 'ArrowRight') window.changeImage(1);
+    });
+})();

@@ -2,135 +2,45 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQHTRMV18K"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-BQHTRMV18K');
-    </script>
-
-
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dylan Piserchia - Game Designer</title>
+    <meta name="description" content="Game designer with 4+ years of professional experience in AAA systems design, mechanical balance and technical documentation. Selected work: Star Trek: Infinite and Unreal Engine systems.">
+    <link rel="canonical" href="https://dylanpiserchia.github.io/portfolio/">
+
+    <!-- Preview del link (LinkedIn, X, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dylan Piserchia - Game Design Portfolio">
+    <meta property="og:title" content="Dylan Piserchia - Game Designer">
+    <meta property="og:description" content="Game designer with 4+ years of professional experience in AAA systems design, mechanical balance and technical documentation. Selected work: Star Trek: Infinite and Unreal Engine systems.">
+    <meta property="og:url" content="https://dylanpiserchia.github.io/portfolio/">
+    <meta property="og:image" content="https://dylanpiserchia.github.io/portfolio/assets/og/home.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate icon" href="assets/favicon.png">
+    <meta name="theme-color" content="#0b0d10">
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Global Styles -->
+    <!-- Estilos -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/level-system.css">
+    <link rel="stylesheet" href="css/home.css">
 
-    <style>
-        /* HOME SPECIFIC STYLES */
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            margin-top: 80px;
-            margin-bottom: 6rem;
-        }
-
-        .profile-wrapper {
-            position: relative;
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 2rem;
-        }
-
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent);
-            box-shadow: 0 0 30px var(--accent-glow);
-            position: relative;
-            z-index: 2;
-        }
-
-        .profile-wrapper::after {
-            content: '';
-            position: absolute;
-            inset: -12px;
-            border-radius: 50%;
-            border: 1px dashed rgba(0, 212, 255, 0.2);
-            animation: spin 30s linear infinite;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
-
-        .subtitle {
-            color: var(--accent);
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            font-weight: 300;
-        }
-
-        .btn-resume {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: transparent;
-            color: var(--accent);
-            border: 1.5px solid var(--accent);
-            cursor: pointer;
-            transition: var(--transition-fast);
-            font-size: 0.85rem;
-        }
-
-        .btn-resume:hover {
-            background: var(--accent);
-            color: #000;
-            box-shadow: 0 10px 20px var(--accent-glow);
-            transform: translateY(-2px);
-        }
-
-        /* Projects Section */
-        #projects {
-            padding-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero {
-                margin-top: 40px;
-                margin-bottom: 3rem;
-            }
-        }
-    </style>
+    <script src="js/analytics.js"></script>
 </head>
 
 <body>
@@ -144,7 +54,7 @@
         <header class="hero">
             <div class="profile-wrapper">
                 <img src="assets/img/profile_image.jpg" alt="Dylan Piserchia" class="profile-img"
-                    onerror="this.src=https://via.placeholder.com/140/111/00d4ff?text=DP'">
+                    onerror="this.style.background='#1a2639'">
             </div>
             <h1>DYLAN PISERCHIA</h1>
             <div class="subtitle">Game Designer & System Design</div>

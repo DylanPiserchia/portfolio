@@ -1,0 +1,7 @@
+/* ===========================
+   STAR TREK: INFINITE
+   Unico ajuste propio de esa pagina: su footer usa mas padding
+   que el del resto del sitio. Se conserva tal cual estaba.
+   =========================== */
+
+footer { border-top: 1px solid var(--border-color); padding: 4rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
