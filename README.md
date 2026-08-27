@@ -44,13 +44,16 @@ css/
   project.css                 Hero, secciones, galerías, carousel y lightbox
   home.css / about.css        Lo específico de esas dos páginas
   star-trek.css               Un único ajuste de esa página (padding del footer)
+  mobile.css                  Todo lo específico del celular. Se carga última.
 js/
   analytics.js                Google Analytics (el ID vive acá y en ningún otro lado)
-  navbar.js                   Navbar + sistema de XP
+  projects.js                 Lista de proyectos, la usa el menú del celular
+  navbar.js                   Navbar, menú de mobile y sistema de XP
   footer.js                   Footer + botón de reset del nivel
   scroll-animations.js        Aparición de secciones al scrollear
-  lightbox.js                 Visor de imágenes y videos
-  carousel.js                 Carousels (varios por página)
+  lightbox.js                 Visor de imágenes y videos (con swipe en mobile)
+  carousel.js                 Carousels: flechas en desktop, swipe en mobile
+  accordion.js                Secciones colapsables en mobile (Unreal Engine)
 assets/
   img/                        Las imágenes que usa el sitio, en .webp
   img/_originals/             Los archivos originales, sin comprimir. GitHub Pages
@@ -69,9 +72,12 @@ Importa, porque el último gana:
 
 | Página | Hojas de estilo |
 |---|---|
-| `index.html` | variables, components, navbar, footer, level-system, **home** |
-| `about.html` | variables, components, navbar, footer, level-system, **page**, **about** |
-| páginas de proyecto | variables, components, navbar, footer, level-system, **page**, **project** |
+| `index.html` | variables, components, navbar, footer, level-system, **home**, mobile |
+| `about.html` | variables, components, navbar, footer, level-system, **page**, **about**, mobile |
+| páginas de proyecto | variables, components, navbar, footer, level-system, **page**, **project**, mobile |
+
+`mobile.css` va siempre al final: todo lo que hay adentro está dentro de un
+`@media (max-width: 768px)`, así que en pantallas grandes no pisa nada.
 
 `project-shelter.html` además lleva `class="project-compact"` en el `<body>`:
 usa las mismas reglas con medidas algo más ajustadas.
@@ -122,6 +128,20 @@ Para que el link muestre imagen al compartirlo hace falta un archivo de
 
 En `index.html`, dentro de `<div class="grid">`, duplicá un bloque `<a class="card">`
 y cambiá el link, la imagen, la categoría, el título, la descripción y los tags.
+
+**7. Sumarlo al menú del celular**
+
+En `js/projects.js` agregá una entrada más. Es lo que hace que el proyecto
+aparezca en el menú de mobile, con su miniatura:
+
+```js
+{
+    titulo: 'Mi Juego Nuevo',
+    categoria: 'Indie · Roguelike',
+    archivo: 'mi-proyecto.html',
+    imagen: 'mi-juego-thumb.webp'
+}
+```
 
 ---
 
@@ -178,6 +198,25 @@ es la miniatura sobre la que se hace clic:
 
 ---
 
+## Cómo funciona en el celular
+
+Por debajo de 768px cambian tres cosas, y todas se manejan solas:
+
+- **El menú** es una pantalla completa (`.nav-sheet`, la arma `navbar.js`) con los
+  links, la lista de proyectos y el nivel abajo. El nivel además vive siempre en
+  la barra, como pastilla, con el progreso de XP como una línea de 2px al pie.
+- **Las galerías y los carousels** se deslizan con el dedo: scroll nativo con
+  encastre por imagen. Las flechas se ocultan y `carousel.js` dibuja los puntitos.
+  No hace falta hacer nada distinto en el markup.
+- **Las páginas con índice de sistemas** (las que tienen `.systems-index`) se
+  vuelven un acordeón: cada sección arranca cerrada. Lo hace `accordion.js`, y al
+  agrandar la ventana deshace todo y el desktop queda igual que siempre.
+
+Los epígrafes de las imágenes, que en desktop aparecen al pasar el mouse, se
+muestran fijos en cualquier pantalla sin hover.
+
+---
+
 ## Sistema de niveles
 
 Es un detalle de la navbar, manejado por `js/navbar.js`.
@@ -203,7 +242,8 @@ alguna vez cambia el ID de medición, se cambia **solo ahí**.
 
 ## Antes de subir
 
-- [ ] Lo miraste con `python -m http.server`, en desktop y achicando la ventana
+- [ ] Lo miraste con `python -m http.server`, en desktop y en el celular
+- [ ] Sumaste el proyecto a `js/projects.js`
 - [ ] Las imágenes nuevas pasaron por `tools/optimize-images.py`
 - [ ] Cada `<img>` tiene un `alt` que describe lo que se ve
 - [ ] El `<head>` tiene el título, la descripción y el `og:image` correctos
