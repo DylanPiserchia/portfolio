@@ -1,0 +1,547 @@
+/* ===========================
+   MOBILE
+   Todo lo de este archivo vive dentro de @media (max-width: 768px):
+   en pantallas grandes no cambia absolutamente nada.
+   Se carga ultimo, despues del resto de las hojas de estilo.
+   =========================== */
+
+/* ---------------------------------------------------------------
+   1. NAVBAR
+   En mobile el menu desplegable se reemplaza por .nav-sheet (pantalla
+   completa) y el nivel sale del menu: pasa a una pastilla en la barra
+   mas una linea de progreso al pie.
+   --------------------------------------------------------------- */
+
+.nav-mobile { display: none; }
+.nav-xpline { display: none; }
+.nav-sheet { display: none; }
+
+@media (max-width: 768px) {
+
+    nav {
+        justify-content: center;
+        height: 56px;
+    }
+
+    .nav-container {
+        padding: 0 16px;
+        position: relative;
+    }
+
+    /* El menu horizontal de desktop no existe en mobile */
+    .nav-links { display: none !important; }
+
+    .nav-brand {
+        font-size: 0.82rem;
+        letter-spacing: 1.5px;
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .nav-mobile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Pastilla de nivel */
+    .level-chip {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        height: 32px;
+        padding: 0 10px 0 4px;
+        background: rgba(0, 212, 255, 0.07);
+        border: 1px solid rgba(0, 212, 255, 0.22);
+        border-radius: 16px;
+    }
+
+    .level-chip .level-badge {
+        width: 24px;
+        height: 24px;
+        font-size: 0.62rem;
+        box-shadow: none;
+    }
+
+    .level-chip .level-badge::before { display: none; }
+
+    .level-chip .xp-value {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        text-transform: uppercase;
+    }
+
+    /* Boton del menu: 44x44 de area tactil */
+    .nav-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(0, 212, 255, 0.25);
+        border-radius: 10px;
+        font-size: 1.15rem;
+    }
+
+    /* Progreso de XP como linea al pie de la barra */
+    .nav-xpline {
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        height: 2px;
+        width: 100%;
+        pointer-events: none;
+    }
+
+    .nav-xpline .xp-fill {
+        display: block;
+        height: 100%;
+        background: var(--accent);
+        box-shadow: 0 0 8px rgba(0, 212, 255, 0.7);
+        transition: width 0.4s ease;
+    }
+
+    #navbar-placeholder { min-height: 56px; }
+    main { margin-top: 56px; }
+
+    /* --------- Menu de pantalla completa --------- */
+    .nav-sheet {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        inset: 0;
+        z-index: 1200;
+        padding: 12px 20px calc(20px + env(safe-area-inset-bottom));
+        background: rgba(6, 8, 11, 0.985);
+        backdrop-filter: blur(8px);
+        overflow-y: auto;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-sheet[hidden] { display: none; }
+    .nav-sheet.open { opacity: 1; transform: none; }
+
+    .sheet-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 44px;
+        margin-bottom: 26px;
+    }
+
+    .sheet-top .nav-brand { font-size: 0.82rem; }
+
+    .sheet-close {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        color: var(--text-main);
+        font-size: 1.6rem;
+        line-height: 1;
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+    .sheet-links { display: flex; flex-direction: column; }
+
+    .sheet-links a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--text-main);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .sheet-links a i { color: #3b4552; font-size: 0.9rem; }
+
+    .sheet-links a.current {
+        color: var(--accent);
+        padding-left: 14px;
+        border-left: 2px solid var(--accent);
+    }
+
+    .sheet-links a.current i { color: var(--accent); }
+
+    .sheet-section { margin-top: 26px; }
+
+    .sheet-label {
+        font-family: 'IBM Plex Mono', 'Courier New', monospace;
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        color: #6b7686;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .sheet-project {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 56px;
+        padding: 8px 0;
+        color: #c9d1da;
+    }
+
+    .sheet-project.current { color: var(--accent); }
+
+    .sheet-thumb {
+        width: 52px;
+        height: 34px;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center;
+        background-color: #14181f;
+        flex: none;
+    }
+
+    .sheet-project-text { display: flex; flex-direction: column; line-height: 1.3; }
+    .sheet-project-text strong { font-weight: 500; font-size: 0.92rem; }
+    .sheet-project-text small { font-size: 0.7rem; color: #6b7686; }
+
+    .sheet-level {
+        margin-top: auto;
+        padding-top: 26px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: rgba(0, 212, 255, 0.05);
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        border-radius: 14px;
+        padding: 16px;
+        margin-bottom: 4px;
+    }
+
+    .sheet-level .level-badge {
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+        flex: none;
+    }
+
+    .sheet-level-meta { flex: 1; }
+
+    .sheet-level-top {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    /* ---------------------------------------------------------------
+       2. MARGENES Y AIRE
+       32px de margen lateral sobre 375 de ancho se come el 17% de la
+       pantalla. Y las paginas de proyecto median mas de 10 pantallas.
+       --------------------------------------------------------------- */
+
+    .container { padding: 0 20px; }
+    main { padding-bottom: 4rem; }
+
+    .detail-section { margin-bottom: 3rem; }
+    .section-header { margin-bottom: 1.25rem; }
+    .section-intro { margin-bottom: 1.5rem; }
+    .details-grid { gap: 1.5rem; margin-bottom: 1.5rem; }
+    .hero-section { padding: 1.5rem 0 2rem; margin-bottom: 1.5rem; }
+
+    /* project-shelter usa la variante .project-compact, que tiene mas
+       especificidad que las reglas de arriba y les ganaba. En mobile esa
+       variante no aporta nada: las medidas las fija este archivo. */
+    .project-compact .section-header { margin-bottom: 1.25rem; }
+    .project-compact .section-intro { margin-bottom: 1.5rem; }
+    .project-compact .detail-section { margin-bottom: 3rem; }
+    .project-compact .details-grid { gap: 1.5rem; margin-bottom: 1.5rem; }
+    .project-compact .impact-box { padding: 1.25rem; }
+
+    .project-compact .carousel-container {
+        padding: 0;
+        margin: 0 0 0.75rem;
+        overflow: visible;
+    }
+
+    /* ---------------------------------------------------------------
+       3. TIPOGRAFIA
+       Los tamanos fijos del desktop se achican, y nada baja de 12px.
+       --------------------------------------------------------------- */
+
+    .hero-title { font-size: clamp(1.7rem, 8vw, 2.1rem); line-height: 1.15; margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(1.6rem, 8.5vw, 2.1rem); }
+    .section-header h3,
+    .project-compact .section-header h3 { font-size: 1.3rem; }
+    .section-title { font-size: 1.3rem; }
+    .hero-description { font-size: 1rem; padding-left: 14px; margin-bottom: 1.25rem; }
+    .section-intro,
+    .project-compact .section-intro { font-size: 0.97rem; }
+    .subtitle { font-size: 0.72rem; letter-spacing: 2.5px; margin-bottom: 1.25rem; }
+
+    /* La foto del hero pasa de 140 a 112: deja ver el titulo sin scrollear */
+    .profile-wrapper { width: 112px; height: 112px; margin-bottom: 1.25rem; }
+    .profile-wrapper::after { inset: -8px; }
+    .hero p { font-size: 1rem; margin-bottom: 1.75rem; }
+    .project-tag { font-size: 0.75rem; margin-bottom: 1rem; }
+    .card-category { font-size: 0.75rem; }
+    .tag { font-size: 0.75rem; }
+    .view-project { font-size: 0.78rem; }
+    .card-content h3 { font-size: 1.2rem; }
+    .index-title { font-size: 1.3rem; margin-bottom: 1.5rem; }
+    .mini-highlights { padding: 1.25rem; }
+    .mini-highlights h3 { font-size: 0.95rem; }
+    .impact-box { padding: 1.25rem; }
+    .styled-list li,
+    .highlight-list li,
+    .project-compact .styled-list li { font-size: 0.92rem; }
+
+    /* ---------------------------------------------------------------
+       4. BOTONES Y AREAS TACTILES
+       El minimo recomendado es 44x44.
+       --------------------------------------------------------------- */
+
+    .action-buttons { flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
+
+    .btn,
+    .btn-resume {
+        width: 100%;
+        justify-content: center;
+        min-height: 52px;
+        font-size: 0.8rem;
+    }
+
+    .footer-social a {
+        width: 44px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-reset-level { min-height: 44px; padding: 0 18px; }
+
+    footer { padding: 2rem 0; }
+    footer .container { gap: 1.25rem; }
+
+    /* ---------------------------------------------------------------
+       5. GALERIAS QUE SE DESLIZAN CON EL DEDO
+       En vez de flechas y una grilla que no entra, una fila con scroll
+       nativo y encastre por imagen.
+       --------------------------------------------------------------- */
+
+    .section-gallery,
+    .carousel-track {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin: 0 -20px;
+        padding: 0 20px;
+        transform: none !important;
+    }
+
+    .section-gallery::-webkit-scrollbar,
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .section-gallery > .gallery-item,
+    .carousel-track > .gallery-item {
+        flex: 0 0 84%;
+        width: auto;
+        min-width: 0;
+        max-width: none;
+        scroll-snap-align: center;
+        aspect-ratio: 16 / 9;
+    }
+
+    .carousel-container {
+        position: relative;
+        padding: 0;
+        margin: 0 0 0.75rem;
+        overflow: visible;
+    }
+
+    .carousel-viewport { overflow: visible; }
+
+    .carousel-btn { display: none !important; }
+
+    /* Puntitos de posicion, los dibuja carousel.js */
+    .swipe-dots {
+        display: flex;
+        gap: 6px;
+        justify-content: center;
+        align-items: center;
+        margin: 12px 0 1.5rem;
+    }
+
+    .swipe-dots span {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.22);
+        transition: 0.25s;
+    }
+
+    .swipe-dots span.on {
+        width: 18px;
+        border-radius: 3px;
+        background: var(--accent);
+    }
+
+    /* ---------------------------------------------------------------
+       6. HERO DE LAS PAGINAS DE PROYECTO
+       La imagen del juego sube: es lo primero que se quiere ver.
+       --------------------------------------------------------------- */
+
+    .hero-section { display: flex; flex-direction: column; }
+
+    /* display:contents saca la caja de .hero-content pero deja sus hijos,
+       asi que el tag, el titulo, la imagen y el resto se pueden ordenar
+       entre si dentro del mismo flex. */
+    .hero-content { display: contents; }
+
+    .hero-content .project-tag { order: 1; }
+    .hero-content .hero-title { order: 2; }
+    .hero-media-wrapper { order: 3; margin-bottom: 1.25rem; height: auto; display: block; }
+    .hero-content .hero-description { order: 4; }
+    .hero-content .action-buttons { order: 5; }
+    .hero-content .mini-highlights { order: 6; }
+
+    /* ---------------------------------------------------------------
+       7. INDICE DE SISTEMAS
+       --------------------------------------------------------------- */
+
+    .systems-index { margin: 1.5rem 0; }
+    .index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .index-card { padding: 12px 10px; min-height: 88px; }
+    .index-card h3 { font-size: 0.82rem; }
+    .index-card p { font-size: 0.72rem; }
+    .index-number { font-size: 1.1rem; }
+
+    /* ---------------------------------------------------------------
+       8. ACORDEON (Unreal Engine Systems)
+       Los 7 sistemas arrancan cerrados. Lo activa js/accordion.js.
+       --------------------------------------------------------------- */
+
+    .detail-section.collapsible > .section-header {
+        cursor: pointer;
+        margin-bottom: 0;
+        padding: 14px 0;
+        min-height: 56px;
+        gap: 12px;
+    }
+
+    .detail-section.collapsible > .section-header h3 { flex: 1; }
+
+    .collapse-icon {
+        width: 32px;
+        height: 32px;
+        flex: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-color);
+        border-radius: 50%;
+        color: var(--accent);
+        font-size: 0.8rem;
+        transition: transform 0.25s ease;
+    }
+
+    .detail-section.collapsible.open .collapse-icon { transform: rotate(90deg); }
+
+    .detail-section.collapsible > .collapse-body { display: none; padding-top: 0.5rem; }
+    .detail-section.collapsible.open > .collapse-body { display: block; }
+
+    .detail-section.collapsible {
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 0;
+    }
+
+    .detail-section.collapsible .header-line { display: none; }
+
+    /* ---------------------------------------------------------------
+       9. ABOUT
+       --------------------------------------------------------------- */
+
+    .profile-card { padding: 1.25rem; gap: 1.25rem; margin: 1.5rem 0; }
+
+    /* La foto ocupaba el ancho completo: un cuadrado de 335px */
+    .profile-img { max-width: 180px; }
+
+    .profile-info h1 { font-size: 1.6rem; }
+    .role { font-size: 0.78rem; letter-spacing: 1.5px; }
+    .profile-info p { font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.25rem; }
+
+    .skills-section { margin: 2.5rem 0; }
+    .skills-section h3 { font-size: 1.3rem; margin-bottom: 1.25rem; }
+    .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .skill-card { padding: 1.1rem 0.75rem; }
+    .skill-card h4 { font-size: 0.8rem; }
+
+    /* ---------------------------------------------------------------
+       10. LIGHTBOX
+       Pantalla completa, cerrar grande y flechas tocables.
+       --------------------------------------------------------------- */
+
+    .close-btn {
+        top: 12px;
+        right: 12px;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+    }
+
+    .nav-btn {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        font-size: 1.6rem;
+        background: rgba(0, 0, 0, 0.45);
+        border-radius: 50%;
+    }
+
+    .prev { left: 8px; }
+    .next { right: 8px; }
+
+    .lightbox-content-wrapper { width: 100%; padding: 0 8px; }
+}
+
+/* ---------------------------------------------------------------
+   11. SIN HOVER (telefonos y tablets)
+   Los epigrafes de las imagenes aparecian solo con el mouse encima,
+   asi que en un telefono no los leia nadie. Y las imagenes se quedaban
+   apagadas al 80%.
+   --------------------------------------------------------------- */
+
+@media (hover: none) {
+    .gallery-item img { opacity: 1; }
+
+    .gallery-overlay,
+    .hero-image .gallery-overlay { opacity: 1; }
+
+    .gallery-caption,
+    .hero-image .gallery-caption { transform: none; }
+
+    .play-icon { opacity: 0.85; color: var(--accent); }
+}

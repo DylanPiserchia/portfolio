@@ -283,24 +283,20 @@
     }
 }
 
-/* Navbar integration */
+/* Navbar integration
+   Ojo: antes aca habia un `nav .nav-links { display: flex }` sin media query.
+   Como este archivo carga despues de navbar.css y el selector es mas
+   especifico, le ganaba al `display: none` del menu mobile y lo dejaba
+   trabado abierto en el celular. En mobile el menu ahora es .nav-sheet. */
 nav .nav-links {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
 }
 
-@media (min-width: 768px) {
-    nav .nav-links {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        align-items: center;
-    }
-
-    .level-container {
-        margin-top: 0;
-        margin-left: auto;
-        min-width: 220px;
-    }
+.level-container {
+    margin-top: 0;
+    margin-left: auto;
+    min-width: 220px;
 }

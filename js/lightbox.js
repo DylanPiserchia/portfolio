@@ -102,4 +102,32 @@
         if (e.key === 'ArrowLeft') window.changeImage(-1);
         if (e.key === 'ArrowRight') window.changeImage(1);
     });
+
+    // En el telefono se pasa de imagen deslizando, que es lo que uno espera.
+    document.addEventListener('DOMContentLoaded', () => {
+        const lightbox = box();
+        if (!lightbox) return;
+
+        let startX = 0, startY = 0, tracking = false;
+
+        lightbox.addEventListener('touchstart', (e) => {
+            if (e.touches.length !== 1) { tracking = false; return; }
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            tracking = true;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            if (!tracking || !e.changedTouches.length) return;
+            tracking = false;
+
+            const dx = e.changedTouches[0].clientX - startX;
+            const dy = e.changedTouches[0].clientY - startY;
+
+            // Solo si el gesto fue claramente horizontal y largo
+            if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+                window.changeImage(dx < 0 ? 1 : -1);
+            }
+        }, { passive: true });
+    });
 })();

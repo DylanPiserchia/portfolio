@@ -128,25 +128,23 @@ class Navbar {
     }
 
     // Actualizar UI del nivel
+    // El nivel aparece en tres lugares (navbar de desktop, pastilla de mobile
+    // y menu desplegable), asi que se actualizan todos.
     updateLevelUI() {
-        const xpFill = document.querySelector('.xp-fill');
-        const xpValue = document.querySelector('.xp-value');
-        const levelBadge = document.querySelector('.level-badge');
+        const xpNeeded = this.getXPForLevel(userStats.level);
+        const percentage = (userStats.xp / xpNeeded) * 100;
 
-        if (xpFill) {
-            const xpNeeded = this.getXPForLevel(userStats.level);
-            const percentage = (userStats.xp / xpNeeded) * 100;
-            xpFill.style.width = percentage + '%';
-        }
+        document.querySelectorAll('.xp-fill').forEach(el => {
+            el.style.width = percentage + '%';
+        });
 
-        if (xpValue) {
-            const xpNeeded = this.getXPForLevel(userStats.level);
-            xpValue.textContent = `${userStats.xp}/${xpNeeded}`;
-        }
+        document.querySelectorAll('.xp-value').forEach(el => {
+            el.textContent = `${userStats.xp}/${xpNeeded}`;
+        });
 
-        if (levelBadge) {
-            levelBadge.textContent = userStats.level;
-        }
+        document.querySelectorAll('.level-badge, .sheet-level-n').forEach(el => {
+            el.textContent = userStats.level;
+        });
     }
 
     // Verificar experiencia de página actual
@@ -180,13 +178,12 @@ class Navbar {
 
         const xpNeeded = this.getXPForLevel(userStats.level);
 
+        const pct = (userStats.xp / xpNeeded) * 100;
+
         const navHTML = `
             <nav>
                 <div class="nav-container">
                     <a href="${homeLink}" class="nav-brand">Dylan Piserchia</a>
-                    <button class="nav-toggle" id="navToggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
                     <ul class="nav-links" id="navLinks">
                         <li><a href="${homeLink}">Home</a></li>
                         <li><a href="${projectsLink}">Projects</a></li>
@@ -199,12 +196,26 @@ class Navbar {
                                     <span class="xp-value">${userStats.xp}/${xpNeeded}</span>
                                 </div>
                                 <div class="xp-bar">
-                                    <div class="xp-fill" style="width: ${(userStats.xp / xpNeeded) * 100}%"></div>
+                                    <div class="xp-fill" style="width: ${pct}%"></div>
                                 </div>
                             </div>
                         </li>
                     </ul>
+
+                    <!-- Solo mobile: la pastilla de nivel y el boton del menu -->
+                    <div class="nav-mobile">
+                        <div class="level-chip">
+                            <span class="level-badge">${userStats.level}</span>
+                            <span class="xp-value">${userStats.xp}/${xpNeeded}</span>
+                        </div>
+                        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"
+                                aria-expanded="false" aria-controls="navSheet">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
                 </div>
+                <!-- Solo mobile: el progreso de XP como linea al pie de la barra -->
+                <div class="nav-xpline"><span class="xp-fill" style="width: ${pct}%"></span></div>
             </nav>
         `;
 
@@ -213,44 +224,140 @@ class Navbar {
             placeholder.innerHTML = navHTML;
             this.nav = document.querySelector('nav');
         }
+
+        this.createSheet(homeLink, projectsLink, aboutLink, xpNeeded, pct);
+    }
+
+    // Menu de pantalla completa (solo se ve en mobile)
+    createSheet(homeLink, projectsLink, aboutLink, xpNeeded, pct) {
+        if (document.getElementById('navSheet')) return;
+
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const isInPages = window.location.pathname.includes('/pages/');
+        const prefix = isInPages ? '' : 'pages/';
+        const assets = isInPages ? '../assets/img/' : 'assets/img/';
+
+        const proyectos = (window.PORTFOLIO_PROJECTS || []).map(p => `
+            <a href="${prefix}${p.archivo}" class="sheet-project${p.archivo === currentPage ? ' current' : ''}">
+                <span class="sheet-thumb" style="background-image: url('${assets}${p.imagen}')"></span>
+                <span class="sheet-project-text">
+                    <strong>${p.titulo}</strong>
+                    <small>${p.categoria}</small>
+                </span>
+            </a>
+        `).join('');
+
+        const isHome = currentPage === 'index.html';
+        const sheetHTML = `
+            <div class="nav-sheet" id="navSheet" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+                <div class="sheet-top">
+                    <span class="nav-brand">Dylan Piserchia</span>
+                    <button class="sheet-close" id="sheetClose" aria-label="Cerrar menú">&times;</button>
+                </div>
+
+                <div class="sheet-links">
+                    <a href="${homeLink}"${isHome ? ' class="current"' : ''}>Home <i class="fas fa-arrow-right"></i></a>
+                    <a href="${projectsLink}">Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="${aboutLink}"${currentPage === 'about.html' ? ' class="current"' : ''}>About <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                ${proyectos ? `<div class="sheet-section">
+                    <div class="sheet-label">Proyectos</div>
+                    ${proyectos}
+                </div>` : ''}
+
+                <div class="sheet-level">
+                    <span class="level-badge">${userStats.level}</span>
+                    <div class="sheet-level-meta">
+                        <div class="sheet-level-top">
+                            <span>Nivel <span class="sheet-level-n">${userStats.level}</span></span>
+                            <span><span class="xp-value">${userStats.xp}/${xpNeeded}</span> XP</span>
+                        </div>
+                        <div class="xp-bar"><div class="xp-fill" style="width: ${pct}%"></div></div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.insertAdjacentHTML('beforeend', sheetHTML);
+    }
+
+    openSheet() {
+        const sheet = document.getElementById('navSheet');
+        const toggle = document.getElementById('navToggle');
+        if (!sheet) return;
+        sheet.hidden = false;
+        // el reflow hace que la transicion de entrada se vea
+        void sheet.offsetWidth;
+        sheet.classList.add('open');
+        if (toggle) toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        const close = document.getElementById('sheetClose');
+        if (close) close.focus();
+    }
+
+    closeSheet() {
+        const sheet = document.getElementById('navSheet');
+        const toggle = document.getElementById('navToggle');
+        if (!sheet || sheet.hidden) return;
+        sheet.classList.remove('open');
+        if (toggle) {
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+        }
+        document.body.style.overflow = '';
+        const hide = () => { sheet.hidden = true; };
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) hide();
+        else setTimeout(hide, 220);
     }
 
     attachEventListeners() {
         const toggle = document.getElementById('navToggle');
-        const links = document.getElementById('navLinks');
+        const sheet = document.getElementById('navSheet');
+        const close = document.getElementById('sheetClose');
 
-        if (toggle) {
-            toggle.addEventListener('click', () => {
-                links.classList.toggle('active');
-            });
+        if (toggle) toggle.addEventListener('click', () => this.openSheet());
+        if (close) close.addEventListener('click', () => this.closeSheet());
 
-            // Manejar clicks en links
-            links.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const href = link.getAttribute('href');
-                    
-                    // Si el link contiene un hash (#projects)
-                    if (href.includes('#')) {
-                        const [page, hash] = href.split('#');
-                        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-                        const targetPage = page || currentPage;
-                        
-                        // Si estamos en la misma página, hacer scroll
-                        if (targetPage === currentPage || (targetPage === 'index.html' && currentPage === 'index.html')) {
-                            e.preventDefault();
-                            const target = document.getElementById(hash);
-                            if (target) {
-                                target.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }
-                        // Si no estamos en la misma página, dejar que navegue normalmente
-                    }
-                    
-                    // Cerrar menu en cualquier caso
-                    links.classList.remove('active');
-                });
+        // Tocar el fondo del menu tambien lo cierra
+        if (sheet) {
+            sheet.addEventListener('click', (e) => {
+                if (e.target === sheet) this.closeSheet();
             });
         }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') this.closeSheet();
+        });
+
+        // Si la pantalla se agranda con el menu abierto, cerrarlo
+        matchMedia('(min-width: 769px)').addEventListener('change', (e) => {
+            if (e.matches) this.closeSheet();
+        });
+
+        // Links con hash (#projects): scroll suave si ya estamos en esa pagina
+        const all = document.querySelectorAll('.nav-links a, .sheet-links a, .sheet-project');
+        all.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+
+                if (href && href.includes('#')) {
+                    const [page, hash] = href.split('#');
+                    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                    const targetPage = page.split('/').pop() || currentPage;
+
+                    if (targetPage === currentPage) {
+                        e.preventDefault();
+                        this.closeSheet();
+                        const target = document.getElementById(hash);
+                        if (target) target.scrollIntoView({ behavior: 'smooth' });
+                        return;
+                    }
+                }
+
+                this.closeSheet();
+            });
+        });
     }
 
     setupActiveLink() {

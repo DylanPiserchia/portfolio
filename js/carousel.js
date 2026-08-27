@@ -5,22 +5,29 @@
 
    Markup esperado:
      <div class="carousel-container">
-        <button class="carousel-btn prev" onclick="slideCarousel(-1)">...</button>
+        <button class="carousel-btn prev" onclick="slideCarousel(-1, event)">...</button>
         <div class="carousel-viewport">        <- opcional
             <div class="carousel-track">
                 <div class="gallery-item">...</div>
             </div>
         </div>
-        <button class="carousel-btn next" onclick="slideCarousel(1)">...</button>
+        <button class="carousel-btn next" onclick="slideCarousel(1, event)">...</button>
      </div>
 
-   Las flechas se ocultan solas cuando no hay a donde avanzar.
+   En desktop las flechas mueven la fila y se ocultan cuando no hay a
+   donde avanzar. En mobile no hay flechas: la fila se desliza con el
+   dedo (scroll nativo con encastre, lo hace mobile.css) y este archivo
+   solo dibuja los puntitos de posicion.
    =========================== */
 
 (function () {
     'use strict';
 
-    const GAP = 24; // 1.5rem, el gap de .carousel-track
+    const GAP = 24; // 1.5rem, el gap de .carousel-track en desktop
+
+    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+    /* ---------- desktop ---------- */
 
     function metrics(container) {
         const track = container.querySelector('.carousel-track');
@@ -54,6 +61,7 @@
 
     /* Llamado desde los onclick del markup */
     window.slideCarousel = function (direction, event) {
+        if (isMobile()) return;
         const source = (event && event.target) || (window.event && window.event.target);
         const container = source
             ? source.closest('.carousel-container')
@@ -62,9 +70,87 @@
         apply(container, parseInt(container.dataset.currentSlide || '0', 10) + direction);
     };
 
-    function initAll() {
-        document.querySelectorAll('.carousel-container').forEach(c => apply(c, parseInt(c.dataset.currentSlide || '0', 10)));
+    /* ---------- mobile: puntitos ---------- */
+
+    function swipeRows() {
+        return document.querySelectorAll('.carousel-track, .section-gallery');
     }
+
+    function paintDots(row, dots) {
+        const items = row.children;
+        if (!items.length) return;
+        const step = row.scrollWidth / items.length;
+        const index = Math.min(items.length - 1, Math.round(row.scrollLeft / step));
+        [...dots.children].forEach((d, i) => d.classList.toggle('on', i === index));
+    }
+
+    function buildDots(row) {
+        const items = row.querySelectorAll(':scope > .gallery-item');
+        const anchor = row.closest('.carousel-container') || row;
+        let dots = anchor.nextElementSibling;
+
+        if (items.length < 2) {
+            if (dots && dots.classList.contains('swipe-dots')) dots.remove();
+            return;
+        }
+
+        if (!dots || !dots.classList.contains('swipe-dots')) {
+            dots = document.createElement('div');
+            dots.className = 'swipe-dots';
+            dots.setAttribute('aria-hidden', 'true');
+            anchor.insertAdjacentElement('afterend', dots);
+        }
+
+        if (dots.children.length !== items.length) {
+            dots.innerHTML = '';
+            items.forEach(() => dots.appendChild(document.createElement('span')));
+        }
+
+        paintDots(row, dots);
+
+        if (!row.dataset.dotsBound) {
+            row.dataset.dotsBound = '1';
+            let ticking = false;
+            row.addEventListener('scroll', () => {
+                if (ticking) return;
+                ticking = true;
+                requestAnimationFrame(() => {
+                    const d = (row.closest('.carousel-container') || row).nextElementSibling;
+                    if (d && d.classList.contains('swipe-dots')) paintDots(row, d);
+                    ticking = false;
+                });
+            }, { passive: true });
+        }
+    }
+
+    function clearDots() {
+        document.querySelectorAll('.swipe-dots').forEach(d => d.remove());
+    }
+
+    /* ---------- arranque ---------- */
+
+    function initAll() {
+        if (isMobile()) {
+            // El scroll nativo se encarga; hay que soltar cualquier transform
+            // que haya quedado del modo desktop.
+            document.querySelectorAll('.carousel-track').forEach(t => {
+                t.style.transform = '';
+            });
+            document.querySelectorAll('.carousel-container').forEach(c => {
+                c.dataset.currentSlide = '0';
+            });
+            swipeRows().forEach(buildDots);
+        } else {
+            clearDots();
+            document.querySelectorAll('.carousel-container').forEach(c => {
+                apply(c, parseInt(c.dataset.currentSlide || '0', 10));
+            });
+        }
+    }
+
+    // Las secciones del acordeon arrancan ocultas: cuando se abre una hay que
+    // recalcular, porque adentro los anchos recien ahi existen.
+    window.refreshCarousels = initAll;
 
     document.addEventListener('DOMContentLoaded', initAll);
     window.addEventListener('load', initAll);
