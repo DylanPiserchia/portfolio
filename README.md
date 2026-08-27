@@ -238,6 +238,11 @@ del navegador.
 El tag de GA4 lo inyecta `js/analytics.js`, que cargan las cinco páginas. Si
 alguna vez cambia el ID de medición, se cambia **solo ahí**.
 
+**No mide en local.** Si el sitio corre en `localhost`, `127.0.0.1`, una IP de
+red interna (`192.168.x.x`, para probar desde el celular) o abierto como
+archivo, el script corta antes de cargar nada de Google y lo avisa por consola.
+Probar el sitio no ensucia los datos.
+
 ---
 
 ## Antes de subir
