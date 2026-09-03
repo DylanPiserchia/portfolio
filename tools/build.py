@@ -191,7 +191,15 @@ def bloque_indice(d):
 
 def bloque_hero(d):
     hero = d.get("hero", {})
-    out = ['        <section class="hero-section">']
+    panel = d.get("panel")
+    # Sin imagen el hero se acomoda solo: si hay panel de highlights pasa a la
+    # columna derecha (donde iria la imagen); si no hay nada, queda a una sola
+    # columna. Con imagen todo sigue exactamente igual que siempre.
+    panel_al_costado = bool(panel) and not hero.get("imagen")
+    clase = "hero-section"
+    if not hero.get("imagen") and not panel:
+        clase += " hero-no-media"
+    out = ['        <section class="%s">' % clase]
     out.append('            <div class="hero-content reveal-left">')
     if hero.get("tag"):
         out.append('                <span class="project-tag">%s</span>' % texto(hero["tag"]))
@@ -211,22 +219,31 @@ def bloque_hero(d):
                        "                    </a>" % (esc(b.get("url", "#")), clase, icono, texto(b.get("texto", ""))))
         out.append("                </div>")
 
-    panel = d.get("panel")
+    panel_html = []
     if panel:
-        out.append('\n                <div class="mini-highlights">')
-        out.append("                    <h3>%s</h3>" % texto(panel.get("titulo", "")))
+        panel_html.append('                <div class="mini-highlights">')
+        panel_html.append("                    <h3>%s</h3>" % texto(panel.get("titulo", "")))
         if panel.get("intro"):
-            out.append('                    <p class="panel-intro">\n                        %s\n                    </p>'
-                       % texto(panel["intro"]))
+            panel_html.append('                    <p class="panel-intro">\n                        %s\n                    </p>'
+                              % texto(panel["intro"]))
         items = panel.get("item") or []
         if items:
-            out.append('                    <ul class="highlight-list">')
+            panel_html.append('                    <ul class="highlight-list">')
             for it in items:
                 fuerte = "<strong>%s:</strong> " % texto(it["fuerte"]) if it.get("fuerte") else ""
-                out.append("                        <li>%s%s</li>" % (fuerte, texto(it.get("texto", ""))))
-            out.append("                    </ul>")
-        out.append("                </div>")
+                panel_html.append("                        <li>%s%s</li>" % (fuerte, texto(it.get("texto", ""))))
+            panel_html.append("                    </ul>")
+        panel_html.append("                </div>")
+
+    if panel_html and not panel_al_costado:
+        out.append("")
+        out.extend(panel_html)
     out.append("            </div>")
+
+    if panel_al_costado:
+        out.append('\n            <div class="hero-media-wrapper hero-panel-side reveal-right">')
+        out.extend(panel_html)
+        out.append("            </div>")
 
     if hero.get("imagen"):
         archivo = hero["imagen"]
@@ -344,6 +361,25 @@ PIE = """
 """
 
 
+def bloque_aviso(d):
+    """Franja de aviso arriba de las secciones. Sirve para dejar algo en claro
+       antes de que el visitante empiece a leer: un NDA, un work in progress."""
+    av = d.get("aviso")
+    if not av:
+        return ""
+    return (
+        '        <aside class="page-notice reveal-up">\n'
+        '            <i class="%s" aria-hidden="true"></i>\n'
+        "            <div>\n"
+        "                <strong>%s</strong>\n"
+        "                <p>%s</p>\n"
+        "            </div>\n"
+        "        </aside>" % (esc(av.get("icono", "fas fa-lock")),
+                              texto(av.get("titulo", "")),
+                              texto(av.get("texto", "")))
+    )
+
+
 def render_pagina(slug, d):
     extra = ""
     for hoja in d.get("css_extra") or []:
@@ -358,6 +394,10 @@ def render_pagina(slug, d):
     partes = [cabecera, "<body%s>" % clases,
               '    <!-- Navbar Placeholder -->\n    <div id="navbar-placeholder"></div>\n',
               '    <main class="container">\n', bloque_hero(d)]
+
+    aviso_html = bloque_aviso(d)
+    if aviso_html:
+        partes.append("\n" + aviso_html)
 
     if d.get("indice"):
         partes.append("\n" + bloque_indice(d))

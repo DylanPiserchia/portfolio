@@ -126,6 +126,17 @@ python tools/build.py
 Eso escribe la página, pone la tarjeta en la home, suma el proyecto al menú del
 celular y arma la imagen de preview para LinkedIn. Después `git push` y listo.
 
+### Proyectos sin imágenes
+
+Si algo está bajo NDA y no hay capturas que mostrar, borrá `imagen` y `alt` del
+bloque `[hero]`. El panel de highlights (`[panel]`) pasa a ocupar la columna
+donde iría la imagen y el encabezado queda igual de lleno. Si tampoco ponés
+panel, el hero se acomoda a una sola columna. La tarjeta de la home sí necesita
+una `portada`: si no hay material del juego, sirve un gráfico abstracto.
+
+El bloque `[aviso]` pone una franja arriba de las secciones para aclararlo de
+frente, antes de que la persona empiece a leer.
+
 ### Las dos marcas del texto
 
 Dentro de cualquier texto podés usar:

@@ -41,6 +41,9 @@ El párrafo grande que va abajo del título.
 """
 imagen  = "mi-juego-hero.webp"       # de assets/img/
 alt     = "Descripción de la imagen para quien no puede verla"
+# Si el proyecto está bajo NDA y no hay nada que mostrar, borrá `imagen` y `alt`:
+# el panel de highlights de más abajo pasa solo a ocupar ese lugar. Si tampoco
+# hay panel, el encabezado queda a una sola columna.
 # caption = "Epígrafe que aparece encima de la imagen"
 # video   = "https://www.youtube.com/embed/ID_DEL_VIDEO"   # la vuelve reproducible
 
@@ -74,6 +77,16 @@ texto  = "La explicación en una línea."
 [[panel.item]]
 fuerte = "Otra cosa que hiciste"
 texto  = "La explicación en una línea."
+
+
+# --- Aviso arriba de las secciones (opcional) ----------------
+#  Una franja para dejar algo en claro antes de que el visitante empiece
+#  a leer: un NDA, un proyecto todavía en desarrollo. Borrala si no la usás.
+#
+#  [aviso]
+#  icono  = "fas fa-lock"          # nombre de Font Awesome
+#  titulo = "Under NDA"
+#  texto  = "Lo que quieras aclarar."
 
 
 # --- Índice de secciones (opcional) --------------------------

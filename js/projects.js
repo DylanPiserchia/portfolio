@@ -8,6 +8,12 @@
 
 window.PORTFOLIO_PROJECTS = [
     {
+        titulo: 'AAA Unnanounced Extraction Game',
+        categoria: 'Extraction • AAA',
+        archivo: 'aaa-extraction-game.html',
+        imagen: 'aaa-extraction-city.webp'
+    },
+    {
         titulo: 'Star Trek: Infinite',
         categoria: 'AAA • Grand Strategy',
         archivo: 'star-trek-infinite.html',

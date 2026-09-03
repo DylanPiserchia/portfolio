@@ -487,3 +487,62 @@
 .highlight-list li strong {
     color: #fff;
 }
+
+
+/* ===========================
+   HERO SIN MATERIAL VISUAL
+   Para proyectos donde no se pueden mostrar capturas (NDA). El panel de
+   highlights ocupa la columna donde iria la imagen; si tampoco hay panel,
+   el hero pasa a una sola columna con el ancho de lectura acotado.
+   =========================== */
+
+.hero-media-wrapper > .mini-highlights {
+    width: 100%;
+}
+
+.hero-section.hero-no-media {
+    grid-template-columns: minmax(0, 980px);
+    justify-content: start;
+}
+
+
+/* ===========================
+   AVISO DE PAGINA
+   Franja arriba de las secciones para dejar algo en claro antes de que
+   se empiece a leer (NDA, work in progress). Lo arma tools/build.py.
+   =========================== */
+
+.page-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 5rem;
+}
+
+.page-notice > i {
+    color: var(--accent);
+    font-size: 1.35rem;
+    line-height: 1.4;
+    flex-shrink: 0;
+}
+
+.page-notice strong {
+    display: block;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.page-notice p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin: 0;
+}

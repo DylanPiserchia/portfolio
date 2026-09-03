@@ -423,6 +423,17 @@
     .hero-content .action-buttons { order: 5; }
     .hero-content .mini-highlights { order: 6; }
 
+    /* Cuando no hay imagen, el panel de highlights viaja dentro de la caja de
+       la imagen. En el celular tiene que leerse como panel y no como imagen:
+       va ultimo, despues de la descripcion. */
+    .hero-media-wrapper.hero-panel-side { order: 6; margin-bottom: 0; }
+
+    /* El aviso de pagina: mismo bloque, medidas de celular. */
+    .page-notice { gap: 0.9rem; padding: 1rem 1.1rem; margin-bottom: 2rem; }
+    .page-notice > i { font-size: 1.1rem; }
+    .page-notice strong { font-size: 0.72rem; letter-spacing: 1.5px; }
+    .page-notice p { font-size: 0.92rem; }
+
     /* ---------------------------------------------------------------
        7. INDICE DE SISTEMAS
        --------------------------------------------------------------- */
