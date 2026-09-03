@@ -1,0 +1,139 @@
+# Star Trek: Infinite. Editalo y corre: python tools/build.py
+
+titulo = "Star Trek: Infinite"
+categoria = "AAA • Grand Strategy"
+portada = "STI_img1.webp"
+resumen = """
+Contributed to the development of systemic mechanics and narrative implementation to materialize the vast Star Trek lore into a Grand Strategy experience.
+"""
+tags = ["Systems", "Narrative"]
+orden = 1
+css_extra = ["star-trek"]
+
+[hero]
+tag = "Grand Strategy | Paradox Interactive"
+titulo = "Star Trek: Infinite"
+descripcion = """
+Contributed to the development of systemic mechanics and narrative implementation to materialize the vast Star Trek lore into a Grand Strategy experience.
+"""
+imagen = "STI_img1.webp"
+alt = "Star Trek: Infinite Main Visual"
+
+[[boton]]
+texto = "View on Steam"
+url = "https://store.steampowered.com/app/1622900/Star_Trek_Infinite/"
+icono = "fab fa-steam"
+primario = true
+
+[[boton]]
+texto = "Best Narrative 2024"
+url = "https://play.expoeva.com/eva-awards-2024"
+icono = "fas fa-trophy"
+
+[panel]
+titulo = "Design Dashboard"
+intro = """
+My core focus was translating complex Star Trek canon into *engaging system design, branching mission trees, and achievement structures*.
+"""
+
+[[panel.item]]
+fuerte = "Mission System Architecture"
+texto = "A deep branching tree system that anchors the narrative progression."
+
+[[panel.item]]
+fuerte = "Canon-to-Game Translation"
+texto = "Transforming iconic lore moments into empire-wide mechanics."
+
+[[panel.item]]
+fuerte = "System Ownership"
+texto = "End-to-end design for achievement and narrative event pipelines."
+
+[[seccion]]
+titulo = "Mission Tree Design"
+intro = """
+The *Mission Tree* serves as the backbone of both narrative and strategic progression. I designed and documented this system to translate complex lore into clear, engaging objectives for each faction.
+"""
+columna_titulo = "Design Scope"
+lista = [
+    "Structured unique trees for Federation, Klingon, Romulan, and Cardassian empires.",
+    "Created branching logic responding to diplomatic player decisions.",
+    "Translated Star Trek canon into engaging gameplay milestones.",
+    "Defined reward structures and empire modifiers to maintain gameplay pacing.",
+]
+impacto_titulo = "Impact on Gameplay"
+impacto_texto = """
+This system provides a narrative structure to the Grand Strategy genre, ensuring players have clear goals integrated within the Star Trek universe.
+"""
+
+[[seccion.galeria]]
+archivo = "UFOP_MT_01.webp"
+alt = "Mission Tree Walkthrough"
+caption = "Mission Tree Walkthrough"
+video = "https://www.youtube.com/embed/rETvAigGmTs"
+
+[[seccion.galeria]]
+archivo = "UFOP_MT_02.webp"
+alt = "Federation Mission Tree UI"
+caption = "Mission Requirements & Rewards"
+
+[[seccion.galeria]]
+archivo = "UFOP_MT_03.webp"
+alt = "Federation Mission Detail"
+caption = "Mission Detail"
+
+[[seccion]]
+titulo = "Narrative Events"
+intro = """
+*Narrative Events* inject dynamism and drama into the strategy. I contributed to the creation of both systemic and scripted events that challenge the player with consequential decisions.
+"""
+columna_titulo = "Key Focus Areas"
+lista = [
+    "Designed branching dialogue windows with long-term consequences.",
+    "Adapted iconic lore moments like the Romulan supernova into interactive crises.",
+    "Developed triggers for deep-space exploration storytelling.",
+]
+impacto_titulo = "Designing Consequences"
+impacto_texto = """
+Each event was designed for narrative value and systemic impact, fostering high replayability through meaningful choices.
+"""
+
+[[seccion.carousel]]
+archivo = "STI_Supernova_01.webp"
+alt = "Narrative Interface"
+caption = "First Romulan Supernova Event"
+
+[[seccion.carousel]]
+archivo = "STI_Supernova_02.webp"
+alt = "In-game Event View"
+caption = "Supernova Situation"
+
+[[seccion.carousel]]
+archivo = "STI_Supernova_03.webp"
+alt = "In-game Event View"
+caption = "Supernova Warning Event"
+
+[[seccion.carousel]]
+archivo = "STI_Supernova_04.webp"
+alt = "In-game Event View"
+caption = "Supernova"
+
+[[seccion.carousel]]
+archivo = "STI_Supernova_05.webp"
+alt = "In-game Event View"
+caption = "Supernova Post Event"
+
+[[seccion]]
+titulo = "Achievement System"
+intro = """
+I designed the full *Achievement* ecosystem to reward player mastery and motivate exploration of every facet of the game, from introductory steps to complex veteran feats.
+"""
+columna_titulo = "Design Principles"
+lista = [
+    "Owned documentation and logic for the complete achievement list.",
+    "Structured tiers: Progression, Strategy, and Lore Mastery.",
+    "Collaborated with tech teams for reliable state-based triggers.",
+]
+impacto_titulo = "Engagement Strategy"
+impacto_texto = """
+Achievements serve as an implicit guide, encouraging players to try risky playstyles, extending the game's lifespan.
+"""

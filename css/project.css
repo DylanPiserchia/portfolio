@@ -464,3 +464,26 @@
 @media (max-width: 768px) {
     .hero-section { padding-top: 2.5rem; }
 }
+
+/* ===========================
+   ESTILOS QUE ANTES ESTABAN INLINE EN EL HTML
+   Los generaba a mano cada pagina; ahora el HTML lo escribe
+   tools/build.py y estas reglas hacen exactamente lo mismo.
+   =========================== */
+
+/* Parrafo de arriba del panel de highlights */
+.mini-highlights .panel-intro {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Dentro del panel el acento no lleva peso extra, como estaba antes */
+.mini-highlights .highlight-text {
+    font-weight: inherit;
+}
+
+/* El nombre de cada highlight */
+.highlight-list li strong {
+    color: #fff;
+}

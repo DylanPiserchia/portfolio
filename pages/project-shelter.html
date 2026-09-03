@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unreal Engine Systems - Dylan Piserchia</title>
-    <meta name="description" content="Modular systems built with Unreal Engine Blueprints: AI behavior trees, data-driven dialogue, save/load, data layers, inventory, interaction and weapon mechanics.">
+    <meta name="description" content="Comprehensive showcase of modular systems including AI behavior trees, data-driven dialogue, save/load functionality, inventory management, and weapon mechanics built with Blueprints.">
     <link rel="canonical" href="https://zenithardev.github.io/portfolio/pages/project-shelter.html">
 
     <!-- Preview del link (LinkedIn, X, WhatsApp) -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Dylan Piserchia - Game Design Portfolio">
     <meta property="og:title" content="Unreal Engine Systems - Dylan Piserchia">
-    <meta property="og:description" content="Modular systems built with Unreal Engine Blueprints: AI behavior trees, data-driven dialogue, save/load, data layers, inventory, interaction and weapon mechanics.">
+    <meta property="og:description" content="Comprehensive showcase of modular systems including AI behavior trees, data-driven dialogue, save/load functionality, inventory management, and weapon mechanics built with Blueprints.">
     <meta property="og:url" content="https://zenithardev.github.io/portfolio/pages/project-shelter.html">
     <meta property="og:image" content="https://zenithardev.github.io/portfolio/assets/og/project-shelter.jpg">
     <meta property="og:image:width" content="1200">
@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="../css/level-system.css">
     <link rel="stylesheet" href="../css/page.css">
     <link rel="stylesheet" href="../css/project.css">
+
     <link rel="stylesheet" href="../css/mobile.css">
 
     <script src="../js/analytics.js"></script>
@@ -51,42 +52,30 @@
 
     <main class="container">
 
-        <!-- HERO SECTION -->
         <section class="hero-section">
             <div class="hero-content reveal-left">
                 <span class="project-tag">Unreal Engine Systems | Blueprints</span>
                 <h1 class="hero-title">Unreal Engine Systems</h1>
                 <p class="hero-description">
-                    A detailed overview of the core systems developed across my prototypes. Each section covers the
-                    technical implementation and design logic used to build functional and modular gameplay features.
+                    A detailed overview of the core systems developed across my prototypes. Each section covers the technical implementation and design logic used to build functional and modular gameplay features.
                 </p>
+
                 <div class="mini-highlights">
                     <h3>Technical Overview</h3>
-                    <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
-                        Built with <span style="color:var(--accent);">Blueprints</span> for scalable system
-                        architecture.
+                    <p class="panel-intro">
+                        Built with <span class="highlight-text">Blueprints</span> for scalable system architecture.
                     </p>
                     <ul class="highlight-list">
-                        <li>
-                            <strong style="color:#fff;">AI Architecture:</strong> Behavior Trees and Blackboard systems
-                            for complex decision-making.
-                        </li>
-                        <li>
-                            <strong style="color:#fff;">Data-Driven Design:</strong> DataTables and Data Assets for
-                            content scalability.
-                        </li>
-                        <li>
-                            <strong style="color:#fff;">Modular Framework:</strong> Component-based architecture for
-                            flexible system integration.
-                        </li>
+                        <li><strong>AI Architecture:</strong> Behavior Trees and Blackboard systems for complex decision-making.</li>
+                        <li><strong>Data-Driven Design:</strong> DataTables and Data Assets for content scalability.</li>
+                        <li><strong>Modular Framework:</strong> Component-based architecture for flexible system integration.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="hero-media-wrapper reveal-right">
                 <div class="hero-image" onclick="openLightbox(this.querySelector('img'))">
-                    <img decoding="async" fetchpriority="high" width="1600" height="900" src="../assets/img/PS_thumbnail.webp" alt="Project Shelter Gameplay"
-                        data-video="https://www.youtube.com/embed/qm-iAuqpmyY">
+                    <img decoding="async" fetchpriority="high" width="1600" height="900" src="../assets/img/PS_thumbnail.webp" alt="Project Shelter Gameplay" data-video="https://www.youtube.com/embed/qm-iAuqpmyY">
                     <div class="play-icon"><i class="fas fa-play-circle"></i></div>
                     <div class="gallery-overlay">
                         <span class="gallery-caption">Project Shelter Gameplay Showcase</span>
@@ -95,14 +84,13 @@
             </div>
         </section>
 
-        <!-- SYSTEMS INDEX -->
         <section class="systems-index">
             <h2 class="index-title">Systems Overview</h2>
             <div class="index-grid">
                 <a href="#ai-behavior" class="index-card">
                     <div class="index-number">01</div>
                     <h3>AI Behavior</h3>
-                    <p>Behavior Trees & Blackboards</p>
+                    <p>Behavior Trees &amp; Blackboards</p>
                 </a>
                 <a href="#dialogue-system" class="index-card">
                     <div class="index-number">02</div>
@@ -137,16 +125,16 @@
             </div>
         </section>
 
-        <!-- SECTION 1: AI BEHAVIOR -->
         <section id="ai-behavior" class="detail-section reveal-up">
             <div class="section-header">
                 <h3>AI Behavior</h3>
                 <div class="header-line"></div>
             </div>
+
             <p class="section-intro">
-                <span class="highlight-text">Wildlife AI</span> logic focused on environmental reactivity, using
-                Behavior Trees to manage simple state transitions and spatial awareness.
+                <span class="highlight-text">Wildlife AI</span> logic focused on environmental reactivity, using Behavior Trees to manage simple state transitions and spatial awareness.
             </p>
+
             <div class="details-grid">
                 <div class="details-column">
                     <h4>Technical Implementation</h4>
@@ -159,54 +147,54 @@
                 <div class="details-column">
                     <div class="impact-box">
                         <h5>System Impact</h5>
-                        <p>Populates the world with reactive entities that respond to threats, creating a more immersive
-                            and "living" atmosphere through consistent behavioral patterns.</p>
+                        <p>Populates the world with reactive entities that respond to threats, creating a more immersive and "living" atmosphere through consistent behavioral patterns.</p>
                     </div>
                 </div>
             </div>
+
             <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                        <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/S-pPtJGzMQI/maxresdefault.jpg"
-                            alt="Wildlife AI Logic Walkthrough" data-video="https://www.youtube.com/embed/S-pPtJGzMQI">
-                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-                        <div class="gallery-overlay"><span class="gallery-caption">Behavior Showcase</span></div>
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                        <img loading="lazy" decoding="async" width="1600" height="850" src="../assets/img/AI_Behavior_01.webp" alt="Wolf attacking prey in the wildlife AI behavior tree"
-                            onerror="this.style.background='#111'">
-                        <div class="gallery-overlay"><span class="gallery-caption">Wolf Attacking</span></div>
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                        <img loading="lazy" decoding="async" width="1600" height="875" src="../assets/img/AI_Behavior_02.webp" alt="Wolf chasing an animal pack driven by the AI behavior tree"
-                            onerror="this.style.background='#111'">
-                        <div class="gallery-overlay"><span class="gallery-caption">Wolf Chasing Animal Pack</span></div>
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                        <img loading="lazy" decoding="async" width="1600" height="875" src="../assets/img/AI_Behavior_03.webp" alt="Animal death animation triggered by the AI behavior tree"
-                            onerror="this.style.background='#111'">
-                        <div class="gallery-overlay"><span class="gallery-caption">Animal Death Animation</span></div>
-                    </div>
-                </div>
                 <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                            <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/S-pPtJGzMQI/maxresdefault.jpg" alt="Wildlife AI Logic Walkthrough" data-video="https://www.youtube.com/embed/S-pPtJGzMQI">
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                            <div class="gallery-overlay"><span class="gallery-caption">Behavior Showcase</span></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                            <img loading="lazy" decoding="async" width="1600" height="850" src="../assets/img/AI_Behavior_01.webp" alt="Wolf attacking prey in the wildlife AI behavior tree">
+                            <div class="gallery-overlay"><span class="gallery-caption">Wolf Attacking</span></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                            <img loading="lazy" decoding="async" width="1600" height="875" src="../assets/img/AI_Behavior_02.webp" alt="Wolf chasing an animal pack driven by the AI behavior tree">
+                            <div class="gallery-overlay"><span class="gallery-caption">Wolf Chasing Animal Pack</span></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                            <img loading="lazy" decoding="async" width="1600" height="875" src="../assets/img/AI_Behavior_03.webp" alt="Animal death animation triggered by the AI behavior tree">
+                            <div class="gallery-overlay"><span class="gallery-caption">Animal Death Animation</span></div>
+                        </div>
+                    </div>
+                </div>
+
                 <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </section>
 
-        <!-- SECTION 2: DIALOGUE SYSTEM -->
         <section id="dialogue-system" class="detail-section reveal-up">
             <div class="section-header">
                 <h3>Dialogue System</h3>
                 <div class="header-line"></div>
             </div>
+
             <p class="section-intro">
-                <span class="highlight-text">Dialogue System</span> built with data-driven architecture using DataTables
-                for scalable conversation management.
+                <span class="highlight-text">Dialogue System</span> built with data-driven architecture using DataTables for scalable conversation management.
             </p>
+
             <div class="details-grid">
                 <div class="details-column">
                     <h4>Core Features</h4>
@@ -220,41 +208,42 @@
                 <div class="details-column">
                     <div class="impact-box">
                         <h5>Design Philosophy</h5>
-                        <p>Enables narrative branching while maintaining clean separation between content and code,
-                            allowing for rapid iteration and localization.</p>
+                        <p>Enables narrative branching while maintaining clean separation between content and code, allowing for rapid iteration and localization.</p>
                     </div>
                 </div>
             </div>
-            <div class="carousel-container">
-                <div class="carousel-track">
 
-                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                        <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/bF5XnBDBaYY/maxresdefault.jpg" alt="Dialogue System Video"
-                            data-video="https://www.youtube.com/embed/bF5XnBDBaYY"
-                            onerror="this.style.background='#111'">
-                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-                        <div class="gallery-overlay"><span class="gallery-caption">Dialogue Showcase</span></div>
-                    </div>
-                </div>
+            <div class="carousel-container">
                 <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                            <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/bF5XnBDBaYY/maxresdefault.jpg" alt="Dialogue System Video" data-video="https://www.youtube.com/embed/bF5XnBDBaYY">
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                            <div class="gallery-overlay"><span class="gallery-caption">Dialogue Showcase</span></div>
+                        </div>
+                    </div>
+                </div>
+
                 <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </section>
 
-        <!-- SECTION 3: SAVE/LOAD SYSTEM -->
         <section id="save-load" class="detail-section reveal-up">
             <div class="section-header">
                 <h3>Save/Load System</h3>
                 <div class="header-line"></div>
             </div>
+
             <p class="section-intro">
-                <span class="highlight-text">Save/Load System</span> handles persistent data across sessions including
-                inventory, stats, and world state.
+                <span class="highlight-text">Save/Load System</span> handles persistent data across sessions including inventory, stats, and world state.
             </p>
+
             <div class="details-grid">
                 <div class="details-column">
                     <h4>Persistence Features</h4>
@@ -268,39 +257,42 @@
                 <div class="details-column">
                     <div class="impact-box">
                         <h5>Technical Approach</h5>
-                        <p>Ensures seamless gameplay continuity by maintaining all critical game state data, supporting
-                            the survival genre's emphasis on long-term progression.</p>
+                        <p>Ensures seamless gameplay continuity by maintaining all critical game state data, supporting the survival genre's emphasis on long-term progression.</p>
                     </div>
                 </div>
             </div>
+
             <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                        <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/XDFOSub08_4/maxresdefault.jpg" alt="Save & Load System"
-                            data-video="https://www.youtube.com/embed/XDFOSub08_4">
-                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-                        <div class="gallery-overlay"><span class="gallery-caption">Save System Showcase</span></div>
-                    </div>
-                </div>
                 <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                            <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/XDFOSub08_4/maxresdefault.jpg" alt="Save &amp; Load System" data-video="https://www.youtube.com/embed/XDFOSub08_4">
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                            <div class="gallery-overlay"><span class="gallery-caption">Save System Showcase</span></div>
+                        </div>
+                    </div>
+                </div>
+
                 <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </section>
 
-        <!-- SECTION 4: DATA LAYERS -->
         <section id="data-layers" class="detail-section reveal-up">
             <div class="section-header">
                 <h3>Data Layers</h3>
                 <div class="header-line"></div>
             </div>
+
             <p class="section-intro">
-                <span class="highlight-text">Data Layers</span> utilized to manage the visual progression and state
-                changes of a <strong>modular base upgrade system</strong>.
+                <span class="highlight-text">Data Layers</span> utilized to manage the visual progression and state changes of a <strong>modular base upgrade system</strong>.
             </p>
+
             <div class="details-grid">
                 <div class="details-column">
                     <h4>Technical Implementation</h4>
@@ -314,39 +306,42 @@
                 <div class="details-column">
                     <div class="impact-box">
                         <h5>System Impact</h5>
-                        <p>Provides a seamless evolution of the player's base, allowing for complex visual changes and
-                            upgrades without the performance overhead of spawning/destroying multiple actors.</p>
+                        <p>Provides a seamless evolution of the player's base, allowing for complex visual changes and upgrades without the performance overhead of spawning/destroying multiple actors.</p>
                     </div>
                 </div>
             </div>
+
             <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                        <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/JPIuNL6xkYU/maxresdefault.jpg" alt="Data Layers System"
-                            data-video="https://www.youtube.com/embed/JPIuNL6xkYU">
-                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-                        <div class="gallery-overlay"><span class="gallery-caption">Base Upgrade</span></div>
-                    </div>
-                </div>
                 <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                            <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/JPIuNL6xkYU/maxresdefault.jpg" alt="Data Layers System" data-video="https://www.youtube.com/embed/JPIuNL6xkYU">
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                            <div class="gallery-overlay"><span class="gallery-caption">Base Upgrade</span></div>
+                        </div>
+                    </div>
+                </div>
+
                 <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </section>
 
-        <!-- SECTION 5: RANGED WEAPONS -->
         <section id="ranged-weapons" class="detail-section reveal-up">
             <div class="section-header">
                 <h3>Weapon System</h3>
                 <div class="header-line"></div>
             </div>
+
             <p class="section-intro">
-                <span class="highlight-text">Weapon Handling</span> system managing the core loop of picking up,
-                swapping, and firing different weapon types.
+                <span class="highlight-text">Weapon Handling</span> system managing the core loop of picking up, swapping, and firing different weapon types.
             </p>
+
             <div class="details-grid">
                 <div class="details-column">
                     <h4>Core Mechanics</h4>
@@ -359,39 +354,42 @@
                 <div class="details-column">
                     <div class="impact-box">
                         <h5>System Impact</h5>
-                        <p>Provides a functional and responsive combat foundation, allowing players to interact with the
-                            environment and manage their arsenal efficiently during gameplay.</p>
+                        <p>Provides a functional and responsive combat foundation, allowing players to interact with the environment and manage their arsenal efficiently during gameplay.</p>
                     </div>
                 </div>
             </div>
+
             <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                        <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/9W_9ffgREwg/maxresdefault.jpg" alt="Weapon System"
-                            data-video="https://www.youtube.com/embed/9W_9ffgREwg">
-                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-                        <div class="gallery-overlay"><span class="gallery-caption">Weapon Shooting</span></div>
-                    </div>
-                </div>
                 <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                            <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/9W_9ffgREwg/maxresdefault.jpg" alt="Weapon System" data-video="https://www.youtube.com/embed/9W_9ffgREwg">
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                            <div class="gallery-overlay"><span class="gallery-caption">Weapon Shooting</span></div>
+                        </div>
+                    </div>
+                </div>
+
                 <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </section>
 
-        <!-- SECTION 6: INTERACTION SYSTEM -->
         <section id="interaction-system" class="detail-section reveal-up">
             <div class="section-header">
                 <h3>Interaction System</h3>
                 <div class="header-line"></div>
             </div>
+
             <p class="section-intro">
-                <span class="highlight-text">Interaction System</span> provides modular framework based on Interfaces
-                for extensible object interactions.
+                <span class="highlight-text">Interaction System</span> provides modular framework based on Interfaces for extensible object interactions.
             </p>
+
             <div class="details-grid">
                 <div class="details-column">
                     <h4>Framework Features</h4>
@@ -405,39 +403,42 @@
                 <div class="details-column">
                     <div class="impact-box">
                         <h5>System Benefits</h5>
-                        <p>Enables rapid prototyping of new interaction types while maintaining code consistency and
-                            reducing development overhead for environmental objects.</p>
+                        <p>Enables rapid prototyping of new interaction types while maintaining code consistency and reducing development overhead for environmental objects.</p>
                     </div>
                 </div>
             </div>
+
             <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                        <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/83ophJGBrps/maxresdefault.jpg" alt="Interaction System"
-                            data-video="https://www.youtube.com/embed/83ophJGBrps">
-                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-                        <div class="gallery-overlay"><span class="gallery-caption">Interaction Showcase</span></div>
-                    </div>
-                </div>
                 <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                            <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/83ophJGBrps/maxresdefault.jpg" alt="Interaction System" data-video="https://www.youtube.com/embed/83ophJGBrps">
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                            <div class="gallery-overlay"><span class="gallery-caption">Interaction Showcase</span></div>
+                        </div>
+                    </div>
+                </div>
+
                 <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </section>
 
-        <!-- SECTION 7: INVENTORY SYSTEM -->
         <section id="inventory-system" class="detail-section reveal-up">
             <div class="section-header">
                 <h3>Inventory System</h3>
                 <div class="header-line"></div>
             </div>
+
             <p class="section-intro">
-                <span class="highlight-text">Inventory System</span> features usage Data Assets
-                for flexible item configuration.
+                <span class="highlight-text">Inventory System</span> features usage Data Assets for flexible item configuration.
             </p>
+
             <div class="details-grid">
                 <div class="details-column">
                     <h4>Management Features</h4>
@@ -450,24 +451,26 @@
                 <div class="details-column">
                     <div class="impact-box">
                         <h5>User Experience</h5>
-                        <p>Provides intuitive inventory management that supports the survival genre's emphasis on
-                            resource scarcity and strategic item organization.</p>
+                        <p>Provides intuitive inventory management that supports the survival genre's emphasis on resource scarcity and strategic item organization.</p>
                     </div>
                 </div>
             </div>
+
             <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-                        <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/HfcyLA-LXfo/maxresdefault.jpg" alt="Inventory System Video"
-                            data-video="https://www.youtube.com/embed/HfcyLA-LXfo"
-                            onerror="this.style.background='#111'">
-                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-                        <div class="gallery-overlay"><span class="gallery-caption">Inventory Showcase</span></div>
-                    </div>
-                </div>
                 <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+                            <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/HfcyLA-LXfo/maxresdefault.jpg" alt="Inventory System Video" data-video="https://www.youtube.com/embed/HfcyLA-LXfo">
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                            <div class="gallery-overlay"><span class="gallery-caption">Inventory Showcase</span></div>
+                        </div>
+                    </div>
+                </div>
+
                 <button type="button" class="carousel-btn next" aria-label="Imagen siguiente" onclick="slideCarousel(1, event)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
@@ -476,27 +479,28 @@
 
     </main>
 
-    <!-- Back to Index Button -->
-    <button class="back-to-index"
+    <!-- Volver al indice -->
+    <button class="back-to-index" aria-label="Volver al índice"
         onclick="document.querySelector('.systems-index').scrollIntoView({behavior: 'smooth'})">
         <i class="fas fa-th"></i>
     </button>
 
+
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
-    <!-- Lightbox Modal -->
+    <!-- LIGHTBOX -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
         <button type="button" class="close-btn" aria-label="Cerrar" onclick="closeLightbox(event)">&times;</button>
 
         <button type="button" class="nav-btn prev" aria-label="Imagen anterior" onclick="changeImage(-1, event)">
             <i class="fas fa-chevron-left"></i>
         </button>
-        <div class="lightbox-content-wrapper" onclick="closeLightbox(event)">
-            <img decoding="async" class="lightbox-content" id="lightbox-img" alt="Lightbox View" style="display: block;"
-                onclick="event.stopPropagation()">
+
+        <div class="lightbox-content-wrapper">
+            <img decoding="async" class="lightbox-content" id="lightbox-img" alt="Lightbox View" style="display: block;">
             <iframe id="lightbox-video" class="lightbox-video" style="display: none;" src="" frameborder="0"
-                allow="autoplay; encrypted-media" allowfullscreen onclick="event.stopPropagation()"></iframe>
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
 
         <button type="button" class="nav-btn next" aria-label="Imagen siguiente" onclick="changeImage(1, event)">
@@ -504,7 +508,6 @@
         </button>
     </div>
 
-    <!-- Components & Scripts -->
     <script src="../js/projects.js"></script>
     <script src="../js/navbar.js"></script>
     <script src="../js/footer.js"></script>

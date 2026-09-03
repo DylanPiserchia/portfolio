@@ -2,9 +2,12 @@
 
 **En vivo:** <https://zenithardev.github.io/portfolio/>
 
-Sitio estático, sin build ni dependencias: son archivos HTML, CSS y JS que
-GitHub Pages sirve tal cual. Lo que subís a `main` es exactamente lo que se
-publica.
+Sitio estático: son archivos HTML, CSS y JS que GitHub Pages sirve tal cual.
+Lo que subís a `main` es exactamente lo que se publica.
+
+Las páginas de proyecto se escriben en `content/` y las arma `tools/build.py`,
+un script de Python que corrés vos y deja el HTML terminado en el repo. No hay
+build en la nube: si el sitio se ve bien en tu máquina, se ve bien publicado.
 
 > Esa dirección aparece en el `canonical`, el `og:url` y el `og:image` de cada
 > página. Si algún día cambiás de dominio o de nombre de usuario, hay que
@@ -29,12 +32,15 @@ Y entrá a <http://localhost:8000>. Ctrl+C para cortarlo.
 ## Estructura
 
 ```
-index.html                    Home: hero + tarjetas de proyecto
+content/                      EL CONTENIDO DE CADA PROYECTO
+  _PLANTILLA.toml             Copiá esto para empezar uno nuevo
+  star-trek-infinite.toml
+  project-shelter.toml
+index.html                    Home. Las tarjetas las escribe tools/build.py
 pages/
-  about.html                  Sobre mí
-  star-trek-infinite.html     Proyecto
-  project-shelter.html        Proyecto (Unreal Engine Systems)
-  PROJECT_TEMPLATE.html       Plantilla para páginas nuevas
+  about.html                  Sobre mí (escrita a mano)
+  star-trek-infinite.html     Generada desde content/
+  project-shelter.html        Generada desde content/
 css/
   variables.css               Colores, medidas y transiciones. Se carga en todas.
   components.css              Botones, tarjetas, tags, accesibilidad
@@ -47,7 +53,7 @@ css/
   mobile.css                  Todo lo específico del celular. Se carga última.
 js/
   analytics.js                Google Analytics (el ID vive acá y en ningún otro lado)
-  projects.js                 Lista de proyectos, la usa el menú del celular
+  projects.js                 Lista de proyectos (la genera build.py)
   navbar.js                   Navbar, menú de mobile y sistema de XP
   footer.js                   Footer + botón de reset del nivel
   scroll-animations.js        Aparición de secciones al scrollear
@@ -62,6 +68,7 @@ assets/
   og/                         Imágenes de preview para LinkedIn/X/WhatsApp
   favicon.svg, favicon.png
 tools/
+  build.py                    Arma las páginas a partir de content/
   optimize-images.py          Convierte imágenes nuevas a WebP
   gamification-test.js        Diagnóstico del sistema de XP (pegar en la consola)
 ```
@@ -86,28 +93,9 @@ usa las mismas reglas con medidas algo más ajustadas.
 
 ## Agregar un proyecto nuevo
 
-> Esto es lo que hay hoy. Está pendiente reemplazarlo por un sistema donde
-> cada proyecto sea un archivo de texto y la página se genere sola.
+Son tres pasos.
 
-**1. Copiar la plantilla**
-
-```bash
-cp pages/PROJECT_TEMPLATE.html pages/mi-proyecto.html
-```
-
-**2. Editar el `<head>`**
-
-Cambiar `title`, `description`, `canonical`, `og:title`, `og:description` y
-`og:url` por los del proyecto nuevo, y borrar la línea
-`<meta name="robots" content="noindex">` (está solo para que la plantilla no
-aparezca en Google).
-
-**3. Escribir el contenido**
-
-La plantilla ya trae la estructura: hero, secciones de detalle con dos
-columnas, galería y carousel. Reemplazá los textos entre corchetes.
-
-**4. Preparar las imágenes**
+**1. Las imágenes**
 
 Copiá los PNG o JPG a `assets/img/` y corré:
 
@@ -115,37 +103,53 @@ Copiá los PNG o JPG a `assets/img/` y corré:
 python tools/optimize-images.py
 ```
 
-Deja los `.webp` listos y guarda los originales en `_originals/`. En el HTML
-referenciá siempre el `.webp`, con `loading="lazy"`, `decoding="async"` y los
-atributos `width` y `height` (el script te imprime las medidas).
+Los pasa a WebP, guarda los originales en `_originals/` y te imprime el nombre
+de cada uno.
 
-**5. Imagen de preview**
+**2. El archivo del proyecto**
 
-Para que el link muestre imagen al compartirlo hace falta un archivo de
-1200x630 en `assets/og/`, apuntado desde el `og:image` de la página.
+Copiá `content/_PLANTILLA.toml` con el nombre que querés en la dirección:
 
-**6. Agregar la tarjeta en la home**
-
-En `index.html`, dentro de `<div class="grid">`, duplicá un bloque `<a class="card">`
-y cambiá el link, la imagen, la categoría, el título, la descripción y los tags.
-
-**7. Sumarlo al menú del celular**
-
-En `js/projects.js` agregá una entrada más. Es lo que hace que el proyecto
-aparezca en el menú de mobile, con su miniatura:
-
-```js
-{
-    titulo: 'Mi Juego Nuevo',
-    categoria: 'Indie · Roguelike',
-    archivo: 'mi-proyecto.html',
-    imagen: 'mi-juego-thumb.webp'
-}
+```bash
+cp content/_PLANTILLA.toml content/mi-juego-nuevo.toml
 ```
+
+Ese nombre es el de la página: `content/mi-juego-nuevo.toml` se publica en
+`/pages/mi-juego-nuevo.html`. Editalo: adentro está todo explicado y comentado.
+
+**3. Construir**
+
+```bash
+python tools/build.py
+```
+
+Eso escribe la página, pone la tarjeta en la home, suma el proyecto al menú del
+celular y arma la imagen de preview para LinkedIn. Después `git push` y listo.
+
+### Las dos marcas del texto
+
+Dentro de cualquier texto podés usar:
+
+| Escribís | Sale |
+|---|---|
+| `**así**` | en negrita |
+| `*así*` | en el celeste del sitio |
+
+### Lo que no toques a mano
+
+`pages/*.html` (salvo `about.html`), las tarjetas de `index.html` y
+`js/projects.js` los escribe `build.py`. Si los editás, el próximo build pisa
+los cambios. Lo que se edita es `content/`.
+
+Podés correr `python tools/build.py` las veces que quieras: solo escribe lo que
+cambió, y te avisa qué tocó.
 
 ---
 
 ## Componentes que podés usar
+
+> Esto es el markup crudo. Para un proyecto **no hace falta**: `build.py` lo
+> escribe a partir del `.toml`. Sirve para `about.html`, que está hecha a mano.
 
 **Animación de entrada** — la sección aparece al scrollear:
 
@@ -247,8 +251,8 @@ Probar el sitio no ensucia los datos.
 
 ## Antes de subir
 
+- [ ] Corriste `python tools/build.py` después de editar el `.toml`
 - [ ] Lo miraste con `python -m http.server`, en desktop y en el celular
-- [ ] Sumaste el proyecto a `js/projects.js`
 - [ ] Las imágenes nuevas pasaron por `tools/optimize-images.py`
 - [ ] Cada `<img>` tiene un `alt` que describe lo que se ve
 - [ ] El `<head>` tiene el título, la descripción y el `og:image` correctos

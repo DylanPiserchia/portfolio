@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Trek: Infinite - Dylan Piserchia</title>
-    <meta name="description" content="Systemic mechanics and narrative implementation for Star Trek: Infinite (Paradox Interactive): mission tree architecture, narrative events and the full achievement system.">
+    <meta name="description" content="Contributed to the development of systemic mechanics and narrative implementation to materialize the vast Star Trek lore into a Grand Strategy experience.">
     <link rel="canonical" href="https://zenithardev.github.io/portfolio/pages/star-trek-infinite.html">
 
     <!-- Preview del link (LinkedIn, X, WhatsApp) -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Dylan Piserchia - Game Design Portfolio">
     <meta property="og:title" content="Star Trek: Infinite - Dylan Piserchia">
-    <meta property="og:description" content="Systemic mechanics and narrative implementation for Star Trek: Infinite (Paradox Interactive): mission tree architecture, narrative events and the full achievement system.">
+    <meta property="og:description" content="Contributed to the development of systemic mechanics and narrative implementation to materialize the vast Star Trek lore into a Grand Strategy experience.">
     <meta property="og:url" content="https://zenithardev.github.io/portfolio/pages/star-trek-infinite.html">
     <meta property="og:image" content="https://zenithardev.github.io/portfolio/assets/og/star-trek-infinite.jpg">
     <meta property="og:image:width" content="1200">
@@ -40,16 +41,18 @@
     <link rel="stylesheet" href="../css/page.css">
     <link rel="stylesheet" href="../css/project.css">
     <link rel="stylesheet" href="../css/star-trek.css">
+
     <link rel="stylesheet" href="../css/mobile.css">
 
     <script src="../js/analytics.js"></script>
 </head>
-<body>
 
+<body>
+    <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
     <main class="container">
-        
+
         <section class="hero-section">
             <div class="hero-content reveal-left">
                 <span class="project-tag">Grand Strategy | Paradox Interactive</span>
@@ -69,13 +72,13 @@
 
                 <div class="mini-highlights">
                     <h3>Design Dashboard</h3>
-                    <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
-                        My core focus was translating complex Star Trek canon into <span style="color:var(--accent);">engaging system design, branching mission trees, and achievement structures</span>.
+                    <p class="panel-intro">
+                        My core focus was translating complex Star Trek canon into <span class="highlight-text">engaging system design, branching mission trees, and achievement structures</span>.
                     </p>
                     <ul class="highlight-list">
-                        <li><strong style="color:#fff;">Mission System Architecture:</strong> A deep branching tree system that anchors the narrative progression.</li>
-                        <li><strong style="color:#fff;">Canon-to-Game Translation:</strong> Transforming iconic lore moments into empire-wide mechanics.</li>
-                        <li><strong style="color:#fff;">System Ownership:</strong> End-to-end design for achievement and narrative event pipelines.</li>
+                        <li><strong>Mission System Architecture:</strong> A deep branching tree system that anchors the narrative progression.</li>
+                        <li><strong>Canon-to-Game Translation:</strong> Transforming iconic lore moments into empire-wide mechanics.</li>
+                        <li><strong>System Ownership:</strong> End-to-end design for achievement and narrative event pipelines.</li>
                     </ul>
                 </div>
             </div>
@@ -92,7 +95,7 @@
                 <h3>Mission Tree Design</h3>
                 <div class="header-line"></div>
             </div>
-            
+
             <p class="section-intro">
                 The <span class="highlight-text">Mission Tree</span> serves as the backbone of both narrative and strategic progression. I designed and documented this system to translate complex lore into clear, engaging objectives for each faction.
             </p>
@@ -123,7 +126,7 @@
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
                     <img loading="lazy" decoding="async" width="1600" height="900" src="../assets/img/UFOP_MT_02.webp" alt="Federation Mission Tree UI">
-                    <div class="gallery-overlay"><span class="gallery-caption">Mission Requirements & Rewards</span></div>
+                    <div class="gallery-overlay"><span class="gallery-caption">Mission Requirements &amp; Rewards</span></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
                     <img loading="lazy" decoding="async" width="1600" height="1000" src="../assets/img/UFOP_MT_03.webp" alt="Federation Mission Detail">
@@ -163,7 +166,7 @@
                 <button type="button" class="carousel-btn prev" aria-label="Imagen anterior" onclick="slideCarousel(-1, event)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                
+
                 <div class="carousel-viewport">
                     <div class="carousel-track">
                         <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
@@ -193,7 +196,7 @@
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
-            </section>
+        </section>
 
         <section class="detail-section reveal-up">
             <div class="section-header">
@@ -225,18 +228,28 @@
 
     </main>
 
+
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
+    <!-- LIGHTBOX -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
         <button type="button" class="close-btn" aria-label="Cerrar" onclick="closeLightbox(event)">&times;</button>
-        <button type="button" class="nav-btn prev" aria-label="Imagen anterior" onclick="changeImage(-1, event)"><i class="fas fa-chevron-left"></i></button>
-        <div class="lightbox-content-wrapper">
-            <img decoding="async" class="lightbox-content" id="lightbox-img" alt="Lightbox View">
-            <iframe id="lightbox-video" class="lightbox-video" style="display: none;" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        <button type="button" class="nav-btn next" aria-label="Imagen siguiente" onclick="changeImage(1, event)"><i class="fas fa-chevron-right"></i></button>
-    </div>
 
+        <button type="button" class="nav-btn prev" aria-label="Imagen anterior" onclick="changeImage(-1, event)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="lightbox-content-wrapper">
+            <img decoding="async" class="lightbox-content" id="lightbox-img" alt="Lightbox View" style="display: block;">
+            <iframe id="lightbox-video" class="lightbox-video" style="display: none;" src="" frameborder="0"
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+
+        <button type="button" class="nav-btn next" aria-label="Imagen siguiente" onclick="changeImage(1, event)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
 
     <script src="../js/projects.js"></script>
     <script src="../js/navbar.js"></script>
@@ -246,4 +259,5 @@
     <script src="../js/carousel.js"></script>
     <script src="../js/accordion.js"></script>
 </body>
+
 </html>

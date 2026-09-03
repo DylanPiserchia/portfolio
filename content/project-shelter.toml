@@ -1,0 +1,225 @@
+# Unreal Engine Systems. Editalo y corre: python tools/build.py
+
+titulo = "Unreal Engine Systems"
+categoria = "Unreal Engine • Systems"
+portada = "UE_thumbnail.webp"
+resumen = """
+Comprehensive showcase of modular systems including AI behavior trees, data-driven dialogue, save/load functionality, inventory management, and weapon mechanics built with Blueprints.
+"""
+tags = ["Blueprints", "Systems"]
+orden = 2
+compacto = true
+indice = true
+indice_titulo = "Systems Overview"
+
+[hero]
+tag = "Unreal Engine Systems | Blueprints"
+titulo = "Unreal Engine Systems"
+descripcion = """
+A detailed overview of the core systems developed across my prototypes. Each section covers the technical implementation and design logic used to build functional and modular gameplay features.
+"""
+imagen = "PS_thumbnail.webp"
+alt = "Project Shelter Gameplay"
+video = "https://www.youtube.com/embed/qm-iAuqpmyY"
+caption = "Project Shelter Gameplay Showcase"
+
+[panel]
+titulo = "Technical Overview"
+intro = "Built with *Blueprints* for scalable system architecture."
+
+[[panel.item]]
+fuerte = "AI Architecture"
+texto = "Behavior Trees and Blackboard systems for complex decision-making."
+
+[[panel.item]]
+fuerte = "Data-Driven Design"
+texto = "DataTables and Data Assets for content scalability."
+
+[[panel.item]]
+fuerte = "Modular Framework"
+texto = "Component-based architecture for flexible system integration."
+
+[[seccion]]
+id = "ai-behavior"
+titulo = "AI Behavior"
+subtitulo = "Behavior Trees & Blackboards"
+intro = """
+*Wildlife AI* logic focused on environmental reactivity, using Behavior Trees to manage simple state transitions and spatial awareness.
+"""
+columna_titulo = "Technical Implementation"
+lista = [
+    "Behavior Trees for state-based logic (Idle, Roam, Chase)",
+    "Blackboard system to store target locations and threat data",
+    "NavMesh integration for smooth environmental navigation",
+]
+impacto_titulo = "System Impact"
+impacto_texto = """
+Populates the world with reactive entities that respond to threats, creating a more immersive and "living" atmosphere through consistent behavioral patterns.
+"""
+
+[[seccion.carousel]]
+archivo = "https://img.youtube.com/vi/S-pPtJGzMQI/maxresdefault.jpg"
+alt = "Wildlife AI Logic Walkthrough"
+caption = "Behavior Showcase"
+video = "https://www.youtube.com/embed/S-pPtJGzMQI"
+
+[[seccion.carousel]]
+archivo = "AI_Behavior_01.webp"
+alt = "Wolf attacking prey in the wildlife AI behavior tree"
+caption = "Wolf Attacking"
+
+[[seccion.carousel]]
+archivo = "AI_Behavior_02.webp"
+alt = "Wolf chasing an animal pack driven by the AI behavior tree"
+caption = "Wolf Chasing Animal Pack"
+
+[[seccion.carousel]]
+archivo = "AI_Behavior_03.webp"
+alt = "Animal death animation triggered by the AI behavior tree"
+caption = "Animal Death Animation"
+
+[[seccion]]
+id = "dialogue-system"
+titulo = "Dialogue System"
+subtitulo = "Data-driven Architecture"
+intro = """
+*Dialogue System* built with data-driven architecture using DataTables for scalable conversation management.
+"""
+columna_titulo = "Core Features"
+lista = [
+    "Data-driven dialogue using DataTables",
+    "Branching response system",
+    "Consequence management and outcomes",
+    "Modular conversation flow",
+]
+impacto_titulo = "Design Philosophy"
+impacto_texto = """
+Enables narrative branching while maintaining clean separation between content and code, allowing for rapid iteration and localization.
+"""
+
+[[seccion.carousel]]
+archivo = "https://img.youtube.com/vi/bF5XnBDBaYY/maxresdefault.jpg"
+alt = "Dialogue System Video"
+caption = "Dialogue Showcase"
+video = "https://www.youtube.com/embed/bF5XnBDBaYY"
+
+[[seccion]]
+id = "save-load"
+titulo = "Save/Load System"
+subtitulo = "Persistent Data Management"
+intro = """
+*Save/Load System* handles persistent data across sessions including inventory, stats, and world state.
+"""
+columna_titulo = "Persistence Features"
+lista = [
+    "Inventory state preservation",
+    "Player statistics tracking",
+    "World state management",
+    "Cross-session continuity",
+]
+impacto_titulo = "Technical Approach"
+impacto_texto = """
+Ensures seamless gameplay continuity by maintaining all critical game state data, supporting the survival genre's emphasis on long-term progression.
+"""
+
+[[seccion.carousel]]
+archivo = "https://img.youtube.com/vi/XDFOSub08_4/maxresdefault.jpg"
+alt = "Save & Load System"
+caption = "Save System Showcase"
+video = "https://www.youtube.com/embed/XDFOSub08_4"
+
+[[seccion]]
+id = "data-layers"
+titulo = "Data Layers"
+subtitulo = "Streaming Optimization"
+intro = """
+*Data Layers* utilized to manage the visual progression and state changes of a **modular base upgrade system**.
+"""
+columna_titulo = "Technical Implementation"
+lista = [
+    "Layer-based visibility for base tier progression",
+    "Efficient state management for modular components",
+    "Non-destructive workflow for switching upgrade levels",
+    "Optimized memory usage by loading only active tiers",
+]
+impacto_titulo = "System Impact"
+impacto_texto = """
+Provides a seamless evolution of the player's base, allowing for complex visual changes and upgrades without the performance overhead of spawning/destroying multiple actors.
+"""
+
+[[seccion.carousel]]
+archivo = "https://img.youtube.com/vi/JPIuNL6xkYU/maxresdefault.jpg"
+alt = "Data Layers System"
+caption = "Base Upgrade"
+video = "https://www.youtube.com/embed/JPIuNL6xkYU"
+
+[[seccion]]
+id = "ranged-weapons"
+titulo = "Weapon System"
+subtitulo = "Weapon swapping"
+intro = """
+*Weapon Handling* system managing the core loop of picking up, swapping, and firing different weapon types.
+"""
+columna_titulo = "Core Mechanics"
+lista = [
+    "Interaction system for weapon pickups",
+    "Weapon swapping and inventory slots",
+    "Projectile and Hitscan firing modes",
+]
+impacto_titulo = "System Impact"
+impacto_texto = """
+Provides a functional and responsive combat foundation, allowing players to interact with the environment and manage their arsenal efficiently during gameplay.
+"""
+
+[[seccion.carousel]]
+archivo = "https://img.youtube.com/vi/9W_9ffgREwg/maxresdefault.jpg"
+alt = "Weapon System"
+caption = "Weapon Shooting"
+video = "https://www.youtube.com/embed/9W_9ffgREwg"
+
+[[seccion]]
+id = "interaction-system"
+titulo = "Interaction System"
+subtitulo = "Interface-based Framework"
+intro = """
+*Interaction System* provides modular framework based on Interfaces for extensible object interactions.
+"""
+columna_titulo = "Framework Features"
+lista = [
+    "Interface-based modular design",
+    "Extensible interaction types",
+    "Context-sensitive prompts",
+    "Scalable interaction framework",
+]
+impacto_titulo = "System Benefits"
+impacto_texto = """
+Enables rapid prototyping of new interaction types while maintaining code consistency and reducing development overhead for environmental objects.
+"""
+
+[[seccion.carousel]]
+archivo = "https://img.youtube.com/vi/83ophJGBrps/maxresdefault.jpg"
+alt = "Interaction System"
+caption = "Interaction Showcase"
+video = "https://www.youtube.com/embed/83ophJGBrps"
+
+[[seccion]]
+id = "inventory-system"
+titulo = "Inventory System"
+subtitulo = "Resource Management"
+intro = "*Inventory System* features usage Data Assets for flexible item configuration."
+columna_titulo = "Management Features"
+lista = [
+    "Inventory layout",
+    "Data Asset item configuration",
+    "Item stacking",
+]
+impacto_titulo = "User Experience"
+impacto_texto = """
+Provides intuitive inventory management that supports the survival genre's emphasis on resource scarcity and strategic item organization.
+"""
+
+[[seccion.carousel]]
+archivo = "https://img.youtube.com/vi/HfcyLA-LXfo/maxresdefault.jpg"
+alt = "Inventory System Video"
+caption = "Inventory Showcase"
+video = "https://www.youtube.com/embed/HfcyLA-LXfo"

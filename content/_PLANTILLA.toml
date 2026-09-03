@@ -1,0 +1,143 @@
+# =============================================================
+#  PLANTILLA DE PROYECTO
+#
+#  1. Copiá este archivo con el nombre que querés en la dirección:
+#         content/mi-juego-nuevo.toml   ->   /pages/mi-juego-nuevo.html
+#     (sin espacios ni acentos; los guiones están bien)
+#
+#  2. Editá lo de abajo.
+#
+#  3. Corré:   python tools/build.py
+#
+#  Los archivos que empiezan con guión bajo, como éste, se ignoran.
+#
+#  Dos marcas para el texto, las únicas que hay que recordar:
+#      **negrita**    ->  en negrita
+#      *acento*       ->  en el celeste del sitio
+# =============================================================
+
+
+# --- Cómo aparece en la home y al compartir el link -----------
+
+titulo    = "Mi Juego Nuevo"
+categoria = "Indie • Roguelike"      # la etiqueta chica arriba de la tarjeta
+portada   = "mi-juego-thumb.webp"    # tiene que estar en assets/img/
+tags      = ["Systems", "Level Design"]
+orden     = 3                        # 1 = primero en la home
+
+resumen = """
+El texto de la tarjeta en la home. Dos o tres renglones alcanzan. Esto mismo
+se usa como descripción cuando alguien comparte el link.
+"""
+
+
+# --- El encabezado de la página ------------------------------
+
+[hero]
+tag         = "Indie | Unity"        # la etiqueta arriba del título
+titulo      = "Mi Juego Nuevo"
+descripcion = """
+El párrafo grande que va abajo del título.
+"""
+imagen  = "mi-juego-hero.webp"       # de assets/img/
+alt     = "Descripción de la imagen para quien no puede verla"
+# caption = "Epígrafe que aparece encima de la imagen"
+# video   = "https://www.youtube.com/embed/ID_DEL_VIDEO"   # la vuelve reproducible
+
+
+# --- Botones (opcionales, se pueden repetir o borrar) --------
+
+[[boton]]
+texto    = "Ver en Steam"
+url      = "https://store.steampowered.com/app/..."
+icono    = "fab fa-steam"            # nombre de Font Awesome
+primario = true                      # el celeste; sacalo y queda gris
+
+# [[boton]]
+# texto = "Descargar en itch.io"
+# url   = "https://..."
+# icono = "fab fa-itch-io"
+
+
+# --- El panel de highlights del encabezado (opcional) --------
+
+[panel]
+titulo = "Design Dashboard"
+intro  = """
+Un párrafo corto. Podés destacar *una parte en celeste* si querés.
+"""
+
+[[panel.item]]
+fuerte = "Lo que hiciste"
+texto  = "La explicación en una línea."
+
+[[panel.item]]
+fuerte = "Otra cosa que hiciste"
+texto  = "La explicación en una línea."
+
+
+# --- Índice de secciones (opcional) --------------------------
+#  Poné indice = true arriba de todo si querés el índice de tarjetas
+#  como en Unreal Engine Systems. Cada sección necesita id y subtitulo.
+#
+#  indice = true
+#  indice_titulo = "Systems Overview"
+
+
+# --- Las secciones de la página ------------------------------
+#  Repetí el bloque [[seccion]] tantas veces como necesites.
+
+[[seccion]]
+# id        = "combate"              # solo si usás el índice
+# subtitulo = "Melee y a distancia"  # el texto chico de la tarjeta del índice
+titulo = "Diseño de combate"
+intro = """
+El párrafo que presenta la sección. Podés destacar *lo importante*.
+"""
+
+columna_titulo = "Qué hice"
+lista = [
+    "Un punto de la lista de la izquierda.",
+    "Otro punto.",
+    "Los que quieras.",
+]
+
+impacto_titulo = "Impacto en el juego"
+impacto_texto = """
+El recuadro de la derecha: para qué sirvió, qué cambió.
+"""
+
+# Las imágenes: usá `galeria` (grilla) o `carousel` (fila que se desliza).
+# En el celular las dos se deslizan con el dedo.
+
+[[seccion.galeria]]
+archivo = "combate-01.webp"
+alt     = "Descripción de la imagen"
+caption = "El epígrafe que se ve encima"
+
+[[seccion.galeria]]
+archivo = "combate-02.webp"
+alt     = "Descripción de la imagen"
+caption = "Otro epígrafe"
+
+
+[[seccion]]
+titulo = "Progresión"
+intro = """
+Otra sección. Borrá las que no uses.
+"""
+columna_titulo = "Decisiones de diseño"
+lista = [
+    "Un punto.",
+]
+impacto_titulo = "Resultado"
+impacto_texto = """
+Qué se logró.
+"""
+
+# Un carousel con un video de YouTube adentro:
+# [[seccion.carousel]]
+# archivo = "https://img.youtube.com/vi/ID_DEL_VIDEO/maxresdefault.jpg"
+# alt     = "Descripción del video"
+# caption = "Lo que se ve en el video"
+# video   = "https://www.youtube.com/embed/ID_DEL_VIDEO"
